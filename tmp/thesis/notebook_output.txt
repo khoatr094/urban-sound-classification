@@ -1,0 +1,318 @@
+Đã kiểm tra và cài đặt xong các thư viện phụ trợ; giữ nguyên PyTorch/CUDA của Kaggle.
+
+Đã kích hoạt GPU thành công: Tesla T4
+PyTorch: 2.11.0+cu128 | Thiết bị: cuda:0
+
+
+Thư mục lưu kết quả: /kaggle/working/urban_sound_7class
+Đường dẫn dữ liệu kiểm thử (Demo/Test): /kaggle/input/datasets/f8kinwd/drilling
+
+Tìm thấy file metadata CSV: /kaggle/input/datasets/chrisfilo/urbansound8k/UrbanSound8K.csv
+Tổng số mẫu âm thanh thuộc 7 lớp mục tiêu: 5,732
+
+
+
+
+
+
+Hàm chuẩn hóa tín hiệu âm thanh Mono 16kHz (4 giây) và trích xuất Log-Mel 64 bins đã sẵn sàng.
+
+
+
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+
+
+Đã tải cấu hình AST thành công từ: MIT/ast-finetuned-audioset-10-10-0.4593
+Kích thước đầu vào AST (max_length, num_mel_bins): (1024, 128)
+
+
+
+Đã khởi tạo MelDataset (cho CNN 4 khối & ResCNN) và ASTDataset (cho AST Pretrained).
+
+Đã định nghĩa 3 kiến trúc mô hình cốt lõi: ['CNN 4 khối', 'ResCNN tự xây dựng', 'AST Pretrained']
+
+
+=======================================================
+BẮT ĐẦU HUẤN LUYỆN MÔ HÌNH: CNN 4 KHỐI
+=======================================================
+
+
+  Epoch 01/45 — Train Loss: 1.7507, Val Loss: 1.4514 | Train Acc: 33.1%, Val Acc: 58.6% | Val Macro-F1: 56.45% (9.8s)
+
+
+  Epoch 02/45 — Train Loss: 1.3542, Val Loss: 1.0553 | Train Acc: 54.9%, Val Acc: 67.3% | Val Macro-F1: 66.91% (7.0s)
+
+
+  Epoch 03/45 — Train Loss: 1.1321, Val Loss: 0.9886 | Train Acc: 66.4%, Val Acc: 74.9% | Val Macro-F1: 74.53% (7.0s)
+
+
+  Epoch 04/45 — Train Loss: 0.9851, Val Loss: 0.8835 | Train Acc: 71.6%, Val Acc: 78.7% | Val Macro-F1: 77.55% (7.0s)
+
+
+  Epoch 05/45 — Train Loss: 0.9103, Val Loss: 0.8940 | Train Acc: 76.1%, Val Acc: 77.2% | Val Macro-F1: 76.10% (7.0s)
+
+
+  Epoch 06/45 — Train Loss: 0.8033, Val Loss: 0.9307 | Train Acc: 81.4%, Val Acc: 74.7% | Val Macro-F1: 74.87% (7.0s)
+
+
+  Epoch 07/45 — Train Loss: 0.7398, Val Loss: 0.8276 | Train Acc: 83.6%, Val Acc: 81.2% | Val Macro-F1: 80.55% (7.0s)
+
+
+  Epoch 08/45 — Train Loss: 0.6994, Val Loss: 0.9313 | Train Acc: 85.6%, Val Acc: 78.5% | Val Macro-F1: 77.98% (7.0s)
+
+
+  Epoch 09/45 — Train Loss: 0.6621, Val Loss: 0.8225 | Train Acc: 87.7%, Val Acc: 82.5% | Val Macro-F1: 82.31% (7.0s)
+
+
+  Epoch 10/45 — Train Loss: 0.6371, Val Loss: 0.7315 | Train Acc: 89.1%, Val Acc: 85.4% | Val Macro-F1: 85.24% (7.0s)
+
+
+  Epoch 11/45 — Train Loss: 0.6215, Val Loss: 0.7970 | Train Acc: 89.1%, Val Acc: 82.1% | Val Macro-F1: 81.37% (7.0s)
+
+
+  Epoch 12/45 — Train Loss: 0.5816, Val Loss: 0.8307 | Train Acc: 90.9%, Val Acc: 85.0% | Val Macro-F1: 84.47% (7.0s)
+
+
+  Epoch 13/45 — Train Loss: 0.5838, Val Loss: 0.7297 | Train Acc: 91.4%, Val Acc: 83.0% | Val Macro-F1: 82.48% (7.0s)
+
+
+  Epoch 14/45 — Train Loss: 0.5394, Val Loss: 0.8234 | Train Acc: 93.5%, Val Acc: 84.6% | Val Macro-F1: 84.80% (7.1s)
+
+
+  Epoch 15/45 — Train Loss: 0.5426, Val Loss: 0.8224 | Train Acc: 92.9%, Val Acc: 86.4% | Val Macro-F1: 86.87% (7.1s)
+
+
+  Epoch 16/45 — Train Loss: 0.5169, Val Loss: 0.8486 | Train Acc: 94.0%, Val Acc: 81.4% | Val Macro-F1: 81.61% (7.1s)
+
+
+  Epoch 17/45 — Train Loss: 0.5129, Val Loss: 0.8966 | Train Acc: 94.0%, Val Acc: 88.2% | Val Macro-F1: 86.99% (7.1s)
+
+
+  Epoch 18/45 — Train Loss: 0.5021, Val Loss: 0.7412 | Train Acc: 94.7%, Val Acc: 84.3% | Val Macro-F1: 83.86% (7.1s)
+
+
+  Epoch 19/45 — Train Loss: 0.4880, Val Loss: 0.7458 | Train Acc: 95.5%, Val Acc: 87.2% | Val Macro-F1: 86.22% (7.1s)
+
+
+  Epoch 20/45 — Train Loss: 0.4692, Val Loss: 0.7772 | Train Acc: 96.1%, Val Acc: 84.8% | Val Macro-F1: 84.01% (7.0s)
+
+
+  Epoch 21/45 — Train Loss: 0.4659, Val Loss: 0.7613 | Train Acc: 96.3%, Val Acc: 85.0% | Val Macro-F1: 85.69% (7.1s)
+
+
+  Epoch 22/45 — Train Loss: 0.4577, Val Loss: 0.7372 | Train Acc: 96.6%, Val Acc: 86.8% | Val Macro-F1: 86.05% (7.1s)
+
+
+  Epoch 23/45 — Train Loss: 0.4418, Val Loss: 0.6662 | Train Acc: 97.2%, Val Acc: 87.5% | Val Macro-F1: 86.84% (7.2s)
+
+
+  Epoch 24/45 — Train Loss: 0.4352, Val Loss: 0.7503 | Train Acc: 97.5%, Val Acc: 87.5% | Val Macro-F1: 86.77% (7.1s)
+
+
+  Epoch 25/45 — Train Loss: 0.4325, Val Loss: 0.7368 | Train Acc: 97.9%, Val Acc: 88.1% | Val Macro-F1: 87.43% (7.2s)
+
+
+  Epoch 26/45 — Train Loss: 0.4230, Val Loss: 0.6767 | Train Acc: 97.9%, Val Acc: 86.3% | Val Macro-F1: 86.11% (7.2s)
+
+
+  Epoch 27/45 — Train Loss: 0.4196, Val Loss: 0.7310 | Train Acc: 98.1%, Val Acc: 87.3% | Val Macro-F1: 86.49% (7.1s)
+
+
+  Epoch 28/45 — Train Loss: 0.4102, Val Loss: 0.7140 | Train Acc: 98.6%, Val Acc: 87.0% | Val Macro-F1: 86.47% (7.2s)
+
+
+  Epoch 29/45 — Train Loss: 0.4062, Val Loss: 0.7205 | Train Acc: 98.7%, Val Acc: 86.8% | Val Macro-F1: 86.18% (7.2s)
+
+
+  Epoch 30/45 — Train Loss: 0.4076, Val Loss: 0.7526 | Train Acc: 98.6%, Val Acc: 87.3% | Val Macro-F1: 86.25% (7.1s)
+
+
+  Epoch 31/45 — Train Loss: 0.4017, Val Loss: 0.7055 | Train Acc: 99.1%, Val Acc: 86.6% | Val Macro-F1: 85.98% (7.2s)
+
+
+  Epoch 32/45 — Train Loss: 0.3952, Val Loss: 0.7108 | Train Acc: 99.2%, Val Acc: 87.5% | Val Macro-F1: 86.64% (7.1s)
+
+
+  Epoch 33/45 — Train Loss: 0.3994, Val Loss: 0.7103 | Train Acc: 98.9%, Val Acc: 87.3% | Val Macro-F1: 86.49% (7.2s)
+
+
+  Epoch 34/45 — Train Loss: 0.3923, Val Loss: 0.6940 | Train Acc: 99.2%, Val Acc: 86.8% | Val Macro-F1: 86.02% (7.2s)
+
+
+  Epoch 35/45 — Train Loss: 0.3885, Val Loss: 0.7136 | Train Acc: 99.4%, Val Acc: 87.7% | Val Macro-F1: 86.75% (7.2s)
+  --> Dừng sớm tại Epoch 35 (Epoch tối ưu: 25, Val Macro-F1 đạt: 87.43%)
+
+=======================================================
+BẮT ĐẦU HUẤN LUYỆN MÔ HÌNH: RESCNN TỰ XÂY DỰNG
+=======================================================
+
+
+  Epoch 01/45 — Train Loss: 1.6105, Val Loss: 1.3003 | Train Acc: 41.2%, Val Acc: 57.5% | Val Macro-F1: 58.66% (9.0s)
+
+
+  Epoch 02/45 — Train Loss: 1.0231, Val Loss: 1.0386 | Train Acc: 70.7%, Val Acc: 72.0% | Val Macro-F1: 71.82% (8.8s)
+
+
+  Epoch 03/45 — Train Loss: 0.8182, Val Loss: 1.0934 | Train Acc: 79.2%, Val Acc: 74.7% | Val Macro-F1: 77.38% (8.8s)
+
+
+  Epoch 04/45 — Train Loss: 0.7264, Val Loss: 1.0541 | Train Acc: 84.2%, Val Acc: 75.6% | Val Macro-F1: 74.73% (8.7s)
+
+
+  Epoch 05/45 — Train Loss: 0.6696, Val Loss: 0.9272 | Train Acc: 87.0%, Val Acc: 79.0% | Val Macro-F1: 80.71% (8.6s)
+
+
+  Epoch 06/45 — Train Loss: 0.5874, Val Loss: 0.9933 | Train Acc: 91.0%, Val Acc: 77.2% | Val Macro-F1: 79.16% (8.7s)
+
+
+  Epoch 07/45 — Train Loss: 0.5478, Val Loss: 0.8982 | Train Acc: 91.6%, Val Acc: 81.9% | Val Macro-F1: 82.87% (8.2s)
+
+
+  Epoch 08/45 — Train Loss: 0.5141, Val Loss: 0.7795 | Train Acc: 93.4%, Val Acc: 82.3% | Val Macro-F1: 84.43% (8.4s)
+
+
+  Epoch 09/45 — Train Loss: 0.4774, Val Loss: 0.7621 | Train Acc: 95.4%, Val Acc: 85.2% | Val Macro-F1: 86.65% (8.4s)
+
+
+  Epoch 10/45 — Train Loss: 0.4509, Val Loss: 0.7649 | Train Acc: 96.4%, Val Acc: 82.8% | Val Macro-F1: 85.18% (8.4s)
+
+
+  Epoch 11/45 — Train Loss: 0.4497, Val Loss: 0.8210 | Train Acc: 96.3%, Val Acc: 82.8% | Val Macro-F1: 84.27% (8.5s)
+
+
+  Epoch 12/45 — Train Loss: 0.4190, Val Loss: 0.7908 | Train Acc: 97.7%, Val Acc: 84.1% | Val Macro-F1: 85.59% (8.3s)
+
+
+  Epoch 13/45 — Train Loss: 0.4209, Val Loss: 0.7958 | Train Acc: 97.6%, Val Acc: 82.3% | Val Macro-F1: 82.88% (8.2s)
+
+
+  Epoch 14/45 — Train Loss: 0.4039, Val Loss: 0.8464 | Train Acc: 98.3%, Val Acc: 81.4% | Val Macro-F1: 81.60% (8.3s)
+
+
+  Epoch 15/45 — Train Loss: 0.3985, Val Loss: 0.8775 | Train Acc: 98.5%, Val Acc: 83.2% | Val Macro-F1: 83.63% (8.1s)
+
+
+  Epoch 16/45 — Train Loss: 0.3941, Val Loss: 0.7888 | Train Acc: 98.7%, Val Acc: 82.1% | Val Macro-F1: 82.55% (8.3s)
+
+
+  Epoch 17/45 — Train Loss: 0.3852, Val Loss: 0.8936 | Train Acc: 99.1%, Val Acc: 82.3% | Val Macro-F1: 83.97% (8.3s)
+
+
+  Epoch 18/45 — Train Loss: 0.3788, Val Loss: 0.7865 | Train Acc: 99.1%, Val Acc: 84.3% | Val Macro-F1: 85.38% (8.3s)
+
+
+  Epoch 19/45 — Train Loss: 0.3757, Val Loss: 0.8236 | Train Acc: 99.2%, Val Acc: 83.4% | Val Macro-F1: 84.56% (8.3s)
+  --> Dừng sớm tại Epoch 19 (Epoch tối ưu: 9, Val Macro-F1 đạt: 86.65%)
+
+=======================================================
+BẮT ĐẦU HUẤN LUYỆN MÔ HÌNH: AST PRETRAINED
+=======================================================
+
+[transformers] You passed `num_labels=7` which is incompatible to the `id2label` map of length `527`.
+
+
+
+[transformers] [1mASTForAudioClassification LOAD REPORT[0m from: MIT/ast-finetuned-audioset-10-10-0.4593
+Key                     | Status   |                                                                                         
+------------------------+----------+-----------------------------------------------------------------------------------------
+classifier.dense.weight | MISMATCH | Reinit due to size mismatch - ckpt: torch.Size([527, 768]) vs model:torch.Size([7, 768])
+classifier.dense.bias   | MISMATCH | Reinit due to size mismatch - ckpt: torch.Size([527]) vs model:torch.Size([7])          
+
+Notes:
+- MISMATCH:	ckpt weights were loaded, but they did not match the original empty weight shapes.
+
+
+  Epoch 01/12 — Train Loss: 0.9042, Val Loss: 0.4639 | Train Acc: 78.5%, Val Acc: 96.6% | Val Macro-F1: 96.77% (459.1s)
+
+
+  Epoch 02/12 — Train Loss: 0.3928, Val Loss: 0.4910 | Train Acc: 98.5%, Val Acc: 94.6% | Val Macro-F1: 95.20% (453.9s)
+
+
+  Epoch 03/12 — Train Loss: 0.3768, Val Loss: 0.4776 | Train Acc: 99.1%, Val Acc: 96.4% | Val Macro-F1: 96.76% (451.2s)
+
+
+  Epoch 04/12 — Train Loss: 0.3661, Val Loss: 0.4815 | Train Acc: 99.5%, Val Acc: 94.9% | Val Macro-F1: 95.34% (451.7s)
+
+
+  Epoch 05/12 — Train Loss: 0.3626, Val Loss: 0.4185 | Train Acc: 99.7%, Val Acc: 98.2% | Val Macro-F1: 98.52% (451.7s)
+
+
+  Epoch 06/12 — Train Loss: 0.3630, Val Loss: 0.4481 | Train Acc: 99.7%, Val Acc: 97.3% | Val Macro-F1: 97.47% (449.8s)
+
+
+  Epoch 07/12 — Train Loss: 0.3559, Val Loss: 0.4078 | Train Acc: 99.9%, Val Acc: 98.7% | Val Macro-F1: 98.86% (450.0s)
+
+
+  Epoch 08/12 — Train Loss: 0.3562, Val Loss: 0.4365 | Train Acc: 99.9%, Val Acc: 97.5% | Val Macro-F1: 97.71% (452.0s)
+
+
+  Epoch 09/12 — Train Loss: 0.3544, Val Loss: 0.4518 | Train Acc: 100.0%, Val Acc: 96.4% | Val Macro-F1: 96.67% (448.0s)
+
+
+  Epoch 10/12 — Train Loss: 0.3545, Val Loss: 0.4441 | Train Acc: 100.0%, Val Acc: 97.1% | Val Macro-F1: 97.28% (449.7s)
+
+
+  Epoch 11/12 — Train Loss: 0.3545, Val Loss: 0.4354 | Train Acc: 100.0%, Val Acc: 97.6% | Val Macro-F1: 97.85% (449.7s)
+
+
+  Epoch 12/12 — Train Loss: 0.3530, Val Loss: 0.4389 | Train Acc: 100.0%, Val Acc: 97.6% | Val Macro-F1: 97.85% (446.7s)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tìm thấy 1 tệp âm thanh trong /kaggle/input/datasets/f8kinwd/drilling.
+
+
+
+
+
+Đã lưu toàn bộ biểu đồ chung, biểu đồ riêng từng mô hình (PNG 300 DPI & SVG) và số liệu CSV tại: /kaggle/working/urban_sound_7class
+Tệp ZIP tổng hợp để tải về máy: /kaggle/working/urban_sound_7class_full_report.zip
+
+
+
+Danh sách 29 file biểu đồ PNG đã lưu:
+ - outputs/figures/01_eda_distribution.png
+ - outputs/figures/02_eda_waveform_logmel.png
+ - outputs/figures/03_split_distribution_by_class.png
+ - outputs/figures/04_per_bin_zscore_normalization.png
+ - outputs/figures/05_learning_curves_comparison.png
+ - outputs/figures/06_individual_learning_curves.png
+ - outputs/figures/07_train_validation_gap_and_stability.png
+ - outputs/figures/08_test_accuracy_f1_comparison.png
+ - outputs/figures/09_per_class_f1_comparison.png
+ - outputs/figures/10_confusion_matrices_all_models.png
+ - outputs/figures/11_top_confusion_errors.png
+ - outputs/figures/12_roc_auc_all_models.png
+ - outputs/figures/13_pca_embeddings_comparison.png
+ - outputs/figures/14_fps_stability_accuracy_comprehensive.png
+ - outputs/figures/15_demo_audio_prediction_comparison.png
+ - outputs/figures/individual_models/confusion_matrix_ast.png
+ - outputs/figures/individual_models/confusion_matrix_cnn4.png
+ - outputs/figures/individual_models/confusion_matrix_ensemble.png
+ - outputs/figures/individual_models/confusion_matrix_rescnn.png
+ - outputs/figures/individual_models/learning_curve_ast.png
+ - outputs/figures/individual_models/learning_curve_cnn4.png
+ - outputs/figures/individual_models/learning_curve_rescnn.png
+ - outputs/figures/individual_models/pca_embedding_ast.png
+ - outputs/figures/individual_models/pca_embedding_cnn4.png
+ - outputs/figures/individual_models/pca_embedding_rescnn.png
+ - outputs/figures/individual_models/roc_auc_ast.png
+ - outputs/figures/individual_models/roc_auc_cnn4.png
+ - outputs/figures/individual_models/roc_auc_ensemble.png
+ - outputs/figures/individual_models/roc_auc_rescnn.png

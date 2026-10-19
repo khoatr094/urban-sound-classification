@@ -1,0 +1,5 @@
+Tệp âm thanh,Mô hình,Nhãn dự đoán,Độ tin cậy (%)
+drilling-into-concrete-32298.mp3,CNN 4 khối,Tiếng khoan,93.90757751464844
+drilling-into-concrete-32298.mp3,ResCNN tự xây dựng,Tiếng khoan,95.26628875732422
+drilling-into-concrete-32298.mp3,AST Pretrained,Tiếng khoan,92.9515151977539
+drilling-into-concrete-32298.mp3,Ensemble xác suất,Tiếng khoan,93.41446685791016

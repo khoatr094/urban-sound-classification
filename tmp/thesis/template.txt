@@ -1,0 +1,439 @@
+0: 
+1: BỘ CÔNG THƯƠNG
+2: TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH
+3: KHOA CÔNG NGHỆ THÔNG TIN
+4: 
+5: 
+6: 
+7: 
+8: HỌ VÀ TÊN SINH VIÊN 1
+9: HỌ VÀ TÊN SINH VIÊN 2
+10: 
+11: HƯỚNG DẪN VÀ MẪU BÁO CÁO KHÓA LUẬN TỐT NGHIỆP NĂM 2026
+12: 
+13: 
+14: Ngành: Khoa học dữ liệu
+15: 
+16: 
+17: Giảng viên hướng dẫn: TS. Họ và Tên GVHD
+18: 
+19: 
+20: 
+21: THÀNH PHỐ HỒ CHÍ MINH, THÁNG 12 NĂM 2026
+22: 
+23: 
+24: 
+25: 
+26: 
+27: BỘ CÔNG THƯƠNG
+28: TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH
+29: KHOA CÔNG NGHỆ THÔNG TIN
+30: 
+31: 
+32: 
+33: 
+34: HỌ VÀ TÊN SINH VIÊN 1
+35: HỌ VÀ TÊN SINH VIÊN 2
+36: 
+37: HƯỚNG DẪN VÀ MẪU BÁO CÁO KHÓA LUẬN TỐT NGHIỆP NĂM 2026
+38: 
+39: 
+40: Ngành: Khoa học dữ liệu
+41: 
+42: 
+43: Giảng viên hướng dẫn: TS. Họ và Tên GVHD
+44: 
+45: 
+46: 
+47: THÀNH PHỐ HỒ CHÍ MINH, THÁNG 12 NĂM 2026
+48: 
+49: 
+50: INDUSTRIAL UNIVERSITY OF HO CHI MINH CITY
+51: FACULTY OF INFORMATION TECHNOLOGY
+52: 
+53: 
+54: 
+55: 
+56: FULLNAME OF THE FIRST STUDENT
+57: FULLNAME OF THE SECOND STUDENT
+58: 
+59: GUIDANCE AND SAMPLE OF THE GRADUATION REPORT IN 2026
+60: 
+61: 
+62: Major: Data Science
+63: 
+64: 
+65: 
+66: Supervisor: Dr. Full name of supervisor
+67: 
+68: 
+69: 
+70: HO CHI MINH CITY – DECEMBER 2026
+71: 
+72: GUIDANCE AND SAMPLE OF THE GRADUATION REPORT IN 2020
+73: ABSTRACT
+74: Trang tóm tắt (Abstract) đề tài bằng tiếng Anh, trình bày trong một trang A4, gồm Tên đề tài, tóm tắt ngắn gọn nội dung và từ khóa. Toàn bộ nội dung của trang này được viết bằng tiếng Anh.
+75: Nội dung tóm tắt ngắn gọn đề tài bao gồm các đoạn văn bằng tiếng Anh mô tả khái quát toàn bộ đề tài, có thể gồm các phần như: 
+76: Bối cảnh, thực trạng, lý do chọn đề tài, 
+77: Nêu vấn đề cần giải quyết, 
+78: Giải pháp và phương pháp thực hiện, 
+79: Các kết quả thực hiện, 
+80: Đánh giá kết luận và hướng phát triển.
+81: Phía cuối của trang tóm tắt là từ khóa (keywords) liệt kê các từ khóa chính của đề tài.
+82: 
+83: Keywords: system analysis and design, e-commerce, data analysis, database management, information security, API.
+84: 
+85: TÓM TẮT
+86: Trang tóm tắt đề tài bằng tiếng Việt, trình bày trong một trang A4, gồm Tên đề tài, tóm tắt ngắn gọn nội dung và từ khóa. Toàn bộ nội dung của trang này được viết bằng tiếng Việt.
+87: Nội dung tóm tắt ngắn gọn đề tài bao gồm các đoạn văn mô tả khái quát toàn bộ đề tài, có thể gồm các phần như: 
+88: Bối cảnh, thực trạng, lý do chọn đề tài, 
+89: Nêu vấn đề cần giải quyết, 
+90: Giải pháp và phương pháp thực hiện, 
+91: Các kết quả thực hiện, 
+92: Đánh giá kết luận và hướng phát triển.
+93: Phía cuối của trang tóm tắt là từ khóa liệt kê các từ khóa chính của đề tài.
+94: 
+95: Keywords: Phân tích và thiết kế hệ thống, thương mại điện tử, phân tích dữ liệu, quản trị cơ sở dữ liệu, an toàn thông tin, API.
+96: 
+97: 
+98: LỜI CẢM ƠN
+99: Viết nội dung cảm ơn
+100: 
+101: 
+102: 
+103: 
+104: 
+105: 
+106: 
+107: 
+108: 
+109: 
+110: 
+111: 
+112: 
+113: Người thực hiện đề tài
+114: 
+115: 
+116: NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN
+117: 
+118: 
+119: 
+120: 
+121: 
+122: 
+123: 
+124: 
+125: 
+126: 
+127: 
+128: 
+129: 
+130: 
+131: 
+132: 
+133: 
+134: 
+135: TP. Hồ Chí Minh, ngày…. Tháng …. năm…….
+136:                                                                               CHỮ KÝ CỦA GIẢNG VIÊN
+137: 
+138: NHẬN XÉT CỦA GIÁO VIÊN PHẢN BIỆN 1
+139: 
+140: 
+141: 
+142: 
+143: 
+144: 
+145: 
+146: 
+147: 
+148: 
+149: 
+150: 
+151: 
+152: 
+153: 
+154: 
+155: 
+156: 
+157: TP. Hồ Chí Minh, ngày…. Tháng ….  năm…….
+158:                                                                               CHỮ KÝ CỦA GIẢNG VIÊN
+159: 
+160: 
+161: 
+162: 
+163: NHẬN XÉT CỦA GIÁO VIÊN PHẢN BIỆN 2
+164: 
+165: 
+166: 
+167: 
+168: 
+169: 
+170: 
+171: 
+172: 
+173: 
+174: 
+175: 
+176: 
+177: 
+178: 
+179: 
+180: 
+181: 
+182: TP. Hồ Chí Minh, ngày…. Tháng ….  năm…….
+183:                                                                               CHỮ KÝ CỦA GIẢNG VIÊN
+184: 
+185: 
+186: 
+187: MỤC LỤC
+188: DANH MỤC HÌNH ẢNHxiDANH MỤC BẢNG BIỂUxiiDANH MỤC CÁC THUẬT NGỮ VIẾT TẮTxiiiCHƯƠNG 1GIỚI THIỆU11.1Thành phần11.2Nội dung báo cáo11.3Hình thức trình bày2CHƯƠNG 2ĐỊNH DẠNG42.1Tiểu mục thứ nhất42.1.1Tiểu mục thứ hai42.2Nội dung42.3Chú thích (caption) cho các hình, bảng biểu và công thức52.4Các danh mục52.5Bullet52.6Các đề mục khác6CHƯƠNG 3TRÌNH TỰ THỰC HIỆN KHÓA LUẬN73.1Liên hệ73.1.1Hướng đề tài73.1.2Kế hoạch73.2Mô phỏng/Kết quả73.2.1Sơ đồ hệ thống73.2.2Mô hình73.2.3Báo cáo mô phỏng/Kết quả83.2.4Hoàn thiện mô phỏng/Kết quả83.2.5Đề cương83.3Viết khóa luận83.3.1Tài liệu tham khảo83.3.2Mã nguồn/Sơ đồ/Hình/Bảng biểu83.3.3Cuốn báo cáo83.3.4Slide/Poster83.4Báo cáo GVHD:93.4.1Giảng viên phản biện93.4.2Hoàn thiện cuốn báo cáo93.4.3Poster:93.5Báo cáo hội đồng/poster93.5.1Chỉnh sửa, in, nộp chính thức9CHƯƠNG 4BỐ CỤC104.1Giới thiệu104.2Nền tảng/Cơ sở lý thuyết104.3Phân tích yêu cầu104.4Thiết kế hệ thống104.5Giải pháp công nghệ (nếu có)104.6Hiện thực và Triển khai104.7Đánh giá và thảo luận104.8Kết luận11CHƯƠNG 5BÁO CÁO POSTER12TÀI LIỆU THAM KHẢOaPHỤ LỤCcNHẬT KÍ LÀM VIỆCd
+189: DANH MỤC HÌNH ẢNH
+190: Hình 2.1 Hình minh họa5
+191: DANH MỤC BẢNG BIỂU
+192: Bảng 2.1 Bảng minh họa5
+193: 
+194: 
+195: 
+196: 
+197: DANH MỤC CÁC THUẬT NGỮ VIẾT TẮT
+198: Từ viết tắtTừ đầy đủNghĩaUIUser InterfaceGiao diện người dùngHTMLHyperText Markup LanguageNgôn ngữ siêu văn bảnCSSCascading Style SheetsNgôn ngữ tạo phong cách cho trang webJSJavaScriptLà một ngôn ngữ lập trình thông dịchPHPPersonal Home PageNgôn ngữ lập trình kịch bảnDBMSDatabase Management SystemHệ quản trị cơ sở dữ liệuCRUDCreate – Read – Update – DeleteTạo – Đọc – Cập nhật – XóaAIArtificial IntelligenceTrí tuệ nhân tạoMVCModel – View – ControllerMô hình kiến trúc phần mềm gồm Model – View – ControllerAPIApplication Programming InterfaceGiao diện lập trình ứng dụng
+199: 
+200: 
+201: 
+202: GIỚI THIỆU
+203: Mỗi nhóm khóa luận phải thực hiện một quyển báo cáo khóa luận bao gồm các thành phần cơ bản theo đúng hình thức trình bày do Khoa yêu cầu.
+204: Thành phần
+205: Về cơ bản một quyển báo cáo khóa luận gồm các phần cơ bản sau:
+206: Bìa tiếng Việt
+207: Bìa tiếng Anh
+208: Trang Abstract tiếng Anh và Keywords
+209: Trang Abstract tiếng Việt và từ khóa
+210: Trang lời cảm ơn
+211: Trang Nhận xét và đánh giá của Giáo viên hướng dẫn
+212: Trang Nhận xét và đánh giá của Giáo viên phản biện
+213: Trang Mục lục
+214: Trang Mục lục hình ảnh
+215: Trang Danh mục bảng biểu
+216: Trang Danh mục từ viết tắt
+217: Nội dung báo cáo
+218: Tài liệu tham khảo
+219: Phụ lục
+220: Nội dung báo cáo
+221: Nội dung của báo cáo tùy theo mỗi đề tài, có thể gồm các phần như sau:
+222: Chương 1. GIỚI THIỆU 
+223: 1.1. ...    ...........................................................................................    1 
+224: 1.1.1. ...    ........................................................................................    2 
+225: 1.1.2. ...    ........................................................................................    7 
+226: 1.2. ... 
+227: Chương 2. CƠ SỞ LÝ THUYẾT
+228: 2.1. ...    ...........................................................................................   12 
+229: 2.1.1. ...    ........................................................................................   15 
+230: 2.1.2. ...    ........................................................................................   20 
+231: 2.2. ... 
+232: Chương 3. PHÂN TÍCH YÊU CẦU
+233: 3.1. ...    ...........................................................................................   21 
+234: 3.1.1. ...    ........................................................................................   25 
+235: 3.1.2. ...    ........................................................................................   33 
+236: 3.2. ... 
+237: Chương 4. THIẾT KẾ HỆ THỐNG
+238: 4.1. ...    ...........................................................................................   35 
+239: 4.1.1. ...    ........................................................................................   45 
+240: 4.1.2. ...    ........................................................................................   48 
+241: 4.2. ... 
+242: Chương 5. GIẢI PHÁP CÔNG NGHỆ (NẾU CÓ)
+243: 5.1. ...    ...........................................................................................   51 
+244: 5.1.1. ...    ........................................................................................   55 
+245: 5.1.2. ...    ........................................................................................   58 
+246: 5.2. ... 
+247: Chương 6. HIỆN THỰC VÀ TRIỂN KHAI
+248: 6.1. ...    ...........................................................................................   61 
+249: 6.1.1. ...    ........................................................................................   65 
+250: 6.1.2. ...    ........................................................................................   68 
+251: 6.2. ... 
+252: Chương 7. ĐÁNH GIÁ VÀ THẢO LUẬN
+253: 7.1. ...    ...........................................................................................   71 
+254: 7.1.1. ...    ........................................................................................   75 
+255: 7.1.2. ...    ........................................................................................   78 
+256: 7.2. ... 
+257: Chương 8. KẾT LUẬN
+258: 8.1. ...    ...........................................................................................   81 
+259: 8.1.1. ...    ........................................................................................   85 
+260: 8.1.2. ...    ........................................................................................   88 
+261: 8.2. ... 
+262: TÀI LIỆU THAM KHẢO    ...........................................................    
+263: PHỤ LỤC   .....................................................................................   
+264: Hình thức trình bày
+265: Bản báo cáo khóa luận tốt nghiệp khi đã bảo vệ thành công phải đóng bìa cứng, in chữ nhũ màu vàng, nền màu xanh, gáy ghi ĐẦY ĐỦ thông tin để nộp lưu trữ.
+266: Top: Họ và tên sinh viên, MSSV 
+267: Middle: Tên đề tài 
+268: Bottom: năm thực hiện 
+269: Toàn bộ báo cáo khóa luận tốt nghiệp (trang bìa, trang giới thiệu… phụ lục) phải được thực hiện trên cùng một file word. 
+270: Soạn thảo văn bản: báo cáo được trình bày trên một mặt giấy trắng khổ A4 (210x297 mm), báo cáo sử dụng font chữ Times New Roman cỡ 13 của hệ soạn thảo Winword hoặc tương đương; mật độ chữ bình thường, dãn dòng đặt ở chế độ 1,5 lines; lề trên 3cm; lề dưới 3cm; lề trái 3,5cm; lề phải 2cm. 
+271: Số trang: được đánh bên phải, phía dưới mỗi trang giấy bắt đầu từ trang số 1 tính từ phần nội dung báo cáo khóa luận tốt nghiệp, không đánh số trang phần phụ lục. Nếu có bảng biểu, hình vẽ trình bày theo chiều ngang khổ giấy thì đầu bảng là lề trái của trang. 
+272: Header thể hiện thông tin khóa khóa luận tốt nghiệp, footer thể hiện thông tin sinh viên thực hiện khóa khóa luận tốt nghiệp. 
+273: Tiểu mục: Các tiểu mục của báo cáo được trình bày và đánh số thành nhóm số, nhiều nhất gồm bốn chữ số với số thứ nhất là chỉ số chương. Tại mỗi mục, tiểu mục phải có ít nhất là 2 tiểu mục. 
+274: Bảng, hình vẽ, công thức: Việc đánh số bảng, hình vẽ, công thức gắn với số chương (ví dụ Hình 3.4 có nghĩa là hình thứ 4 trong chương 3). Tiêu đề của bảng biểu ghi phía trên bảng, canh giữa, tiêu đề của hình vẽ ghi phía dưới hình, canh giữa, cỡ chữ phải bằng cỡ chữ sử dụng trong văn bản báo cáo, số công thức để trong ngoặc đơn và canh phải. Trong trường hợp công thức dài hơn một dòng thì số công thức được đánh ở dòng dưới canh phải. 
+275: Viết tắt: Chỉ viết tắt những từ, cụm từ hoặc thuật ngữ được sử dụng nhiều lần trong báo cáo. Viết tắt sau lần viết đầy đủ thứ nhất và chữ viết tắt để trong ngoặc đơn. Nếu báo cáo có nhiều hơn 10 chữ viết tắt thì phải có bảng danh mục các chữ viết tắt (xếp theo thứ tự A, B, C) ở phần đầu báo cáo. 
+276: Phụ lục của báo cáo: Phần này bao gồm những nội dung cần thiết nhằm minh họa hoặc bổ trợ cho nội dung báo cáo, như: chương trình tính, kết quả khảo sát trên mô hình số, các số liệu, mẫu biểu, tranh ảnh... Phụ lục không được đánh số trang, không được dày hơn phần chính của báo cáo. 
+277: Mục lục: Mục lục chỉ đưa đến nhóm tiểu mục thứ 3 (tức là đến 3 chữ số).
+278: 
+279: ĐỊNH DẠNG
+280: Tên chương sử dụng kiểu định dạng (Style) Heading 1 với các thông số: kiểu chữ (font) Times New Roman, cỡ 14, in đậm, sử dụng chữ in hoa, Spacing Before: 24 pt, Spacing After: 24 pt, Line spacing: 1.15 lines, không thụt đầu dòng đoạn văn, căn lề trái. Tên chương được đánh số theo thứ tự CHƯƠNG 1, CHƯƠNG 2, …
+281: Tiểu mục thứ nhất
+282: Tên tiểu mục thứ nhất sử dụng kiểu định dạng (Style) Heading 2 với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, in đậm và đứng, Spacing Before: 6 pt, Spacing After: 12 pt, Line spacing: 1.15 lines, không thụt đầu dòng đoạn văn, căn lề trái. Tên tiểu mục thứ nhất được đánh số theo thứ tự 1.1, 1.2, …
+283: Tiểu mục thứ hai
+284: Tên tiểu mục thứ hai sử dụng kiểu định dạng (Style) Heading 3 với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, in đậm và nghiêng, Spacing Before: 6 pt, Spacing After: 12 pt, Line spacing: 1.15 lines, không thụt đầu hàng, canh lề trái. Tên tiểu mục thứ hai được đánh số theo thứ tự 1.1.1, 1.1.2, …
+285: Tiểu mục thứ ba
+286: Tên tiểu mục thứ ba sử dụng kiểu định dạng (Style) Heading 4 với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, in nghiêng, Spacing Before: 6 pt, Spacing After: 12 pt, Line spacing: 1.15 lines, không thụt đầu dòng đoạn văn, căn lề trái. Tên tiểu mục thứ ba được đánh số theo thứ tự 1.1.1.1, 1.1.1.2, …
+287: Việc đánh số các tiểu mục sử dụng tối đa 4 chữ số.
+288: Nội dung
+289: Các phần nội dung sử dụng kiểu định dạng (Style) Content với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, Spacing Before: 10pt, Spacing After: 0 pt, Line spacing: 1.5 lines, không thụt đầu dòng đoạn văn và căn lề hai bên.
+290: Chú thích (caption) cho các hình, bảng biểu và công thức
+291: Chú thích (caption) cho các hình, bảng biểu và công thức sử dụng kiểu định dạng (Style) Caption với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, Spacing Before: 6 pt, Spacing After: 12 pt, Line spacing: 1.15 lines, không thụt đầu dòng đoạn văn và căn lề chính giữa. 
+292: 
+293: Hình 2.1 Hình minh họa
+294: Hình (bao gồm hình vẽ, hình chụp, đồ thị, lưu đồ, …), bảng biểu, công thức cần có chú thích (caption). Các chú thích này được tạo ra bằng chức năng Insert Caption (trong tab References) để dễ dàng quản lý và thay đổi thứ tự.
+295: Bảng 2.1 Bảng minh họa
+296: 
+297: Các hình, bảng biểu phải được trình bày trong một trang (ngoại trừ các bảng dài hơn một trang), không để ngắt trang xảy ra ở giữa hình, bảng biểu. Để tránh việc ngắt trang này, có thể sử dụng một Text box (với layout có Wrapping style là Inline with text) để chứa các hình, bảng biểu cùng với các chú thích. 
+298: Các danh mục
+299: Các danh mục hình ảnh, bảng biểu, … sử dụng kiểu định dạng (Style) Normal với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, Spacing Before: 0 pt, Spacing After: 0 pt, Line spacing: 1.15 lines.
+300: Bullet
+301: Các bullet sử dụng kiểu định dạng (Style) Bullet với các thông số: kiểu chữ (font) Times New Roman, cỡ 13, Spacing Before: 0 pt, Spacing After: 0 pt, Line spacing: 1.5 lines, không thụt đầu dòng đoạn văn và canh lề trái.
+302: Các đề mục khác
+303: Các đề mục không được đề cập ở trên có thể dùng định dạng tùy ý nhưng phải là kiểu chữ (font) Times New Roman cỡ tối đa là 13, tối thiểu là 10 và phải thống nhất. Ví dụ các bảng biểu có nhiều nội dung có thể dùng cỡ chữ 10. 
+304: 
+305: 
+306: TRÌNH TỰ THỰC HIỆN KHÓA LUẬN
+307: Để thực hiện tốt đề tài khóa luận tốt nghiệp, sinh viên cần biết và thực hiện đúng các trình tự, dựa vào đó có thể báo cáo tiến độ với giảng viên hướng dẫn. Các báo cáo tiến độ có thể theo tuần hoặc theo tiến độ riêng linh động của các nhóm. Giảng viên hướng dẫn sẽ ghi chú, nhận xét, góp ý cho từng công đoạn cũng như theo dõi và đánh giá quá trình thực hiện của các nhóm.
+308: Liên hệ
+309: Sinh viên chủ động liên hệ với GVHD, viết email rành mạch, đầy đủ các thành phần, liên hệ và báo cáo thường xudyên công việc đã làm và dự định các bước tiếp theo.
+310: Hướng đề tài
+311: Chọn hướng đề tài rõ ràng, thuyết phục; đề xuất tên đề tài phù hợp; điểm cộng cho những ý tưởng sáng tạo, mới mẻ. GVHD quyết định hướng đề tài.
+312: Kế hoạch
+313: Lên kế hoạch thực hiện đề tài gồm: Mô tả đề tài, các thành phần, tính năng, dự trù trang thiết bị, trình tự thực hiện, và phân công nhiệm vụ trong nhóm.
+314: Mô phỏng/Kết quả
+315: Trình bày ý tưởng về mô hình, mô phỏng hoặc kết quả nghiên cứu; Mô hình gọn gàng, khoa học, sáng tạo, chắc chắn và vệ sinh là điểm cộng.
+316: Sơ đồ hệ thống
+317: Vẽ sơ đồ khối cho đề tài gồm các khối thành phần chính và các kết nối giữa các thành phần thể hiện rõ sự kết nối và tính hệ thống của đề tài.
+318: Mô hình
+319: Trình bày sơ bộ về mô hình/mô phỏng/kết quả hiện có để GVHD nhận xét góp ý nhằm điều chỉnh, sửa chữa, phát triển cho phù hợp và đủ tiêu chuẩn.
+320: Báo cáo mô phỏng/Kết quả
+321: Báo cáo kết quả mô hình/mô phỏng/kết quả cho GVHD sau khi đã điều chỉnh, đảm bảo mô hình/mô phỏng/kết quả đủ chuẩn hoặc có tiềm năng hoàn thành.
+322: Hoàn thiện mô phỏng/Kết quả
+323: Chỉnh sửa lại mô hình/mô phỏng/kết quả theo nhận xét, góp ý của GVHD, các sáng kiến là điểm cộng; Hoàn thành cơ bản mô phỏng/mô hình/kết quả.
+324: Đề cương
+325: Lên đề cương cho cuốn khóa luận gồm các chương, mục chính; Tất cả các định dạng, quy chuẩn của cuốn báo cáo khóa luận theo đúng mẫu của Khoa.
+326: Viết khóa luận
+327: Viết nội dung cho cuốn báo cáo của khóa luận theo đề cương và theo mẫu báo cáo khóa luận của Khoa; Có thể gửi bản mềm sơ bộ để GVHD góp ý.
+328: Tài liệu tham khảo
+329: Lên danh mục tài liệu tham khảo và trình bày danh mục tài liệu tham khảo theo đúng hướng dẫn của Khoa, chú ý trích dẫn và tránh copy/đạo văn.
+330: Mã nguồn/Sơ đồ/Hình/Bảng biểu
+331: Toàn bộ mã nguồn của đề tài cần được sắp xếp rõ ràng, để chuẩn bị nộp cho GVHD và Khoa khi tốt nghiệp; Soạn các sơ đồ, hình ảnh, bảng biểu cho luận văn.
+332: Cuốn báo cáo
+333: Gửi sơ bộ cho GVHD bản mềm hiện có của cuốn báo cáo để GVHD nhận xét, góp ý và nắm tiến độ làm việc của đề tài.
+334: Slide/Poster
+335: Soạn slide báo cáo để chuẩn bị báo cáo với GVHD; Slide cần súc tích, nêu bật được các ý tưởng, nội dung chính của đề tài. Có thể thiết kế poster đồng thời.
+336: Báo cáo GVHD: 
+337: Báo cáo chính thức đề tài với GVHD; In cuốn báo cáo bản nháp, bìa gương hoặc giấy bình thường chứ chưa phải bản cuối bìa cứng.
+338: Giảng viên phản biện
+339: Các đề tài đủ tiêu chuẩn sẽ được phép liên hệ với các giảng viên phản biện.
+340: Hoàn thiện cuốn báo cáo
+341: Hoàn thiện lại cuốn báo cáo theo nhận xét, góp ý của giảng viên phản biện.
+342: Poster: 
+343: Các đề tài sẽ được lựa chọn được báo cáo hội đồng bằng slide hoặc báo cáo bằng poster; Các nhóm báo cáo bằng poster có thể dựa vào slide để thiết kế poster.
+344: Báo cáo hội đồng/poster
+345: Báo cáo chính thức trước hội đồng hoặc báo cáo poster tùy theo quyết định của GVHD.
+346: Chỉnh sửa, in, nộp chính thức
+347: Điều chỉnh lần cuối, gửi GVHD trước khi in bìa cứng, xin chữ ký và nộp cho Khoa/Bộ môn đúng hạn.
+348: 
+349: BỐ CỤC
+350: Bố cục được xây dựng từ đề cương của đề tài gồm các mục lớn sau đó phân ra thành các mục nhỏ trước khi tiến hành viết khóa luận. Chương này sẽ đưa ra một vài thành phần chính của luận văn để tham khảo. Sinh viên tùy theo đề tài mà đặt tên chương mục phù hợp.
+351: Giới thiệu
+352: Chương đầu tiên của Khóa luận giới thiệu về toàn bộ đề tài, gồm đặt vấn đề, thuận lợi và khó khăn, ưu nhược điểm của các phương pháp hoặc giải pháp hiện tại, nội dung chính của đề tài, phương pháp, giải pháp của đề tài, kết quả thực hiện và sơ lược kết luận, hướng phát triển.
+353: Nền tảng/Cơ sở lý thuyết
+354: Là chương tóm tắt các vấn đề lý thuyết cơ sở liên quan đến đề tài cũng như thảo luận, đánh giá về các đề tài gần đây.
+355: Phân tích yêu cầu
+356: Là chương phân tích các yêu cầu của đề tài, mô hình hóa yêu cầu.
+357: Thiết kế hệ thống
+358: Là chương thiết kế hệ thống, mô hình hóa kiến trúc và các thiết kế hệ thống.
+359: Giải pháp công nghệ (nếu có)
+360: Nếu đề tài có cải tiến hoặc đề xuất giải pháp công nghệ thì mô tả rõ giải pháp.
+361: Hiện thực và Triển khai
+362: Trình bày cụ thể việc hiện thực và triển khai các giải pháp.
+363: Đánh giá và thảo luận
+364: Kiểm thử hệ thống và phân tích những đóng góp, những mặt mạnh yếu của hệ thống.
+365: Đo lường, so sánh, phân tích, đánh giá về một hoặc một vài giải pháp công nghệ (nếu có)
+366: Kết luận
+367: Đưa ra kết luận, những điều làm được, chưa làm được, phân tích tổng quan về đề tài, ưu nhược điểm, hạn chế và hướng phát triển của đề tài.
+368: 
+369: BÁO CÁO POSTER
+370: Báo cáo poster được thiết kế trên phần mềm (sinh viên tự chọn phù hợp) và in trên khổ giấy A0 (nên chọn in màu) có các nội dung chính:
+371: 1. Phần header: Thông tin tên trường, Khoa, bộ môn và logo nếu có.
+372: 2. Phần thông tin chung: tên đề tài, thông tin sinh viên thực hiện (họ tên, lớp, Mã SV ...), GVHD (ghi rõ học hàm học vị), mô tả vắn tắt về đề tài, kết quả thực hiện và khả năng ứng dụng (nếu có).
+373: 3. Phần nội dung: trình bày ngắn gọn, cô đọng các nội dung chính sau:
+374:  - Đặt vấn đề/lý do chọn đề tài;
+375:  - Mục tiêu đề tài;
+376: -  Kế hoạch thực hiện;
+377:  - Phương pháp nghiên cứu, giải quyết vấn đề đặt ra;
+378:  - Kết quả (lý thuyết và thực nghiệm) và thảo luận;
+379:  - Kết luận, kiến nghị, đề xuất (nếu có);
+380: - Tài liệu tham khảo chính.
+381: 4. Phần footer: thông tin liên hệ (điện thoại, email) và các thông tin khác.
+382: Lưu ý: 
+383: Ngoài 4 nội dung liệt kê bên trên, SV có thể bổ sung các nội dung khác phù hợp với đề tài thực hiện. 
+384: SV tự thiết kế, trình bày và lựa chọn bố cục phù hợp. Nên có hình ảnh, đồ thị, sơ đồ, bảng biểu minh họa. (hạn chế chữ quá nhiều)
+385: Mỗi nhóm chỉ trình bày trong 1 trang A0
+386: TÀI LIỆU THAM KHẢO
+387: Tài liệu tham khảo được xếp theo nhóm ngôn ngữ với thứ tự tiếng: Việt, Anh, Pháp, Đức, Nga, Trung, Nhật; giữ nguyên văn tiếng nước ngoài, không phiên dịch.  Những tài liệu trình bày với thứ tiếng có ít người biết có thể thêm phần dịch tiếng Việt kèm theo.
+388: Danh mục tài liệu tham khảo được xếp theo thứ tự bảng chữ cái (alphabet) về họ hoặc tên tác giả theo thông lệ từng nước:
+389: - Tác giả là người nước ngoài: xếp thứ tự bảng chữ cái đối với họ;
+390: - Tác giả là người Việt Nam: xếp thứ tự bảng chữ cái theo tên, không đảo tên trước họ;
+391: - Tài liệu không có tên tác giả: xếp thứ tự theo bảng chữ cái đối với từ đầu tiên của tên cơ quan đã ấn hành tài liệu, ví dụ: Viện Khoa học Việt nam xếp vào vần V, Trung tâm Chọn Giống Lúa vần T,.. 
+392: Nếu tài liệu tham khảo là bài báo đăng ở tạp chí, bài viết trong kỷ yếu hay một cuốn sách thì ghi theo thứ tự và đầy đủ các mục sau đây:
+393: - tên các tác giả (có dấu phẩy ngăn cách giữa các tên tác giả)
+394: - (năm công bố), (đặt trong ngoặc đơn, có dấu phẩy sau ngoặc đơn)
+395: - “tên bài báo”, (trong ngoặc kép, không in nghiêng, dấu phẩy ngay sau đóng ngoặc kép)
+396: -  tên tạp chí (in nghiêng, cuối tên không có dấu phẩy) hoặc tên sách, (in nghiêng, dấu phẩy cuối tên)
+397: - tập (không có dấu ngăn cách)
+398: - (số), (đặt trong ngoặc đơn, dấu phẩy sau ngoặc đơn)
+399: - các số trang. (gạch ngang giữa hai chữ số, và dấu chấm để kết thúc)
+400: 
+401: Nếu tài liệu tham khảo là sách, BCKH, báo cáo ghi đầy đủ các thông tin sau:
+402: - tên các tác giả hoặc cơ quan ban hành (có dấu phẩy ngăn cách giữa các tên)
+403: - (năm xuất bản), (đặt trong ngoặc đơn, dấu phẩy sau ngoặc đơn)
+404: - tên sách, BCKH hoặc báo cáo, (in nghiêng, dấu phẩy cuối tên)
+405: - nhà xuất bản, (dấu phẩy cuối tên nhà xuất bản)
+406: - nơi xuất bản. (có dấu chấm kết thúc mục tài liệu) 
+407: Nếu tài liệu tham khảo là trang web ghi đầy đủ các thông tin sau:
+408: - tên trang web (có dấu phẩy ngăn cách giữa các tên)
+409: - (tháng-năm xuất bản), (đặt trong ngoặc đơn, dấu phẩy sau ngoặc đơn)
+410: - địa chỉ trang web (không cần dấu chấm kết thúc) (thí dụ: mục 16 PL trình bày dưới đây)
+411: Khi nội dung tài liệu vượt quá một dòng, những dòng tiếp sau cần phải lùi vào 1cm so với dòng đầu tiên để làm rõ mục tài liệu tham khảo. Sau đây là thí dụ về cách trình bày trang tài liệu tham khảo:
+412: 
+413: Ví dụ
+414: TÀI LIỆU THAM KHẢO
+415: Tiếng Việt
+416: [1]. Trần Văn Anh, Nguyễn Phan Khôi (2011), "Giải thuật Di truyền trong Khám phá luật kết hợp", Tạp chí Tin học Tập IX (2), tr. 25-37.
+417: ...
+418: [5]. Hoàng Vũ Long (2001), Phân tích độ ổn định của kết cấu đập bê tông trong điều kiện có động đất ở Việt nam, BCKH Tiến sĩ Cơ học, Trường Đại học Kỹ thuật Công nghệ, Đà Lạt.
+419: ...
+420: Tiếng Anh
+421: [11]. Jeffrey Inman, Russell S. Winer, Rosellina F. (2009),  “The Interplay among Category Characteristics, Customer Characteristics and Customer Activities on in-Store Decision 
+422: Making”,  Jour. of Marketing, Vol.73 (2), pp.19-29.
+423: ...
+424: [15]. Suhas V. Patankar (1998),  Numerical Heat Transfer and Fluid Flow, McGraw-Hill Book Company, Washington, New York, USA.
+425: [16]. National Center for Bio-technology (Oct. 2005), http://www.ncbi.nlm.nih.gov
+426: PHỤ LỤC
+427: Phần phụ lục bao gồm những bổ sung hỗ trợ cho nội dung báo cáo khóa luận như: số liệu, biểu mẫu, mã chương trình, hình ảnh, tài liệu minh chứng, kết quả kiểm tra đạo v… nhằm làm rõ các nghiên cứu đã trình bày trong phần nội dung. Các tính toán đã trình bày tóm tắt trong phần nội dung phải được trình bày chi tiết trong phần phụ lục này.
+428: NHẬT KÍ LÀM VIỆC
+429: Đề tài: Hướng dẫn và mẫu báo cáo khóa luận tốt nghiệp năm 2020
+430: Giảng viên hướng dẫn: TS. Tên đầy đủ GVHD
+431: Ngày bắt đầu: …/…/…
+432: Tuần Từ ngàyĐến ngàyNgày báo cáo GVHDTóm tắt công việc đã thực hiệnNhận xét của GVHD123456789101112131415
+433: 
+434: 
+435: 
+436: 
+437: 
+<ns0:sectPr xmlns:ns0="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:ns1="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ns0:rsidR="00F21A49" ns0:rsidRPr="0036551B" ns0:rsidSect="007966E8"><ns0:footerReference ns0:type="default" ns1:id="rId14" /><ns0:type ns0:val="continuous" /><ns0:pgSz ns0:w="11906" ns0:h="16838" ns0:code="9" /><ns0:pgMar ns0:top="1701" ns0:right="1134" ns0:bottom="1701" ns0:left="1985" ns0:header="720" ns0:footer="810" ns0:gutter="0" /><ns0:pgNumType ns0:start="1" /><ns0:cols ns0:space="720" /><ns0:docGrid ns0:linePitch="360" /></ns0:sectPr>

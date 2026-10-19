@@ -1,0 +1,340 @@
+{
+  "outline": [
+    [
+      "CHƯƠNG 1  GIỚI THIỆU VỀ BÀI TOÁN",
+      "ch1",
+      0
+    ],
+    [
+      "1.1  Bối cảnh và lý do chọn đề tài",
+      "h1_1",
+      1
+    ],
+    [
+      "1.2  Phát biểu bài toán",
+      "h1_2",
+      1
+    ],
+    [
+      "1.3  Mục tiêu và câu hỏi nghiên cứu",
+      "h1_3",
+      1
+    ],
+    [
+      "1.4  Phạm vi và phương pháp thực hiện",
+      "h1_4",
+      1
+    ],
+    [
+      "1.5  Kết quả chính",
+      "h1_5",
+      1
+    ],
+    [
+      "CHƯƠNG 2  CƠ SỞ LÝ THUYẾT VÀ NGHIÊN CỨU LIÊN QUAN",
+      "ch2",
+      0
+    ],
+    [
+      "2.1  Tín hiệu âm thanh số",
+      "h2_1",
+      1
+    ],
+    [
+      "2.2  Biến đổi Fourier ngắn hạn và biểu diễn Mel",
+      "h2_2",
+      1
+    ],
+    [
+      "2.3  Mạng nơ-ron tích chập",
+      "h2_3",
+      1
+    ],
+    [
+      "2.4  Kết nối phần dư và chú ý kênh",
+      "h2_4",
+      1
+    ],
+    [
+      "2.5  Audio Spectrogram Transformer và học chuyển giao",
+      "h2_5",
+      1
+    ],
+    [
+      "2.6  Tăng cường dữ liệu và hàm mất mát",
+      "h2_6",
+      1
+    ],
+    [
+      "2.7  Các nghiên cứu liên quan và hướng tiếp cận của nhóm",
+      "h2_7",
+      1
+    ],
+    [
+      "CHƯƠNG 3  DỮ LIỆU VÀ THIẾT KẾ THỰC NGHIỆM",
+      "ch3",
+      0
+    ],
+    [
+      "3.1  Nguồn gốc và cấu trúc dữ liệu",
+      "h3_1",
+      1
+    ],
+    [
+      "3.2  Lựa chọn bảy lớp và khảo sát ban đầu",
+      "h3_2",
+      1
+    ],
+    [
+      "3.3  Kiểm tra chất lượng và kiểm soát rò rỉ",
+      "h3_3",
+      1
+    ],
+    [
+      "3.4  Chia tập huấn luyện và đánh giá",
+      "h3_4",
+      1
+    ],
+    [
+      "3.5  Tiền xử lý cho CNN",
+      "h3_5",
+      1
+    ],
+    [
+      "3.6  Tiền xử lý và tăng cường dữ liệu cho AST",
+      "h3_6",
+      1
+    ],
+    [
+      "3.7  Chỉ số và nguyên tắc đánh giá",
+      "h3_7",
+      1
+    ],
+    [
+      "CHƯƠNG 4  PHƯƠNG PHÁP VÀ HIỆN THỰC HỆ THỐNG",
+      "ch4",
+      0
+    ],
+    [
+      "4.1  Kiến trúc tổng thể",
+      "h4_1",
+      1
+    ],
+    [
+      "4.2  Mô hình CNN4",
+      "h4_2",
+      1
+    ],
+    [
+      "4.3  Mô hình ResCNN có chú ý kênh",
+      "h4_3",
+      1
+    ],
+    [
+      "4.4  Tinh chỉnh AST",
+      "h4_4",
+      1
+    ],
+    [
+      "4.5  Huấn luyện và lựa chọn checkpoint",
+      "h4_5",
+      1
+    ],
+    [
+      "4.6  Ensemble xác suất",
+      "h4_6",
+      1
+    ],
+    [
+      "4.7  Hiện thực ứng dụng minh họa",
+      "h4_7",
+      1
+    ],
+    [
+      "4.8  Khả năng tái lập và quản lý kết quả",
+      "h4_8",
+      1
+    ],
+    [
+      "CHƯƠNG 5  THỰC NGHIỆM VÀ ĐÁNH GIÁ",
+      "ch5",
+      0
+    ],
+    [
+      "5.1  Môi trường và căn cứ số liệu",
+      "h5_1",
+      1
+    ],
+    [
+      "5.2  Quá trình học của các mô hình",
+      "h5_2",
+      1
+    ],
+    [
+      "5.3  Kết quả tổng thể trên tập kiểm tra",
+      "h5_3",
+      1
+    ],
+    [
+      "5.4  Phân tích theo từng lớp",
+      "h5_4",
+      1
+    ],
+    [
+      "5.5  Ma trận nhầm lẫn và các lỗi nổi bật",
+      "h5_5",
+      1
+    ],
+    [
+      "5.6  ROC và biểu diễn đặc trưng",
+      "h5_6",
+      1
+    ],
+    [
+      "5.7  Chi phí tính toán và lựa chọn triển khai",
+      "h5_7",
+      1
+    ],
+    [
+      "5.8  Minh họa suy luận và kiểm tra ứng dụng",
+      "h5_8",
+      1
+    ],
+    [
+      "5.9  Giới hạn và nguy cơ sai lệch",
+      "h5_9",
+      1
+    ],
+    [
+      "CHƯƠNG 6  KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+      "ch6",
+      0
+    ],
+    [
+      "6.1  Những nội dung đã thực hiện",
+      "h6_1",
+      1
+    ],
+    [
+      "6.2  Hướng phát triển",
+      "h6_2",
+      1
+    ]
+  ],
+  "figs": [
+    [
+      "Hình 3.1 Phân bố dữ liệu của bảy lớp trước khi chia tập",
+      "fig3_1"
+    ],
+    [
+      "Hình 3.2 Dạng sóng và phổ Log-Mel của các mẫu âm thanh",
+      "fig3_2"
+    ],
+    [
+      "Hình 3.3 Phân bố lớp trên train validation và test",
+      "fig3_3"
+    ],
+    [
+      "Hình 3.4 Phân bố đặc trưng trước và sau chuẩn hóa theo dải Mel",
+      "fig3_4"
+    ],
+    [
+      "Hình 4.1 Luồng xử lý dữ liệu huấn luyện và suy luận",
+      "fig4_1"
+    ],
+    [
+      "Hình 4.2 Kiến trúc CNN4 dùng trong notebook thực nghiệm",
+      "fig4_2"
+    ],
+    [
+      "Hình 4.3 Khối phần dư với chú ý kênh và tầng phân loại ResCNN",
+      "fig4_3"
+    ],
+    [
+      "Hình 4.4 Quy trình đưa phổ vào AST và tinh chỉnh cho bảy lớp",
+      "fig4_4"
+    ],
+    [
+      "Hình 5.1 So sánh diễn biến huấn luyện của CNN4 ResCNN và AST",
+      "fig5_1"
+    ],
+    [
+      "Hình 5.2 Đường cong học của CNN4",
+      "fig5_2"
+    ],
+    [
+      "Hình 5.3 Đường cong học của ResCNN",
+      "fig5_3"
+    ],
+    [
+      "Hình 5.4 Đường cong học của AST pretrained",
+      "fig5_4"
+    ],
+    [
+      "Hình 5.5 Accuracy và macro-F1 trên tập kiểm tra",
+      "fig5_5"
+    ],
+    [
+      "Hình 5.6 So sánh F1 của bốn phương án theo lớp",
+      "fig5_6"
+    ],
+    [
+      "Hình 5.7 Ma trận nhầm lẫn của AST",
+      "fig5_7"
+    ],
+    [
+      "Hình 5.8 Các cặp nhãn nhầm lẫn xuất hiện nhiều nhất",
+      "fig5_8"
+    ],
+    [
+      "Hình 5.9 Ma trận nhầm lẫn của CNN4",
+      "fig5_9"
+    ],
+    [
+      "Hình 5.10 Ma trận nhầm lẫn của ResCNN",
+      "fig5_10"
+    ],
+    [
+      "Hình 5.11 Đường ROC theo cách one-vs-rest của các mô hình",
+      "fig5_11"
+    ],
+    [
+      "Hình 5.12 Chiếu PCA hai chiều của đặc trưng các mô hình",
+      "fig5_12"
+    ],
+    [
+      "Hình 5.13 Tổng hợp quy mô tốc độ và chất lượng của các mô hình",
+      "fig5_13"
+    ],
+    [
+      "Hình 5.14 So sánh dự đoán trên mẫu âm thanh minh họa của notebook",
+      "fig5_14"
+    ]
+  ],
+  "tables": [
+    [
+      "Bảng 3.1 Tập nhãn được sử dụng trong đề tài",
+      "tab3_1"
+    ],
+    [
+      "Bảng 3.2 Phân bố số mẫu theo lớp sau khi chia tập và loại nguồn trùng",
+      "tab3_2"
+    ],
+    [
+      "Bảng 4.1 Cấu hình huấn luyện trong notebook đã chạy",
+      "tab4_1"
+    ],
+    [
+      "Bảng 5.1 So sánh các mô hình trên test fold 10 với 541 mẫu",
+      "tab5_1"
+    ],
+    [
+      "Bảng 5.2 Precision recall và F1 của AST theo lớp trên test fold 10",
+      "tab5_2"
+    ],
+    [
+      "Bảng 5.3 Quy mô mô hình và thời gian huấn luyện đã ghi nhận",
+      "tab5_3"
+    ]
+  ]
+}

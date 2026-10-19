@@ -1,0 +1,13 @@
+slice_file_name,fsID,start,end,salience,fold,classID,class,label,source_id,path,duration,sample_rate,channels,sha256,group
+106905-5-0-0.wav,106905,55.008446,59.008446,2,8,5,engine_idling,3,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold8/106905-5-0-0.wav,4.0,44100,2,c92da150fe4346538620a6146ffb47af21d6eb3aa95915a30e939fe5984d7465,294
+106905-5-0-1.wav,106905,55.508446,59.508446,2,8,5,engine_idling,3,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold8/106905-5-0-1.wav,4.0,44100,2,258682c47d5281efd35ec31204f0b337d80366795f0d80e6cac6d8f2e0755352,294
+106905-5-0-2.wav,106905,56.008446,60.008446,2,8,5,engine_idling,3,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold8/106905-5-0-2.wav,4.0,44100,2,683377b29a38d4bd36ca33773a889e09a43467b3cbcec4adbee1afdf9f3537e0,294
+106905-8-0-0.wav,106905,43.636489,47.636489,2,1,8,siren,5,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/106905-8-0-0.wav,4.0,44100,2,5478119e1bf1470beef812bdd032f3df01c9270d644eb9020278d6238cd9e9f6,294
+106905-8-0-1.wav,106905,44.136489,48.136489,2,1,8,siren,5,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/106905-8-0-1.wav,4.0,44100,2,cac019ef9d9b4b97eb64a19712713ab207cf3d4b00c5d00c4b86d0b18c6aba09,294
+106905-8-0-2.wav,106905,44.636489,48.636489,2,1,8,siren,5,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/106905-8-0-2.wav,4.0,44100,2,ee4a04e7e9d640decdc735fbbf20a33e679eb0256e16fbe000d54a53c3f162bb,294
+106905-8-0-3.wav,106905,45.136489,49.136489,2,1,8,siren,5,106905,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/106905-8-0-3.wav,4.0,44100,2,37f59af5e70b3da8b0ec1d49634de55b7e9c8d0b2afa85eb17d1064587a1dd76,294
+176638-1-0-0.wav,176638,4.51208,5.061169,1,1,1,car_horn,0,176638,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/176638-1-0-0.wav,0.5490833333333334,48000,2,3d5065b1ff8b0539b9ebd260dc88d3bcf3b7ba5db918e97412361ddb59499586,2528
+176638-1-1-0.wav,176638,6.724352,7.520133,1,1,1,car_horn,0,176638,/kaggle/input/datasets/chrisfilo/urbansound8k/fold1/176638-1-1-0.wav,0.7957708333333333,48000,2,9fc835f5a8c3dfc7f844b125890911582344e2eaf4be4059e11e633695c6798a,2528
+176638-5-0-0.wav,176638,0.0,4.0,1,4,5,engine_idling,3,176638,/kaggle/input/datasets/chrisfilo/urbansound8k/fold4/176638-5-0-0.wav,4.0,48000,2,83815689962dcec571930d2a51de13ff31ce8826d3aa5a89247a68c6cd2aed54,2528
+176638-5-0-1.wav,176638,0.5,4.5,1,4,5,engine_idling,3,176638,/kaggle/input/datasets/chrisfilo/urbansound8k/fold4/176638-5-0-1.wav,4.0,48000,2,fee4ca07f99c5c190ede9fce9fba9dc536f21dc5a3608df9b9d57b3dfa7d100d,2528
+176638-5-0-2.wav,176638,1.0,5.0,1,4,5,engine_idling,3,176638,/kaggle/input/datasets/chrisfilo/urbansound8k/fold4/176638-5-0-2.wav,4.0,48000,2,865fc06ea397eaed8f4615ff54c1fcb8fda31ad39779aabaff2e777260bec4f0,2528

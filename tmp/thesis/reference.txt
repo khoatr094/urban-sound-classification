@@ -1,0 +1,658 @@
+ 
+ 
+TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP HỒ CHÍ MINH  
+KHOA CÔNG NGHỆ THÔNG TIN  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ĐỒ ÁN CUỐI KÌ 
+ XỬ LÝ NGÔN NGỮ TỰ NHIÊN   
+  
+ 
+ 
+  
+ 
+ 
+ 
+Người thực hiện:   TRỊNH NGUYỄN HOÀNG VŨ – 22642231 
+TRẦN ANH KHOA – 22000915 
+Lớp       :    420300138501 
+Khoá     :    18 
+Người hướng dẫn: TS BÙI THANH HÙNG 
+ 
+ 
+ 
+THÀNH PHỐ HỒ CHÍ MINH, NĂM 2026
+
+ 
+ 
+TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP HỒ CHÍ MINH  
+KHOA CÔNG NGHỆ THÔNG TIN  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ĐỒ ÁN CUỐI KÌ 
+ XỬ LÝ NGÔN NGỮ TỰ NHIÊN  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Người thực hiện:    TRỊNH NGUYỄN HOÀNG VŨ - 22642231 
+TRẦN ANH KHOA - 22000915 
+Lớp       :    420300138501 
+Khoá     :    18 
+Người hướng dẫn: TS. BÙI THANH HÙNG 
+ 
+ 
+ 
+ 
+ 
+THÀNH PHỐ HỒ CHÍ MINH,  NĂM 2026
+
+i 
+ 
+LỜI CẢM ƠN 
+ 
+Nhóm chúng em xin gửi lời cảm ơn chân thành đến thầy TS. Bùi Thanh Hùng 
+đã hướng dẫn và định hướng trong quá trình học tập môn Xử lý ngôn ngữ tự nhiên . 
+Những kiến thức về mô hình ngôn ngữ, biểu diễn văn bản, đánh giá hệ thống sinh ngôn 
+ngữ và tư duy thực nghiệm đã giúp nhóm xây dựng được một hệ thống minh họa hoàn 
+chỉnh cho bài toán căn chỉnh bảng – văn bản. 
+Nhóm cũng xin cảm ơn Khoa Công nghệ Thông tin, Trường Đại học Công 
+nghiệp Thành phố Hồ Chí Minh đã tạo điều kiện học tập, thực hành và triển khai đồ án. 
+Báo cáo này được hoàn thành dựa trên nỗ lực tìm hiểu tài liệu, hiện thực, đánh giá mô 
+hình, và xây dựng demo cục bộ của nhóm.  
+ii 
+ 
+ĐỒ ÁN ĐƯỢC HOÀN THÀNH 
+TẠI TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP HỒ CHÍ MINH 
+ 
+Tôi xin cam đoan đây là sản phẩm đồ án  của riêng chúng tôi và được sự hướng 
+dẫn của TS. Bùi Thanh Hùng . Các nội dung nghiên cứu, kết quả trong đề tài này là 
+trung thực và chưa công bố dưới bất kỳ hình thức nào trước đây. Những số liệu trong 
+các bảng biểu phục vụ cho việc phân tích, nhận xét, đánh giá được chính tác giả thu 
+thập từ các nguồn khác nhau có ghi rõ trong phần tài liệu tham khảo. 
+Ngoài ra, trong đồ án còn sử dụng một số nhận xét, đánh giá cũng như số liệu 
+của các tác giả khác, cơ quan tổ chức khác đều có trích dẫn và chú thích nguồn gốc. 
+Nếu phát hiện có bất kỳ sự gian lận nào tôi xin hoàn toàn chịu trách nhiệm 
+về nội dung đồ án của mình. Trường đại học Công nghiệp TP H ồ Chí Minh không 
+liên quan đến những vi phạm tác quyền, bản quyền do tôi gây ra trong quá trình thực 
+hiện (nếu có). 
+TP. Hồ Chí Minh, ngày   tháng   năm       
+Tác giả 
+       
+       (ký tên và ghi rõ họ tên) 
+ 
+Trịnh Nguyễn Hoàng Vũ 
+ 
+             Trần Anh Khoa 
+  
+iii 
+ 
+PHẦN ĐÁNH GIÁ CỦA GIẢNG VIÊN 
+_________________________________________________________
+_________________________________________________________
+_________________________________________________________
+_________________________________________________________
+_________________________________________________________
+_________________________________________________________
+_________________________________________________________ 
+Tp. Hồ Chí Minh, ngày     tháng   năm 
+(kí và ghi họ tên) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+iv 
+ 
+TÓM TẮT 
+ 
+Bài toán kiểm chứng claim dựa trên bảng, yêu cầu hệ thống xác định một phát 
+biểu văn bản có được dữ liệu trong bảng hỗ trợ hay không . Khó khăn chính nằm ở việc 
+bảng có cấu trúc hai chiều, nhiều hàng/cột, tiêu đề hàng/cột ngữ cảnh và các giá trị số 
+dễ gây nhầm lẫn khi chuyển sang dạng văn bản tuyến tính . Trong đồ án này, nhóm xây 
+dựng một pipeline end-to-end gồm ba thành phần: (1) chọn các ô liên quan đến văn bản 
+phát biểu, (2) sinh câu dẫn chứng từ dữ liệu bảng và các ô quan trọng, (3) xây dựng bộ 
+luật kiểm chứng, rule-based để xác định tính chính xác của văn bản phát biểu. 
+Dữ liệu được sử dụng là ToTTo, một bộ dữ liệu table -to-text tiếng Anh được 
+xây dựng từ bảng Wikipedia với các ô được đánh dấu và câu mô tả một câu . Mô hình 
+sinh dẫn chứng được sử dụng và đánh giá gồm t5 -small, flan-t5-small, t5-v1_1-small, 
+từ thực nghiệm nhóm thấy mô hình tốt nhất là t5 -small. Mô hình xác định ô liên quan 
+sử dụng và đánh giá gồm distilbert-base-uncased, MiniLM-L12-H384-uncased, electra-
+small-discriminator, từ thực nghiệm nhóm thấy mô hình tốt nhất là electra-small-
+discriminator. Kết quả nhóm xây dựng hệ thống kiểm chứng thông tin văn bản đạt độ 
+chính xác cao, BLEU đạt 28.344, ROUGE-L 0.540, semantic cosine trung bình 0.816 
+và tỷ lệ faithful number 0.850. 
+ 
+1 
+ 
+MỤC LỤC 
+ 
+LỜI CẢM ƠN ....................................................................................................................... i 
+PHẦN ĐÁNH GIÁ CỦA GIẢNG VIÊN ........................................................................... iii 
+TÓM TẮT ........................................................................................................................... iv 
+MỤC LỤC ............................................................................................................................. 1 
+DANH MỤC CÁC HÌNH VẼ ............................................................................................... 4 
+DANH MỤC CÁC BẢNG .................................................................................................... 5 
+CHƯƠNG 1: GIỚI THIỆU VỀ BÀI TOÁN ......................................................................... 6 
+1.1. Giới thiệu về bài toán .......................................................................................... 6 
+1.2. Ý nghĩa của bài toán ............................................................................................ 6 
+CHƯƠNG 2: PHÂN TÍCH YÊU CẦU CỦA BÀI TOÁN ................................................... 7 
+2.1. Yêu cầu của bài toán ........................................................................................... 7 
+2.2. Các phương pháp giải quyết bài toán .................................................................. 7 
+2.2.1. ToTTo: A Controlled Table-To-Text Generation Dataset .................... 7 
+2.2.2. TAPAS: Weakly Supervised Table Parsing via Pre-training ............... 8 
+2.2.3. TABFACT: A Large-Scale Dataset for Table-Based Fact Verification
+ ......................................................................................................................... 8 
+2.2.4. ELECTRA: Pre-training Text Encoders as Discriminators Rather 
+Than Generators .............................................................................................. 9 
+2.2.5. Exploring the Limits of Transfer Learning with a Unified Text-to-Text 
+Transformer (T5) ............................................................................................. 9 
+2.3. Phương pháp đề xuất giải quyết bài toán .......................................................... 10 
+CHƯƠNG 3: PHƯƠNG PHÁP ĐỀ XUẤT ........................................................................ 11 
+3.1. Mô hình tổng quát ............................................................................................. 11 
+3.2 Đặc trưng của mô hình đề xuất .......................................................................... 11 
+2 
+ 
+3.2.1. Table Linearization ............................................................................. 11 
+3.2.2. Cell Selector ........................................................................................ 12 
+3.2.3. Text Generator .................................................................................... 13 
+3.2.4. Rule-based Verifier ............................................................................. 13 
+CHƯƠNG 4: THỰC NGHIỆM .......................................................................................... 15 
+4.1 Dữ liệu ................................................................................................................ 15 
+4.2 Xử lý dữ liệu ....................................................................................................... 16 
+4.3  Công nghệ sử dụng ............................................................................................ 16 
+4.4 Cách đánh giá ..................................................................................................... 16 
+4.5 Kết quả đạt được ................................................................................................ 17 
+4.6. Demo hệ thống .................................................................................................. 19 
+CHƯƠNG 5: KẾT LUẬN ................................................................................................... 22 
+5.1 Kết luận .............................................................................................................. 22 
+5.2. Hướng phát triển................................................................................................ 22 
+TÀI LIỆU THAM KHẢO ................................................................................................... 23 
+PHỤ LỤC ............................................................................................................................ 25 
+LÀM VIỆC NHÓM ............................................................................................................. 26 
+TỰ ĐÁNH GIÁ ................................................................................................................... 27 
+  
+3 
+ 
+DANH MỤC KÍ HIỆU VÀ CHỮ VIẾT TẮT 
+ 
+CÁC CHỮ VIẾT TẮT  
+NLP  Natural Language Processing - Xử lý ngôn ngữ tự 
+NLG  Natural Language Generation - Sinh ngôn ngữ tự nhiên  
+ToTTo  Controlled Table-To-Text Generation Dataset 
+T5  Text-to-Text Transfer Transformer 
+ELECTRA Efficiently Learning an Encoder that Classifies Token Replacements Accurately 
+BLEU  Bilingual Evaluation Understudy 
+ROUGE Recall-Oriented Understudy for Gisting Evaluation 
+SBERT Sentence-BERT 
+E2E  End-to-End 
+JSON  JavaScript Object Notation 
+  
+4 
+ 
+DANH MỤC CÁC HÌNH VẼ 
+ 
+Hình 3.1 Sơ đồ tổng quát 
+Hình 3.2 Sơ đồ kiến trúc của ELECTRA 
+Hình 3.3 Kiến trúc cơ bản của mô hình T5 
+Hình 4.1 Một mẫu dữ liệu từ ToTTo 
+Hình 4.2 Kết quả đánh giá e2e hệ thống 
+Hình 4.3 Kết quả của hệ thống khi claim đúng 
+Hình 4.4 Kết quả của hệ thống khi claim sai 
+  
+5 
+ 
+DANH MỤC CÁC BẢNG 
+ 
+Bảng 4.1 Thông số huấn luyện mô hình 
+Bảng 4.2 Kết quả huấn luyện mô hình Selector 
+Bảng 4.3 Kết quả huấn luyện mô hình Generator  
+6 
+ 
+CHƯƠNG 1: GIỚI THIỆU VỀ BÀI TOÁN 
+ 
+1.1. Giới thiệu về bài toán 
+Bảng là một dạng dữ liệu bán c ấu trúc r ất phổ biến trong các trang web, báo cáo 
+thống kê, tài li ệu tài chính, th ể thao, y t ế và khoa h ọc. Khác v ới văn b ản tuy ến tính, ý 
+nghĩa của một ô trong b ảng thường không nằm riêng ở giá trị của ô đó mà còn ph ụ thuộc 
+vào tiêu đề cột, tiêu đề hàng, tiêu đề trang, tiêu đề section và quan hệ với các ô lân cận. Ví 
+dụ giá trị "2-0" chỉ có nghĩa đầy đủ khi gắn với cột "Score", hàng có "2002" và đ ội thắng 
+là "Brazil". 
+Bài toán trong đồ án này được đặt dưới dạng kiểm chứng claim dựa trên bảng. Đầu 
+vào là một bảng và một câu claim. H ệ thống cần tìm các ô b ằng chứng liên quan, sinh lại 
+một câu mô tả từ các bằng chứng này, sau đó đưa ra kết luận claim đúng, sai hoặc chưa đủ 
+căn cứ. Đây là m ột biến thể thực dụng của table-to-text alignment: thay vì ch ỉ sinh văn 
+bản từ bảng, hệ thống còn cần giải thích claim đư ợc hỗ trợ bởi những ô nào và vì sao k ết 
+luận được đưa ra. 
+1.2. Ý nghĩa của bài toán 
+Đối với các hệ thống hỏi đáp, tổng hợp báo cáo và tr ợ lý AI thư ờng phải dùng d ữ 
+liệu bảng để trả lời người dùng. Nếu mô hình sinh văn b ản lấy nhầm hàng, nhầm cột hoặc 
+nhầm số, kết quả có thể nghe hợp lý nhưng không trung th ực với dữ liệu. Do đó, việc tách 
+pipeline thành chọn evidence, sinh câu và kiểm tra bằng rule giúp hệ thống dễ quan sát, dễ 
+demo và dễ phân tích lỗi hơn so với một mô hình hộp đen chỉ trả lời trực tiếp. 
+Trong bối cảnh ấy, mục tiêu của nhóm là xây dựng một hệ thống hiện thực pipeline, 
+xây dựng mô hình, đánh giá, tr ực quan hóa k ết quả và demo c ục bộ. Hướng tiếp cận này 
+giúp thể hiện bản chất của nhiều kỹ thuật NLP hiện đại: biểu diễn bảng, fine-tune mô hình, 
+đánh giá sinh ngôn ngữ, thiết kế rule để kiểm soát tính trung thực.  
+7 
+ 
+CHƯƠNG 2: PHÂN TÍCH YÊU CẦU CỦA BÀI TOÁN 
+ 
+2.1. Yêu cầu của bài toán 
+Đầu vào  là b ảng d ạng JSON g ồm các trư ờng chính: table_page_title, 
+table_section_title, text_claim và table . Trư ờng table là danh sách hai chi ều các chu ỗi 
+hoặc danh sách các cell object ch ứa value, is_header, column_span và row_span. Ứng 
+dụng s ẽ chuẩn hóa cell, gán header cho hàng đ ầu n ếu c ần và s ử dụng heuristic đ ể tìm 
+column headers hoặc row headers cho từng ô. 
+Đầu ra c ủa h ệ thống g ồm verdict, lý do, các ô evidence đư ợc ch ọn, câu sinh t ừ 
+evidence, b ảng đư ợc highlight, giá tr ị similarity. Các đ ầu ra này ph ục v ụ hai m ục tiêu: 
+giúp người dùng hiểu claim có đúng hay không và giúp ngư ời chấm thấy rõ pipeline ho ạt 
+động từng bước.  
+ 
+2.2. Các phương pháp giải quyết bài toán 
+2.2.1. ToTTo: A Controlled Table-To-Text Generation Dataset 
+• Tác giả: Ankur P. Parikh, Xuezhi Wang, Sebastian Gehrmann et al. 
+• Năm: 2020 (EMNLP 2020) 
+• Phương pháp: Xây d ựng tập dữ liệu table-to-text từ bảng Wikipedia, yêu c ầu mô 
+hình sinh m ột câu mô t ả chính xác t ừ các ô đư ợc đánh d ấu. Baseline s ử dụng 
+BERT2BERT và T5-3B với kỹ thuật tuyến tính hóa bảng. 
+• Dữ liệu: 120.000 cặp (bảng, ô được đánh dấu, câu mô tả) 
+• Kết quả: T5-3B đạt BLEU 49.5, PARENT 58.4 
+• Hạn chế: Chỉ sinh văn bản một chiều, không có thành phần kiểm chứng claim. Mô 
+hình lớn (3B tham số) không khả thi với tài nguyên giới hạn. 
+ 
+ 
+8 
+ 
+2.2.2. TAPAS: Weakly Supervised Table Parsing via Pre-training 
+• Tác giả: Jonathan Herzig, Paweł Krzysztof Nowak, Thomas Müller et al. (Google 
+Research) 
+• Năm: 2020 (ACL 2020) 
+• Phương pháp : Mở rộng BERT với embedding vị trí bảng (column/row 
+embedding) cho phép mô hình hiểu cấu trúc 2D. Fine -tune end-to-end cho tác vụ 
+hỏi đáp và xác thực claim dựa trên bảng. Sử dụng weak supervision từ 
+WikiTableQuestions. 
+• Dữ liệu: WikiTableQuestions, SQA, TabFact 
+• Kết quả: Đạt 83.6% accuracy trên TabFact, 75.5% trên SQA 
+• Hạn chế: Mô hình nặng (BERT-base trở lên), không sinh văn bản tự nhiên từ bảng 
+mà chỉ chọn ô và trả lời trực tiếp. Khó giải thích kết quả. 
+ 
+2.2.3. TABFACT: A Large-Scale Dataset for Table-Based Fact Verification 
+• Tác giả: Wenhu Chen, Hongmin Wang, Jianshu Chen et al. (UCSB & Tencent) 
+• Năm: 2020 (ICLR 2020) 
+• Phương pháp : Xây dựng bộ dữ liệu kiểm chứng claim dạng 
+SUPPORTED/REFUTED từ bảng Wikipedia. Hai baseline: Table -BERT (mã hóa 
+bảng tuần tự) và LPA (logical form parsing). Sau đó nhiều mô hình SOTA fine -
+tune BERT/RoBERTa trên tập này. 
+• Dữ liệu : 117.854 câu claim (56% supported, 44% refuted) từ 16.573 bảng 
+Wikipedia 
+• Kết quả: BERT-Large đạt 71.7% accuracy, con người đạt 92.1% 
+• Hạn chế: Chỉ phân loại 2 nhãn (supported/refuted), không có nhãn "không đủ căn 
+cứ" (insufficient), và không giải thích được ô nào hỗ trợ claim. 
+ 
+9 
+ 
+2.2.4. ELECTRA: Pre-training Text Encoders as Discriminators Rather Than 
+Generators 
+• Tác giả: Kevin Clark, Minh -Thang Luong, Quoc V. Le, Christopher D. Manning 
+(Stanford & Google) 
+• Năm: 2020 (ICLR 2020) 
+• Phương pháp: Thay vì masked language modeling (MLM như BERT), ELECTRA 
+huấn luyện encoder phân biệt token thật/token bị thay thế. Hiệu quả hơn do học từ 
+toàn bộ input thay vì chỉ 15% token bị mask, hiệu năng tương đương BERT-base. 
+• Dữ liệu: Pre-train trên Books Corpus + Wikipedia 
+• Kết quả: ELECTRA-small đạt GLUE 79.9 (so với BERT-base 82.1, GPT 72.8) 
+• Hạn chế : Cần generator phụ trong quá trình pre -training, tăng độ phức tạp huấn 
+luyện. 
+ 
+2.2.5. Exploring the Limits of Transfer Learning with a Unified Text-to-Text 
+Transformer (T5) 
+• Tác giả: Colin Raffel, Noam Shazeer, Adam Roberts et al. (Google Brain) 
+• Năm: 2020 (JMLR 2020) 
+• Phương pháp: Chuyển đổi mọi tác vụ NLP thành dạng text -to-text. Pre-train trên 
+C4 (Colossal Clean Crawled Corpus). Fine-tune bằng cách thêm prefix mô tả tác vụ 
+vào input. T5-small có 60M tham số, phù hợp với tài nguyên hạn chế. 
+• Dữ liệu: Pre-train C4 (750GB), fine -tune trên nhiều benchmark (GLUE, SQuAD, 
+CNN/DM, ...) 
+• Kết quả: T5-11B đạt SOTA trên nhiều benchmark; T5 -small đạt BLEU 26.9 trên 
+WMT En-De 
+• Hạn chế: Phiên bản nhỏ (T5 -small) có giới hạn về độ phức tạp ngữ nghĩa, đặc biệt 
+khi xử lý bảng có nhiều hàng/cột. 
+10 
+ 
+2.3. Phương pháp đề xuất giải quyết bài toán 
+Dựa trên phân tích các công trình liên quan, nhóm nh ận thấy bài toán ki ểm chứng 
+claim từ bảng đòi hỏi hai khả năng riêng biệt: (1) xác định chính xác ô nào trong bảng liên 
+quan đ ến claim và (2) sinh ra câu mô t ả có th ể so sánh đư ợc v ới claim ban đ ầu. Các 
+phương pháp end-to-end như TAPAS xử lý tốt việc chọn ô nhưng không sinh văn bản; các 
+mô hình table -to-text như T5 fine -tune trên ToTTo sinh văn b ản tốt nhưng không có cơ 
+chế lọc ô. 
+Nhóm đề xuất tách pipeline thành hai giai đo ạn độc lập: một mô hình phân loại nhị 
+phân (cell selector) đ ể chọn ô b ằng chứng, và m ột mô hình seq2seq (generator) đ ể sinh 
+câu từ subtable. Cách tiếp cận modular này có ưu điểm: mỗi thành phần có thể huấn luyện, 
+đánh giá và thay th ế độc lập; kết quả trung gian (ô nào đư ợc chọn, câu nào đư ợc sinh) có 
+thể quan sát và debug d ễ dàng; bước kiểm chứng cuối dùng rule -based đảm bảo tính giải 
+thích được (explainability).  
+11 
+ 
+CHƯƠNG 3: PHƯƠNG PHÁP ĐỀ XUẤT 
+ 
+3.1. Mô hình tổng quát 
+ 
+Hình Error! No text of specified style in document. Sơ đồ tổng quát  
+Trong sơ đồ tổng quát này, nhóm chia làm 3 giai đo ạn: (1) huấn luyện mô hình lựa 
+chọn các cell liên quan đ ến câu phán quy ết, (2) huấn luyện mô hình t ạo câu evidence, (3) 
+hệ thống E2E để xác định câu phán quyết theo rule-based. 
+ 
+3.2 Đặc trưng của mô hình đề xuất 
+3.2.1. Table Linearization 
+Bảng hai chiều được chuyển thành chuỗi văn bản tuần tự để đưa vào mô hình ngôn 
+ngữ. Với mỗi ô được chọn, hệ thống trích xuất tiêu đề cột và tiêu đề hàng tương ứng bằng 
+heuristic (dựa vào vị trí hàng/cột và cờ is_header). Chuỗi được định dạng bằng tag XML: 
+< 𝑝𝑎𝑔𝑒_𝑡𝑖𝑡𝑙𝑒 > . . . </𝑝𝑎𝑔𝑒_𝑡𝑖𝑡𝑙𝑒 > < 𝑐𝑜𝑙_ℎ𝑒𝑎𝑑𝑒𝑟 > . . . </𝑐𝑜𝑙_ℎ𝑒𝑎𝑑𝑒𝑟 >
+< 𝑟𝑜𝑤_ℎ𝑒𝑎𝑑𝑒𝑟 > . . . </𝑟𝑜𝑤_ℎ𝑒𝑎𝑑𝑒𝑟 > < 𝑐𝑒𝑙𝑙 > . . . </𝑐𝑒𝑙𝑙 > 
+
+12 
+ 
+Độ dài tối đa đ ầu vào là 512 token. V ới bảng có nhi ều hơn 1.000 ô, h ệ thống áp 
+dụng bước lọc ứng cử viên dựa trên độ trùng lặp token với câu claim để giảm xuống tối đa 
+512 ô trước khi chấm điểm. 
+ 
+3.2.2. Cell Selector 
+Mô hình phân lo ại nh ị phân d ựa trên  ELECTRA-small, Đầu vào là chu ỗi ghép  
+[CLS] claim [SEP] cell_context [SEP] trong đó cell_context g ồm giá trị ô cùng tiêu đề cột 
+và tiêu đề hàng của nó. Đầu ra là xác suất ô đó liên quan đ ến claim. Trong huấn luyện, dữ 
+liệu dương là các ô đư ợc đánh dấu trong ToTTo; dữ liệu âm được lấy ngẫu nhiên với tỉ lệ 
+3:1 (negative sampling ratio = 3) đ ể xử lý mất cân bằng lớp. Trong inference, hệ thống áp 
+dụng chi ến lư ợc "threshold v ới fallback top -k": n ếu không có ô nào vư ợt ngư ỡng 
+confidence, chọn top-3 ô có điểm cao nhất. 
+ 
+Hình Error! No text of specified style in document. Sơ đồ kiến trúc của ELECTRA 
+ 
+ 
+
+13 
+ 
+3.2.3. Text Generator 
+Mô hình seq2seq T5 -small (60M tham s ố) được fine-tune trên ToTTo v ới đầu vào 
+là subtable đã tuyến tính hóa và đ ầu ra là câu mô t ả ngắn. Sinh văn bản bằng beam search 
+với 4 beam, giới hạn 64 token, và no-repeat n-gram size = 3 để tránh lặp cụm từ. 
+ 
+Hình Error! No text of specified style in document. Kiến trúc cơ bản của mô hình T5 
+3.2.4. Rule-based Verifier 
+Thành phần cuối không dùng mô hình học sâu mà kết hợp ba loại kiểm tra:  
+- Semantic similarity: Cosine similarity giữa embedding của câu sinh (từ T5) và 
+câu claim g ốc, dùng mô hình sentence -transformers/all-MiniLM-L6-v2. N ếu 
+similarity ≥ ngưỡng → SUPPORTED.  
+- Lexical similarity: BLEU score giữa câu sinh và câu claim. Dùng làm fallback 
+khi semantic similarity thấp.  
+
+14 
+ 
+- Number faithfulness : Kiểm tra các s ố trong câu claim có xu ất hiện trong câu 
+sinh và trong ô b ằng ch ứng không. N ếu claim ch ứa s ố không kh ớp → 
+REFUTED.   
+15 
+ 
+CHƯƠNG 4: THỰC NGHIỆM 
+ 
+4.1 Dữ liệu 
+Dữ liệu s ử dụng trong đ ồ án là ToTTo (Controlled Table -To-Text Generation 
+Dataset), một b ộ dữ liệu ti ếng Anh đư ợc xây d ựng t ừ bảng Wikipedia. M ỗi m ẫu trong 
+ToTTo g ồm: (1)  một b ảng HTML v ới các metadata như  table_page_title, 
+table_section_title, (2) danh sách các ô đư ợc đánh d ấu (highlighted_cells) và (3) m ột câu 
+mô tả (target) mô tả chính xác nội dung của các ô được đánh dấu đó. 
+ 
+Hình Error! No text of specified style in document. Một mẫu dữ liệu từ ToTTo 
+ToTTo được tải qua HuggingFace Datasets (GEM benchmark). Phân phối dữ liệu 
+gốc gồm 120.761 mẫu huấn luyện, 7.700 mẫu validation và 7.700 mẫu test. Do giới hạn 
+tài nguyên tính toán, nhóm sử dụng chế độ medium với 20.000 mẫu huấn luyện và 5.000 
+mẫu validation để huấn luyện cell selector, và chế độ full (toàn bộ tập train) để huấn luyện 
+generator. Đánh giá cuối thực hiện trên 1.000 mẫu từ tập validation. 
+ 
+ 
+ 
+
+16 
+ 
+4.2 Xử lý dữ liệu 
+Tiền xử lý cho Generator : Từ mỗi mẫu ToTTo, hệ thống trích xuất subtable chứa 
+các ô được đánh dấu cùng tiêu đề liên quan, sau đó tuyến tính hóa thành chuỗi văn bản có 
+cấu trúc tag. Chu ỗi này đư ợc tokenize b ằng T5Tokenizer v ới padding và truncation đ ến 
+512 token. Nhãn (câu target) đư ợc tokenize v ới đ ộ dài t ối đa 64 token. Token padding 
+trong nhãn được thay bằng -100 để bỏ qua trong tính loss. 
+Tiền xử lý cho Cell Selector : Từ mỗi mẫu, hệ thống sinh ra nhi ều cặp (claim, ô) 
+— các ô được đánh dấu là mẫu dương (nhãn 1), các ô không được đánh dấu được lấy ngẫu 
+nhiên làm m ẫu âm (nhãn 0) v ới tỉ lệ 3:1. Context c ủa mỗi ô đư ợc xây d ựng bằng cách 
+ghép giá trị ô với tiêu đề cột và hàng tương ứng. Chuỗi [claim] [SEP] [cell_context] đư ợc 
+tokenize bằng DistilBertTokenizer với độ dài tối đa 384 token. 
+ 
+4.3  Công nghệ sử dụng 
+Ngôn ngữ lập trình: Python 3.10 
+Thư viện chính: Pytorch, Transformers, Datasets. 
+Huấn luy ện và đánh giá: Accelerate, Evaluate, SacreBLEU, R ouge Score, 
+Sentence-Transformers 
+Thống kê và demo: Pandas, Numpy, Scikit-Learn, Streamlit 
+ 
+4.4 Cách đánh giá 
+BLEU (Bilingual Evaluation Understudy) : Đo độ trùng lặp n-gram giữa câu sinh 
+và câu tham chiếu. BLEU kết hợp precision của 1-gram đến 4-gram với brevity penalty: 
+𝐵𝐿𝐸𝑈 =  𝐵𝑃 × exp (∑𝑤𝑛 × 𝑙𝑜𝑔𝑝𝑛) 
+trong đó 𝑝𝑛 là precision của n-gram, 𝐵𝑃 là brevity penalty phạt câu sinh quá ng ắn. Giá trị 
+từ 0–100, càng cao càng tốt. 
+ROUGE-L: Đo đ ộ dài dãy con chung dài nh ất (Longest Common Subsequence) 
+giữa câu sinh và câu tham chiếu. ROUGE-L cân bằng precision và recall: 
+17 
+ 
+𝑅𝑂𝑈𝐺𝐸 − 𝐿 = (1 + β2) × 𝑅𝑙𝑐𝑠 × 𝑃𝑙𝑐𝑠
+(𝑅𝑙𝑐𝑠 + 𝛽2 × 𝑃𝑙𝑐𝑠) 
+Semantic Cosine Similarity : Mã hóa câu sinh và câu tham chi ếu b ằng mô hình 
+sentence-transformers/all-MiniLM-L6-v2, sau đó tính cosine similarity gi ữa hai vector 
+embedding. Giá trị từ -1 đến 1; đánh giá sự tương đồng ngữ nghĩa bất kể cách diễn đạt. 
+Cell Selection F1: Đánh giá riêng bộ cell selector theo precision, recall và F1 ở cấp 
+độ từng ô: 
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 =
+|ô 𝑐ℎọ𝑛 đú𝑛𝑔|
+|ô đã 𝑐ℎọ𝑛|  
+𝑅𝑒𝑐𝑎𝑙𝑙 =
+|ô 𝑐ℎọ𝑛 đú𝑛𝑔|
+|ô 𝑐ầ𝑛 𝑐ℎọ𝑛|  
+Faithful Number Rate : Tỉ lệ mẫu mà t ất cả các số trong câu sinh đ ều xuất hiện 
+trong ô bằng chứng. Đánh giá tính trung thực số liệu của câu được sinh ra. 
+ 
+4.5 Kết quả đạt được 
+Bảng Error! No text of specified style in document. Thông số huấn luyện mô hình  
+Tham số Generator Cell Selector 
+Model_name t5-small electra-small-discriminator 
+Epochs 3 3 
+Batch size 8 (grad accum x4 = 32) 16 
+Learning rate 3 × 10−4 2 × 10−5 
+Weight decay 0.01 0.01 
+Max input length 512 384 
+Negative ratio  3:1 
+DistilBERT-base-uncased cho kết quả tốt nhất trên tất cả các độ đo, đặc biệt là Cell 
+F1 (0.754) và Exact Match (0.334). MiniLM có precision ổn nhưng recall r ất thấp, cho 
+thấy mô hình này bỏ sót nhiều ô quan trọng. 
+18 
+ 
+Bảng Error! No text of specified style in document. Kết quả huấn luyện mô hình 
+Selector 
+Mô hình Precision Recall F1 Exact Match 
+DistilBERT-base-uncased 0.824 0.749 0.754 0.334 
+ELECTRA-small-discriminator 0.820 0.739 0.747 0.332 
+MiniLM-L12-H384-uncased 0.676 0.410 0.473 0.099 
+T5-small cho k ết quả tốt nhất trên tất cả chỉ số; flan-t5-small thấp hơn một chút, 
+còn về faithful rate thì các mô hình dư ờng như là tương đ ồng nhưng T5 -small vẫn vượt 
+trội hơn, với 85% thì câu sinh không bịa số trong bảng. 
+Bảng Error! No text of specified style in document. Kết quả huấn luyện mô hình 
+Generator 
+Mô hình BLEU ROUGE-1 ROUGE-2 ROUGE-L Faithful Rate 
+T5-Small 35.210 0.682 0.455 0.584 0.853 
+T5-V1_1-Small 31.874 0.653 0.423 0.560 0.838 
+Flan T5-Small 34.122 0.669 0.444 0.574 0.836 
+Kết quả tốt như v ậy do T5 -small được pre-train trực tiếp với mục tiêu text -to-text 
+thuần túy, phù h ợp hơn v ới tác v ụ sinh văn b ản ngắn từ bảng so v ới flan-t5-small (được 
+instruction-tuned hướng đến hỏi đáp), t5 -v1_1-small có c ấu trúc c ải tiến so v ới t5-small 
+nhưng không được pre-train trên bộ dữ liệu span corruption chuẩn, dẫn đến kết quả không 
+vượt trội. Kết quả BLEU cao nhất hiện tại 35.210 thấp hơn ToTTo paper (BLEU 49.5 v ới 
+T5-3B) do mô hình nhỏ hơn 50 lần. 
+19 
+ 
+ 
+Hình Error! No text of specified style in document. Kết quả đánh giá e2e hệ thống 
+Khi chạy E2E hệ thống, nhóm thấy rằng kết quả tốt nhất chính là mô hình generator 
+t5-small và electra-small-discriminator. Đây sẽ là hai mô hình chính đ ể chạy hệ thống mà 
+nhóm triển khai. 
+4.6. Demo hệ thống 
+Trong demo này, nhóm xây d ựng h ệ thống ch ạy end-to-end từ nhận table, claim 
+đến dự đoán và hi ển thị các log đ ể người dùng hi ểu được toàn b ộ pipeline. Nhóm tri ển 
+khai hai kịch bản thử nghiệm chính: 
+• Claim đúng: ở đây nhóm s ẽ đưa một nhận định đúng v ề trận bóng đá, đư ợc table 
+thống kê theo năm 
+• Claim sai: Sử dụng claim từ ví dụ trước, nhưng sửa lại chỉ số trận đấu, xem mô h ệ 
+thống trả lời ra sao. 
+
+20 
+ 
+ 
+
+21 
+ 
+Hình Error! No text of specified style in document. Kết quả của hệ thống khi claim 
+đúng 
+ 
+
+22 
+ 
+Hình Error! No text of specified style in document. Kết quả của hệ thống khi claim sai  
+23 
+ 
+CHƯƠNG 5: KẾT LUẬN 
+ 
+5.1 Kết luận 
+Đồ án đã xây d ựng thành công m ột pipeline end -to-end cho bài toán ki ểm chứng 
+claim từ bảng, gồm ba thành phần: bộ chọn ô bằng chứng (cell selector), bộ sinh câu (text 
+generator) và bộ kiểm chứng dựa trên luật. Hệ thống đạt BLEU 28.201, ROUGE-L 0.542, 
+semantic cosine trung bình 0.816 và tỉ lệ faithful number 0.850 trên tập validation ToTTo.  
+Về hạn chế, pipeline hi ện tại chưa x ử lý tốt các b ảng rất lớn (trên 1.000 ô) - bước 
+lọc ứng cử viên có thể loại bỏ ô quan tr ọng. Mô hình sinh văn b ản đôi khi hallucinate s ố 
+liệu không có trong bảng (15% trường hợp). Bộ kiểm chứng dựa trên luật chưa xử lý được 
+suy luận ph ức tạp nhi ều bước, ch ỉ kiểm tra kh ớp trực ti ếp giá tr ị số. Ngoài ra, toàn b ộ 
+pipeline chỉ được đánh giá trên dữ liệu tiếng Anh (ToTTo); hiệu năng trên bảng tiếng Việt 
+chưa được kiểm nghiệm. 
+5.2. Hướng phát triển 
+• Mô hình l ớn hơn: Thay thế T5-small bằng T5-base hoặc flan-t5-base để cải thiện 
+chất lượng sinh văn bản, đặc biệt cho câu phức tạp. 
+• Cell selector nâng cao : Th ử nghiệm v ới TAPAS ho ặc TableFormer — các mô 
+hình được thiết kế riêng cho bảng với positional embedding 2D. 
+• Kiểm ch ứng b ằng mô hình : Thay rule -based b ằng mô hình NLI (Natural 
+Language Inference) như DeBERTa -v3 fine -tune trên TabFact đ ể phân lo ại 
+SUPPORTED/REFUTED/INSUFFICIENT chính xác hơn. 
+• Mở rộng sang ti ếng Việt: Áp d ụng pipeline cho b ảng Wikipedia ti ếng Việt bằng 
+cách sử dụng multilingual encoder (mBERT, XLM-R) cho cell selector và mT5 cho 
+generator. 
+ 
+  
+24 
+ 
+TÀI LIỆU THAM KHẢO 
+ 
+1. Parikh A. P., Wang X., Gehrmann S., Faruqui M., Dhingra B., Yang D., Das D. 
+(2020), "ToTTo: A Controlled Table -To-Text Generation Dataset", Proceedings of 
+EMNLP 2020, pp. 1173–1186. 
+2. Chen W., Wang H., Chen J., Zhang Y., Wang H., Li S., Zhou X., Wang W. Y. 
+(2020), "TabFact: A Large -scale Dataset for Table -based Fact Verification", 
+Proceedings of ICLR 2020. 
+3. Herzig J., Nowak P. K., Müller T., Piccinno F., Eisenschlos J. M. (2020), "TAPAS: 
+Weakly Supervised Table Parsing via Pre -training", Proceedings of ACL 2020, pp. 
+4320–4333. 
+4. Raffel C., Shazeer N., Roberts A., Lee K., Narang S., Matena M., Zhou Y., Li W., 
+Liu P. J. (2020), "Exploring the Limits of Transfer Learning with a Unified Text -to-
+Text Transformer", Journal of Machine Learning Research, 21(140), pp. 1–67. 
+5. Clark K., Luong M. -T., Le Q. V., Manning C. D. (2020), "ELECTRA: Pre -training 
+Text Encoders as Discriminators Rather Than Generators", Proceedings of ICLR 
+2020. 
+6. Sanh V., Debut L., Chaumond J., Wolf T. (2019), "DistilBERT, a distilled version of 
+BERT: smaller, faster, cheaper and lighter", arXiv preprint, arXiv:1910.01108. 
+7. Reimers N., Gurevych I. (2019), "Sentence -BERT: Sentence Embeddings using 
+Siamese BERT-Networks", Proceedings of EMNLP 2019, pp. 3982–3992. 
+8. Devlin J., Chang M.-W., Lee K., Toutanova K. (2019), "BERT: Pre -training of Deep 
+Bidirectional Transformers for Language Understanding", Proceedings of NAACL 
+2019, pp. 4171–4186. 
+9. Post M. (2018), "A Call for Clarity in Reporting BLEU Scores", Proceedings of the 
+Third Conference on Machine Translation, pp. 186–191. 
+25 
+ 
+10. Lin C.-Y. (2004), "ROUGE: A Package for Automatic Evaluation of Summaries", 
+Proceedings of the ACL Workshop on Text Summarization Branches Out, pp. 74 –
+81. 
+  
+26 
+ 
+PHỤ LỤC 
+ 
+ 
+  
+
+27 
+ 
+LÀM VIỆC NHÓM 
+Nhóm chúng em việc qua Github, Kaggle, trao đổi chính sử dụng Zalo. Cụ thể các 
+nội dung bọn em triển khai theo bảng bên dưới, thời gian bắt đầu từ lúc có đề tài: 
+Tuần Anh Khoa Hoàng Vũ 
+1 Tìm hiểu về đề tài, các paper tham khảo, dataset liên quan. 
+Chia sẻ, làm rõ đề tài. Chốt hướng triển khai đề tài. 2 
+3 EDA dữ liệu và huấn luyện 
+mô hình cell selector 
+Chuẩn hóa, tiền xử lý dữ 
+liệu. 
+Huấn luyện mô hình 
+Generator 
+4 Chạy đánh giá E2E mô hình, hệ thống 
+5  Xây dựng demo app 
+6 Hoàn thành báo cáo cuối môn 
+ 
+Tổng số buổi gặp nhau: 1 lần / 2 tuần 
+Tổng số thời gian làm việc nhóm: 30 giờ  
+28 
+ 
+TỰ ĐÁNH GIÁ 
+ 
+Mục  Nội dung Điểm 
+chuẩn 
+Tự 
+chấm 
+Ghi chú 
+1 Giới thiệu về bài toán 0.5 0.5  
+2 Phân tích yêu cầu của bài toán 1 0.5  
+3 Phương pháp giải quyết bài toán 2 1.5  
+4 Thực nghiệm 3.5 3.5  
+5 Kết luận 0.5 0.5  
+6 Điểm bài báo 2.0 2.0  
+7 Điểm nhóm  0.5 0.5  
+Tổng 
+điểm 
+ 9.0  
+ 

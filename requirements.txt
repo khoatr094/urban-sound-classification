@@ -1,0 +1,14 @@
+transformers==5.19.0
+librosa>=0.10.2,<0.12
+soundfile>=0.12
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+tqdm
+ipython
+nbformat
+safetensors
+gradio>=5.0,<6
+pytest>=8,<9

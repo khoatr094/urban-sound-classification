@@ -1,0 +1,33 @@
+ASTForAudioClassification(
+  (audio_spectrogram_transformer): ASTModel(
+    (embeddings): ASTEmbeddings(
+      (patch_embeddings): ASTPatchEmbeddings(
+        (projection): Conv2d(1, 768, kernel_size=(16, 16), stride=(10, 10))
+      )
+      (dropout): Dropout(p=0.0, inplace=False)
+    )
+    (layers): ModuleList(
+      (0-11): 12 x ASTLayer(
+        (attention): ASTAttention(
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (o_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (layernorm_before): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+        (layernorm_after): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+        (mlp): ASTMLP(
+          (activation_fn): GELUActivation()
+          (fc1): Linear(in_features=768, out_features=3072, bias=True)
+          (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        )
+        (dropout): Dropout(p=0.0, inplace=False)
+      )
+    )
+    (layernorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+  )
+  (classifier): ASTMLPHead(
+    (layernorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+    (dense): Linear(in_features=768, out_features=7, bias=True)
+  )
+)

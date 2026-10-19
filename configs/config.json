@@ -1,0 +1,38 @@
+{
+  "experiment_name": "urban_sound_7class",
+  "input_root": "/kaggle/input",
+  "data_csv": "",
+  "demo_path": "/kaggle/input/datasets/f8kinwd/drilling",
+  "mode": "full",
+  "require_gpu": true,
+  "seed": 42,
+  "models": [
+    "cnn4",
+    "rescnn",
+    "ast"
+  ],
+  "test_folds": [
+    10
+  ],
+  "sr": 16000,
+  "seconds": 4.0,
+  "cnn_epochs": 60,
+  "ast_epochs": 12,
+  "cnn_batch": 16,
+  "ast_batch": 1,
+  "ast_accum": 16,
+  "cnn_lr": 0.001,
+  "ast_lr": 1e-05,
+  "weight_decay": 0.0001,
+  "patience": 10,
+  "amp": true,
+  "gradient_checkpointing": true,
+  "ast_id": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "ast_local_path": "",
+  "resume": true,
+  "resume_from": "",
+  "smoke_per_class": 2,
+  "demo_threshold": 0.6,
+  "silence_rms": 0.0001,
+  "make_zip": true
+}

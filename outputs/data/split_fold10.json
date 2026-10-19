@@ -1,0 +1,9 @@
+{
+  "test_fold": 10,
+  "val_fold": 1,
+  "train_samples": 4632,
+  "val_samples": 553,
+  "test_samples": 541,
+  "purged_from_val": 0,
+  "purged_from_train": 6
+}

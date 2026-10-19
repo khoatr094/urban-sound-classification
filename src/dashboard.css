@@ -1,0 +1,139 @@
+﻿html, body, .gradio-container { background: #0b111c !important; color: #e5e7eb !important; }
+.gradio-container { max-width: 1440px !important; padding: 10px 16px !important; }
+footer { display: none !important; }
+#page-title { min-width: 0; overflow: visible; }
+#page-title h1 { color: #f1f1f3; font-family: "Segoe UI", Arial, sans-serif !important; font-size: clamp(20px, 2.7vw, 32px); line-height: 1.4; font-weight: 800; margin: 0; padding: 4px 0 3px; overflow: visible; }
+#dashboard, #dashboard .row { gap: 10px; }
+#dashboard .column { gap: 8px; }
+.panel, #audio-player { background: linear-gradient(110deg, #172332, #131e2c) !important; border: 1px solid #303b49 !important; border-radius: 7px !important; padding: 8px !important; }
+#audio-player { min-height: 180px; }
+.actions { padding: 6px !important; }
+.actions button { min-height: 34px; border-radius: 5px; }
+button.primary { background: #403bd7 !important; border: 1px solid #514be4 !important; color: white !important; }
+button.secondary { background: #263342 !important; color: #e5e7eb !important; border: 1px solid #3b4756 !important; }
+#status { font-size: 12px; color: #a5b4c8; padding: 0 5px; min-height: 20px; }
+#result-headline { flex: 1; min-width: 170px; }
+#result-headline h3 { color: #e4e4ea; font-size: 36px; font-weight: 750; line-height: 1.2; margin: 0; }
+.file-name { color: #a5b4c8; font-size: 14px; overflow-wrap: anywhere; }
+.section-label p { margin: 0; font-size: 21px; color: #d1d5db; }
+.prob-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid #303b49; border-radius: 6px; overflow: hidden; font-size: 14px; color: #d9dce3; }
+.result-panel .prob-table { font-size: 21px; }
+.prob-table th, .prob-table td { text-align: left; padding: 3px 8px; line-height: 1.25; border-right: 1px solid #303b49; }
+.prob-table th { background: #0f1723; font-weight: 600; }
+.prob-table tr:nth-child(odd) { background: #172231; }
+.prob-table tr:nth-child(even) { background: #111b28; }
+.prob-table td:first-child { width: 52%; }
+.prob-table td:last-child { border-right: 0; }
+.prob-table td:last-child > span:first-child { display: inline-block; min-width: 60px; }
+.bar-track { display: inline-block; width: calc(100% - 65px); height: 7px; background: #354050; border-radius: 8px; vertical-align: middle; overflow: hidden; }
+.bar-track > span { display: block; min-width: 2px; height: 100%; background: #4f46e5; border-radius: 8px; }
+.audio-plot { background: white !important; border: 1px solid #b8bec7 !important; border-radius: 6px !important; overflow: hidden; }
+.audio-plot > label { color: #fff !important; background: #403bd7 !important; border-radius: 4px; }
+.audio-plot .empty,
+.audio-plot .wrap { min-height: 280px !important; }
+.history-panel { gap: 4px !important; }
+.history-panel table { font-size: 14px !important; }
+.history-panel .row { align-items: center; }
+.history-panel p { color: #aaa0c9; margin: 0; }
+.page-header { align-items: center; justify-content: space-between; }
+.page-header #page-title { flex: 1; }
+#theme-toggle, #fullscreen-toggle { width: 44px; min-width: 44px !important; font-size: 22px; line-height: 1; }
+.device-choice { padding: 4px 8px; border: 1px solid #303b49; border-radius: 6px; }
+.history-sidebar { max-width: 300px; order: 3; }
+.audio-main { order: 1; flex: 3 1 340px !important; }
+.prediction-main { order: 2; flex: 3 1 340px !important; }
+@media (max-width: 1050px) {
+    #dashboard { flex-wrap: wrap !important; }
+    #dashboard > .audio-main,
+    #dashboard > .prediction-main { flex: 1 1 calc(50% - 8px) !important; }
+    #dashboard > .history-sidebar { flex: 1 1 100% !important; max-width: none; }
+}
+@media (max-width: 760px) {
+    .gradio-container { padding: 10px !important; }
+    #dashboard > .audio-main,
+    #dashboard > .prediction-main { flex: 1 1 100% !important; min-width: min(100%, 340px) !important; }
+}
+#result-headline h3 strong { color: #625bf2; font-weight: 800; }
+html.light-mode,
+body.light-mode,
+body.light-mode .gradio-container { background: #f8fafc !important; color: #111827 !important; }
+body.light-mode .gradio-container * {
+    color: #111827 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+body.light-mode .gradio-container.gradio-container .contain .panel,
+body.light-mode .gradio-container.gradio-container .contain #audio-player,
+body.light-mode .gradio-container.gradio-container .contain #audio-player .wrap,
+body.light-mode .gradio-container.gradio-container .contain #audio-player button,
+body.light-mode .gradio-container.gradio-container .contain #theme-toggle,
+body.light-mode .gradio-container.gradio-container .contain .device-choice {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+}
+body.light-mode .gradio-container.gradio-container .contain #audio-player button {
+    background-color: #e2e8f0 !important;
+}
+body.light-mode .gradio-container.gradio-container .contain #audio-player button[aria-label="Drop an audio file here to upload"] {
+    background-color: #f8fafc !important;
+}
+body.light-mode .gradio-container.gradio-container .contain button.secondary {
+    background: #e2e8f0 !important;
+    background-image: none !important;
+    color: #111827 !important;
+}
+body.light-mode .gradio-container.gradio-container .contain button.primary {
+    background: #403bd7 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+body.light-mode .gradio-container .panel,
+body.light-mode #audio-player,
+body.light-mode #audio-player .wrap,
+body.light-mode #audio-player button,
+body.light-mode .history-panel,
+body.light-mode .history-panel .wrap,
+body.light-mode .device-choice,
+body.light-mode #theme-toggle,
+body.light-mode #theme-toggle,
+body.light-mode .result-panel,
+body.light-mode .audio-main > .block {
+    background: #ffffff !important;
+    border-color: #94a3b8 !important;
+}
+body.light-mode #page-title h1,
+body.light-mode #result-headline h3,
+body.light-mode .gradio-container label,
+body.light-mode .gradio-container legend,
+body.light-mode .gradio-container .prose,
+body.light-mode .file-name,
+body.light-mode #status,
+body.light-mode .section-label p,
+body.light-mode .history-panel p { color: #111827 !important; }
+body.light-mode #audio-player button { background: #e2e8f0 !important; }
+body.light-mode #audio-player button[aria-label="Drop an audio file here to upload"] {
+    background: #f8fafc !important;
+}
+body.light-mode .prob-table { color: #111827 !important; border-color: #94a3b8 !important; }
+body.light-mode .prob-table th { background: #dbe4ef !important; color: #111827 !important; }
+body.light-mode .prob-table tr:nth-child(odd) { background: #ffffff !important; }
+body.light-mode .prob-table tr:nth-child(even) { background: #f1f5f9 !important; }
+body.light-mode .prob-table th,
+body.light-mode .prob-table td { border-color: #cbd5e1 !important; }
+body.light-mode .bar-track { background: #cbd5e1 !important; }
+body.light-mode .history-panel table,
+body.light-mode .history-panel th,
+body.light-mode .history-panel td { color: #111827 !important; background: #ffffff !important; }
+body.light-mode .history-panel th { background: #dbe4ef !important; }
+body.light-mode .history-panel tr:nth-child(even) { background: #f1f5f9 !important; }
+body.light-mode .gradio-container #theme-toggle { color: #111827 !important; font-size: 22px; }
+body.light-mode .gradio-container button.secondary { background: #e2e8f0 !important; border-color: #94a3b8 !important; }
+body.light-mode .gradio-container button.primary { background: #403bd7 !important; color: #ffffff !important; }
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select,
+body.light-mode [role="combobox"] { background: #ffffff !important; color: #111827 !important; }
+body.light-mode .audio-plot { background: #ffffff !important; }
+body.light-mode .gradio-container .audio-plot > label { color: #ffffff !important; background: #403bd7 !important; }
+body.light-mode .history-sidebar .history-panel { box-shadow: 0 4px 14px rgb(23 32 51 / 12%); }

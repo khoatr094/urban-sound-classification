@@ -1,0 +1,1353 @@
+PAGE 1
+BỘ CÔNG THƯƠNG
+TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH
+KHOA CÔNG NGHỆ THÔNG TIN
+LƯƠNG CÔNG PHÚ BOY - 22002515
+TRẦN ANH KHOA - 22000915
+PHÂN LOẠI ÂM THANH ĐÔ THỊ
+SỬ DỤNG DEEP LEARNING
+Ngành: Khoa học dữ liệu
+Giảng viên hướng dẫn: TS. Huỳnh Công Bằng
+TS. Nguyễn Minh Hạnh
+THÀNH PHỐ HỒ CHÍ MINH, THÁNG 10 NĂM 2026
+
+PAGE 2
+BỘ CÔNG THƯƠNG
+TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH
+KHOA CÔNG NGHỆ THÔNG TIN
+LƯƠNG CÔNG PHÚ BOY - 22002515
+TRẦN ANH KHOA - 22000915
+PHÂN LOẠI ÂM THANH ĐÔ THỊ
+SỬ DỤNG DEEP LEARNING
+Ngành: Khoa học dữ liệu
+Giảng viên hướng dẫn: TS. Huỳnh Công Bằng
+TS. Nguyễn Minh Hạnh
+THÀNH PHỐ HỒ CHÍ MINH, THÁNG 10 NĂM 2026
+
+PAGE 3
+INDUSTRIAL UNIVERSITY OF HO CHI MINH CITY
+FACULTY OF INFORMATION TECHNOLOGY
+LUONG CONG PHU BOY - 22002515
+TRAN ANH KHOA - 22000915
+URBAN SOUND CLASSIFICATION
+USING DEEP LEARNING
+Major: Data Science
+Supervisors: Dr. Huynh Cong Bang
+Dr. Nguyen Minh Hanh
+HO CHI MINH CITY – OCTOBER 2026
+
+PAGE 4
+URBAN SOUND CLASSIFICATION USING DEEP LEARNING
+ABSTRACT
+This thesis investigates deep learning methods for classifying seven urban sound
+categories selected from UrbanSound8K: car horn, children playing, dog bark,
+engine idling, gunshot, siren and drilling. The study compares a four-block
+convolutional network, a residual CNN with channel attention, and an Audio
+Spectrogram Transformer initialized from an AudioSet-pretrained checkpoint. A
+weighted probability ensemble is also evaluated.
+The experimental pipeline checks audio validity and duplicate recordings, converts
+signals to mono at 16 kHz, and separates training, validation and test data by the
+predefined folds. After removing six training excerpts sharing recording sources
+with higher-priority partitions, the sets contain 4,632, 553 and 541 excerpts,
+respectively. CNN features are normalized using training-only statistics for each
+Mel band. Checkpoints and ensemble weights are selected on validation macro-F1.
+On test fold 10, AST achieves 92.05% accuracy and 91.88% macro-F1. CNN4
+reaches 85.58% accuracy and 87.23% macro-F1, while ResCNN reaches 83.73%
+and 86.11%. The ensemble matches AST accuracy but does not improve test macro-
+F1. Error analysis identifies siren-to-dog-bark and drilling-to-car-horn confusions as
+the dominant error groups. A local application provides audio upload, recording and
+probability visualization.
+These findings are limited to a seven-class, single-fold experiment. They are not
+ten-fold UrbanSound8K benchmark results. Broader evaluation requires multiple
+folds and seeds, an independent out-of-class dataset, and a version-locked
+deployment package.
+Keywords: urban sound classification, deep learning, Log-Mel spectrogram,
+convolutional neural network, Audio Spectrogram Transformer.
+
+PAGE 5
+TÓM TẮT
+Khóa luận nghiên cứu bài toán phân loại bảy nhóm âm thanh đô thị được chọn từ
+UrbanSound8K, gồm còi xe, trẻ em vui chơi, chó sủa, động cơ chạy không tải, tiếng
+súng, còi báo động và tiếng khoan. Nhóm so sánh CNN4, ResCNN có chú ý kênh
+và Audio Spectrogram Transformer được khởi tạo từ checkpoint pretrained trên
+AudioSet. Phương án ensemble xác suất có trọng số được đánh giá như một cách
+kết hợp các mô hình.
+Quy trình thực nghiệm kiểm tra tệp âm thanh, mã băm và nguồn ghi âm trước khi
+tạo đặc trưng. Tín hiệu được đưa về mono 16 kHz với cửa sổ 4 giây. Sau khi loại
+sáu mẫu train giao nguồn với tập ưu tiên cao hơn, train có 4.632 mẫu, validation
+553 mẫu và test 541 mẫu. Thống kê chuẩn hóa CNN được tính riêng theo dải Mel
+trên train. Checkpoint và trọng số kết hợp được chọn bằng validation macro-F1.
+Trên test fold 10, AST đạt accuracy 92,05% và macro-F1 91,88%. CNN4 đạt
+85,58% và 87,23%; ResCNN đạt 83,73% và 86,11%. Ensemble có accuracy bằng
+AST nhưng chưa cải thiện macro-F1 trên test. Phân tích lỗi cho thấy hai nhóm
+nhầm lẫn đáng chú ý là còi báo động thành chó sủa và tiếng khoan thành còi xe.
+Ứng dụng cục bộ hỗ trợ tải tệp, ghi âm và xem xác suất theo lớp.
+Kết quả phản ánh một phép chia bảy lớp, chưa phải đánh giá chéo mười fold của
+benchmark gốc. Hướng phát triển tập trung vào đánh giá nhiều fold, nhiều seed, dữ
+liệu ngoài lớp và thống nhất gói triển khai với phiên bản đã huấn luyện.
+Từ khóa: phân loại âm thanh đô thị, học sâu, phổ Log-Mel, mạng tích chập, Audio
+Spectrogram Transformer.
+
+PAGE 6
+LỜI CẢM ƠN
+Nhóm chúng em xin gửi lời cảm ơn đến TS. Huỳnh Công Bằng và TS. Nguyễn
+Minh Hạnh đã hướng dẫn đề tài khóa luận tốt nghiệp “Phân loại âm thanh đô thị sử
+dụng Deep Learning”. Sự hướng dẫn của thầy, cô là cơ sở để nhóm định hướng nội
+dung nghiên cứu và hoàn thiện báo cáo.
+Chúng em cảm ơn các thầy, cô Khoa Công nghệ Thông tin, Trường Đại học Công
+nghiệp Thành phố Hồ Chí Minh đã giảng dạy những kiến thức nền tảng về lập trình,
+xử lý dữ liệu và học máy. Những kiến thức này giúp nhóm tiếp cận tài liệu chuyên
+ngành, tổ chức thực nghiệm và phân tích kết quả của đề tài.
+Nhóm cũng trân trọng công sức của các tác giả UrbanSound8K và những công trình,
+thư viện nguồn mở được sử dụng. Việc công bố dữ liệu, mã nguồn và mô hình đã
+tạo điều kiện để sinh viên có thể tìm hiểu và kiểm tra các phương pháp học sâu trên
+bài toán âm thanh.
+Trong phạm vi thời gian và kinh nghiệm còn hạn chế, báo cáo khó tránh khỏi thiếu
+sót. Nhóm mong nhận được ý kiến của thầy, cô để tiếp tục hoàn thiện phương pháp
+và cách trình bày kết quả.
+Nhóm sinh viên thực hiện
+Lương Công Phú Boy
+Trần Anh Khoa
+
+PAGE 7
+NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+TP. Hồ Chí Minh, ngày…. Tháng …. năm…….
+CHỮ KÝ CỦA GIẢNG VIÊN
+
+PAGE 8
+NHẬN XÉT CỦA GIÁO VIÊN PHẢN BIỆN 1
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+TP. Hồ Chí Minh, ngày…. Tháng …. năm…….
+CHỮ KÝ CỦA GIẢNG VIÊN
+
+PAGE 9
+NHẬN XÉT CỦA GIÁO VIÊN PHẢN BIỆN 2
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+........................................................................................................................................
+TP. Hồ Chí Minh, ngày…. Tháng …. năm…….
+CHỮ KÝ CỦA GIẢNG VIÊN
+
+PAGE 10
+MỤC LỤC
+CHƯƠNG 1 GIỚI THIỆU VỀ BÀI TOÁN.................................................. 1
+1.1 Bối cảnh và lý do chọn đề tài........................................................... 1
+1.2 Phát biểu bài toán............................................................................. 1
+1.3 Mục tiêu và câu hỏi nghiên cứu....................................................... 2
+1.4 Phạm vi và phương pháp thực hiện..................................................3
+1.5 Kết quả chính....................................................................................3
+CHƯƠNG 2 CƠ SỞ LÝ THUYẾT VÀ NGHIÊN CỨU LIÊN QUAN....... 4
+2.1 Tín hiệu âm thanh số........................................................................ 4
+2.2 Biến đổi Fourier ngắn hạn và biểu diễn Mel................................... 4
+2.3 Mạng nơ-ron tích chập..................................................................... 5
+2.4 Kết nối phần dư và chú ý kênh........................................................ 6
+2.5 Audio Spectrogram Transformer và học chuyển giao.....................6
+2.6 Tăng cường dữ liệu và hàm mất mát............................................... 7
+2.7 Các nghiên cứu liên quan và hướng tiếp cận của nhóm.................. 8
+CHƯƠNG 3 DỮ LIỆU VÀ THIẾT KẾ THỰC NGHIỆM...........................9
+3.1 Nguồn gốc và cấu trúc dữ liệu......................................................... 9
+3.2 Lựa chọn bảy lớp và khảo sát ban đầu.............................................9
+3.3 Kiểm tra chất lượng và kiểm soát rò rỉ.......................................... 12
+3.4 Chia tập huấn luyện và đánh giá.................................................... 12
+3.5 Tiền xử lý cho CNN....................................................................... 14
+3.6 Tiền xử lý và tăng cường dữ liệu cho AST....................................15
+3.7 Chỉ số và nguyên tắc đánh giá....................................................... 15
+CHƯƠNG 4 PHƯƠNG PHÁP VÀ HIỆN THỰC HỆ THỐNG.................17
+4.1 Kiến trúc tổng thể........................................................................... 17
+4.2 Mô hình CNN4...............................................................................17
+4.3 Mô hình ResCNN có chú ý kênh................................................... 18
+4.4 Tinh chỉnh AST.............................................................................. 19
+4.5 Huấn luyện và lựa chọn checkpoint...............................................20
+4.6 Ensemble xác suất.......................................................................... 22
+4.7 Hiện thực ứng dụng minh họa........................................................22
+4.8 Khả năng tái lập và quản lý kết quả...............................................23
+
+PAGE 11
+CHƯƠNG 5 THỰC NGHIỆM VÀ ĐÁNH GIÁ........................................ 24
+5.1 Môi trường và căn cứ số liệu......................................................... 24
+5.2 Quá trình học của các mô hình.......................................................25
+5.3 Kết quả tổng thể trên tập kiểm tra..................................................27
+5.4 Phân tích theo từng lớp.................................................................. 28
+5.5 Ma trận nhầm lẫn và các lỗi nổi bật...............................................30
+5.6 ROC và biểu diễn đặc trưng...........................................................32
+5.7 Chi phí tính toán và lựa chọn triển khai.........................................33
+5.8 Minh họa suy luận và kiểm tra ứng dụng...................................... 35
+5.9 Giới hạn và nguy cơ sai lệch..........................................................35
+CHƯƠNG 6 KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN............................. 37
+6.1 Những nội dung đã thực hiện.........................................................37
+6.2 Hướng phát triển.............................................................................37
+TÀI LIỆU THAM KHẢO............................................................................... a
+PHỤ LỤC..........................................................................................................
+NHẬT KÝ LÀM VIỆC.....................................................................................
+
+PAGE 12
+DANH MỤC HÌNH ẢNH
+Hình 3.1 Phân bố dữ liệu của bảy lớp trước khi chia tập............................. 10
+Hình 3.2 Dạng sóng và phổ Log-Mel của các mẫu âm thanh...................... 11
+Hình 3.3 Phân bố lớp trên train validation và test........................................ 13
+Hình 3.4 Phân bố đặc trưng trước và sau chuẩn hóa theo dải Mel...............14
+Hình 4.1 Luồng xử lý dữ liệu huấn luyện và suy luận................................. 17
+Hình 4.2 Kiến trúc CNN4 dùng trong notebook thực nghiệm..................... 18
+Hình 4.3 Khối phần dư với chú ý kênh và tầng phân loại ResCNN............ 19
+Hình 4.4 Quy trình đưa phổ vào AST và tinh chỉnh cho bảy lớp.................20
+Hình 5.1 So sánh diễn biến huấn luyện của CNN4 ResCNN và AST......... 25
+Hình 5.2 Đường cong học của CNN4...........................................................25
+Hình 5.3 Đường cong học của ResCNN.......................................................26
+Hình 5.4 Đường cong học của AST pretrained............................................ 26
+Hình 5.5 Accuracy và macro-F1 trên tập kiểm tra....................................... 27
+Hình 5.6 So sánh F1 của bốn phương án theo lớp........................................29
+Hình 5.7 Ma trận nhầm lẫn của AST............................................................ 30
+Hình 5.8 Các cặp nhãn nhầm lẫn xuất hiện nhiều nhất................................ 30
+Hình 5.9 Ma trận nhầm lẫn của CNN4......................................................... 31
+Hình 5.10 Ma trận nhầm lẫn của ResCNN................................................... 31
+Hình 5.11 Đường ROC theo cách one-vs-rest của các mô hình.................. 32
+Hình 5.12 Chiếu PCA hai chiều của đặc trưng các mô hình........................33
+Hình 5.13 Tổng hợp quy mô tốc độ và chất lượng của các mô hình........... 34
+Hình 5.14 So sánh dự đoán trên mẫu âm thanh minh họa của notebook.....35
+
+PAGE 13
+DANH MỤC BẢNG BIỂU
+Bảng 3.1 Tập nhãn được sử dụng trong đề tài..............................................10
+Bảng 3.2 Phân bố số mẫu theo lớp sau khi chia tập và loại nguồn trùng.... 13
+Bảng 4.1 Cấu hình huấn luyện trong notebook đã chạy...............................21
+Bảng 5.1 So sánh các mô hình trên test fold 10 với 541 mẫu...................... 27
+Bảng 5.2 Precision recall và F1 của AST theo lớp trên test fold 10............ 28
+Bảng 5.3 Quy mô mô hình và thời gian huấn luyện đã ghi nhận.................33
+Bảng A.1 Các tệp dùng để kiểm tra số liệu......................................................
+Bảng B.1 Nhật ký công việc theo tuần.............................................................
+
+PAGE 14
+DANH MỤC CÁC THUẬT NGỮ VIẾT TẮT
+Viết tắt Thuật ngữ Nghĩa
+AMP Automatic Mixed Precision Độ chính xác hỗn hợp tự động
+AST Audio Spectrogram Transformer Transformer trên phổ âm thanh
+AUC Area Under the Curve Diện tích dưới đường cong
+BN Batch Normalization Chuẩn hóa theo batch
+CNN Convolutional Neural Network Mạng nơ-ron tích chập
+CPU Central Processing Unit Bộ xử lý trung tâm
+CSV Comma-Separated Values Dữ liệu phân tách bằng dấu phẩy
+GPU Graphics Processing Unit Bộ xử lý đồ họa
+PCA Principal Component Analysis Phân tích thành phần chính
+ReLU Rectified Linear Unit Hàm kích hoạt tuyến tính chỉnh lưu
+ROC Receiver Operating Characteristic Đường đặc trưng hoạt động
+SE Squeeze-and-Excitation Cơ chế chú ý theo kênh
+STFT Short-Time Fourier Transform Biến đổi Fourier ngắn hạn
+
+PAGE 15
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 1
+CHƯƠNG 1
+GIỚI THIỆU VỀ BÀI TOÁN
+1.1 Bối cảnh và lý do chọn đề tài
+Âm thanh là một nguồn thông tin quen thuộc trong sinh hoạt đô thị. Tiếng còi xe,
+tiếng động cơ, tiếng chó sủa hay tiếng khoan đều phản ánh một phần hoạt động
+đang diễn ra xung quanh người nghe. Trong nhiều trường hợp, âm thanh xuất hiện
+trước khi nguồn phát nằm trong tầm quan sát của camera. Khả năng nhận biết các
+tín hiệu này có thể hỗ trợ khảo sát môi trường âm thanh, tra cứu dữ liệu ghi âm và
+xây dựng những ứng dụng nhận biết sự kiện ở mức cơ bản.
+Khác với lời nói được ghi trong điều kiện tương đối ổn định, âm thanh ngoài đường
+thường đi kèm nhiều nguồn nhiễu. Cùng một loại tiếng động có thể thay đổi theo
+khoảng cách, thiết bị thu, vật cản và bối cảnh. Một đoạn có tiếng trẻ em cũng có thể
+chứa tiếng xe; tiếng động cơ và tiếng khoan có những thành phần tần số chồng lấn.
+Vì vậy, chỉ dựa trên độ lớn hoặc một vài đặc trưng thủ công thường chưa đủ để
+phân biệt các lớp một cách ổn định.
+Nhóm chọn đề tài “Phân loại âm thanh đô thị sử dụng Deep Learning” để tìm hiểu
+cách biểu diễn tín hiệu âm thanh và so sánh các mô hình học sâu trong cùng một
+quy trình thực nghiệm. Trọng tâm của khóa luận là mối liên hệ giữa dữ liệu, tiền xử
+lý, kiến trúc mô hình và cách đánh giá. Ứng dụng minh họa được xây dựng để
+người dùng có thể thử dự đoán trên tệp âm thanh, quan sát phân bố xác suất và xem
+biểu diễn tín hiệu.
+1.2 Phát biểu bài toán
+Đầu vào của hệ thống là một đoạn âm thanh số. Sau khi giải mã, hệ thống chuyển
+tín hiệu về một kênh, lấy mẫu ở 16 kHz và tạo cửa sổ dài 4 giây. Mô hình trả về một
+vector gồm bảy giá trị softmax ứng với bảy lớp mục tiêu. Nhãn dự đoán là lớp có
+giá trị lớn nhất. Đây là bài toán phân loại đơn nhãn ở cấp đoạn âm thanh, không
+
+PAGE 16
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 2
+phải phát hiện đồng thời nhiều sự kiện hoặc xác định thời điểm bắt đầu và kết thúc
+của từng sự kiện.
+Trong phạm vi thực nghiệm, bảy lớp được giữ lại từ UrbanSound8K gồm còi xe, trẻ
+em vui chơi, chó sủa, động cơ chạy không tải, tiếng súng, còi báo động và tiếng
+khoan. Ba lớp air_conditioner, jackhammer và street_music không được đưa vào
+huấn luyện. Tiếng búa phá đường không được gộp với tiếng khoan. Việc thu hẹp
+nhãn giúp tập trung vào một bài toán có thể triển khai và phân tích trong điều kiện
+tài nguyên của nhóm, nhưng cũng làm cho kết quả khác với benchmark mười lớp
+nguyên bản.
+Với mẫu x và nhãn y thuộc tập bảy lớp, mô hình học một ánh xạ từ đặc trưng của x
+sang phân bố p(y|x). Nhãn được gán theo sự kiện đã có trong metadata. Khi đưa một
+tệp chứa nhiều nguồn âm vào ứng dụng, kết quả chỉ thể hiện lựa chọn của mô hình
+trong tập nhãn này; hệ thống chưa có cơ chế tách nguồn để xác định mọi âm thanh
+cùng xuất hiện.
+1.3 Mục tiêu và câu hỏi nghiên cứu
+Mục tiêu thứ nhất là xây dựng một luồng xử lý có thể theo dõi từ dữ liệu gốc đến
+kết quả cuối. Luồng này bao gồm kiểm tra tệp, khảo sát phân bố nhãn, chia tập theo
+fold và nguồn ghi âm, chuẩn hóa đặc trưng trên tập huấn luyện, lưu checkpoint và
+tổng hợp các chỉ số đánh giá. Mỗi bảng kết quả cần có tệp dữ liệu đi kèm để có thể
+kiểm tra lại.
+Mục tiêu thứ hai là so sánh CNN4, ResCNN và AST trong cùng tập huấn luyện,
+validation và test. CNN4 đóng vai trò mô hình nền tương đối gọn; ResCNN khảo
+sát kết nối tắt và chú ý kênh; AST khai thác biểu diễn đã học từ dữ liệu lớn.
+Ensemble được bổ sung để xem việc kết hợp xác suất có cải thiện so với từng mô
+hình riêng lẻ hay không.
+Từ các mục tiêu trên, nhóm đặt ra ba câu hỏi. Học chuyển giao với AST thay đổi
+macro-F1 và chi phí tính toán như thế nào so với CNN huấn luyện từ đầu? Các lớp
+
+PAGE 17
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 3
+nào còn gây nhầm lẫn dù accuracy chung đã cao? Ensemble được chọn bằng
+validation có giữ được lợi ích trên test hay chỉ làm tăng độ phức tạp? Các câu hỏi
+được trả lời bằng số liệu của lần chạy đã lưu, thay vì suy luận chỉ từ độ sâu hoặc số
+tham số của mạng.
+1.4 Phạm vi và phương pháp thực hiện
+Nguồn dữ liệu chính là UrbanSound8K, một bộ dữ liệu âm thanh môi trường có
+nhãn được công bố phục vụ nghiên cứu. Bộ gốc gồm 8.732 đoạn thuộc mười lớp và
+được tổ chức sẵn thành mười fold [8]. Phần dữ liệu bảy lớp trong dự án có 5.732
+đoạn hợp lệ trước khi loại các nguồn giao nhau giữa các tập. Nhóm sử dụng fold 10
+làm test, fold 1 làm validation và các fold còn lại làm train.
+Thực nghiệm hiện tại chỉ có một phép chia holdout. Do chưa chạy đủ mười lượt
+kiểm định chéo, kết quả không đại diện cho điểm benchmark UrbanSound8K và
+không được dùng để tuyên bố vượt các công trình dùng giao thức khác. Nhóm đồng
+thời kiểm tra fsID và ưu tiên giữ nguồn ở test, sau đó loại các mẫu cùng nguồn khỏi
+train khi cần. Quy tắc này làm thay đổi tập fold gốc và phải được xét khi diễn giải
+kết quả.
+Phương pháp thực hiện gồm đọc tài liệu gốc, khảo sát dữ liệu, xây dựng mô hình,
+huấn luyện có giám sát và phân tích lỗi. Các chỉ số chính là accuracy, macro-
+precision, macro-recall và macro-F1. Ma trận nhầm lẫn và chỉ số theo lớp được
+dùng để giải thích kết quả. Thời gian xử lý và dung lượng checkpoint chỉ được so
+sánh trong điều kiện đo đã lưu, không được coi là cam kết tốc độ cho mọi thiết bị.
+1.5 Kết quả chính
+Trên 541 mẫu test của lần chạy hiện tại, AST đạt accuracy 92,05% và macro-F1
+91,88%. CNN4 đạt lần lượt 85,58% và 87,23%; ResCNN đạt 83,73% và 86,11%.
+Ensemble có cùng accuracy với AST nhưng macro-F1 thấp hơn khoảng 0,02 điểm
+phần trăm. Kết quả cho thấy lợi ích của mô hình pretrained trong thiết lập này, đồng
+thời cho thấy việc kết hợp nhiều mạng chưa đương nhiên mang lại cải thiện.
+
+PAGE 18
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 4
+CHƯƠNG 2
+CƠ SỞ LÝ THUYẾT VÀ NGHIÊN CỨU LIÊN QUAN
+2.1 Tín hiệu âm thanh số
+Âm thanh được số hóa bằng cách lấy mẫu biên độ theo thời gian. Tần số lấy mẫu
+cho biết số mẫu trong một giây; với tín hiệu 16 kHz, mỗi giây có 16.000 giá trị.
+Theo quan hệ Nyquist, miền tần số biểu diễn được bị giới hạn dưới một nửa tần số
+lấy mẫu. Lựa chọn 16 kHz vì vậy phù hợp với pipeline hiện có nhưng cũng loại bỏ
+các thành phần tần số cao hơn 8 kHz của bản ghi gốc.
+Một tệp có thể gồm một hoặc nhiều kênh. Khi chuyển stereo về mono bằng trung
+bình các kênh, hệ thống giảm sự khác nhau về hình dạng đầu vào và chi phí tính
+toán. Đổi lại, thông tin không gian giữa hai kênh không còn được giữ. Đề tài sử
+dụng nội dung phổ và biến đổi theo thời gian để phân loại, không nghiên cứu định
+vị hướng nguồn âm.
+Dạng sóng biểu diễn biên độ theo thời gian, hữu ích khi phát hiện đoạn im lặng,
+đỉnh xung hoặc tín hiệu bị cắt ngọn. Tuy nhiên, hai âm thanh có cấu trúc phổ khác
+nhau vẫn có thể trông khá giống nhau trên waveform. Do đó, nhóm kết hợp quan sát
+waveform với phổ thời gian–tần số trước khi đưa dữ liệu vào mô hình.
+2.2 Biến đổi Fourier ngắn hạn và biểu diễn Mel
+Biến đổi Fourier ngắn hạn chia tín hiệu thành những cửa sổ ngắn rồi phân tích phổ
+của từng cửa sổ. Cách biểu diễn này dựa trên giả định tín hiệu gần ổn định trong
+một khoảng ngắn. Cửa sổ lớn cho khả năng phân biệt tần số tốt hơn nhưng làm
+giảm độ phân giải thời gian; cửa sổ nhỏ có tác dụng ngược lại. Việc chọn tham số vì
+thế gắn trực tiếp với những cấu trúc cần nhận diện trong âm thanh.
+X(m,k) = Σₙ x[n]w[n − mH]exp(−j2πkn/N) (2.1)
+Trong công thức (2.1), x[n] là tín hiệu rời rạc, w là hàm cửa sổ, H là bước dịch và N
+là số điểm biến đổi. Mỗi cột của phổ tương ứng với một cửa sổ thời gian. Phổ công
+
+PAGE 19
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 5
+suất được lấy từ bình phương độ lớn của X. Các bộ lọc Mel tiếp tục cộng có trọng
+số năng lượng ở những vùng tần số khác nhau.
+Thang Mel bố trí độ phân giải dày hơn ở vùng tần số thấp và thưa hơn ở vùng cao.
+Sau bộ lọc, phép log nén dải động để những khác biệt về năng lượng không chi phối
+toàn bộ biểu diễn. Ảnh Log-Mel không phải ảnh chụp nguồn âm; hai trục của nó lần
+lượt mang ý nghĩa thời gian và tần số. Cách diễn giải này cần được giữ khi áp dụng
+các phép biến đổi hoặc cơ chế chú ý.
+M(b,m) = Σₖ H_b(k)|X(m,k)|²; L(b,m) = 10log₁₀(max(M(b,m), ε)) (2.2)
+Nhánh CNN dùng 64 dải Mel, n_fft bằng 1.024 và hop_length bằng 256. Ở 16 kHz,
+khoảng dịch giữa hai khung là 16 ms. Nhánh AST dùng bộ trích xuất đi kèm
+checkpoint pretrained với 128 dải Mel và tối đa 1.024 khung. Hai nhánh không
+dùng chung toàn bộ tham số đặc trưng vì AST cần duy trì quy ước đầu vào của mô
+hình đã được huấn luyện trước.
+2.3 Mạng nơ-ron tích chập
+Mạng nơ-ron tích chập, hay Convolutional Neural Network (CNN), sử dụng các bộ
+lọc cục bộ có tham số được chia sẻ trên đầu vào. Đối với Log-Mel, bộ lọc có thể
+học các mẫu thay đổi theo thời gian, vùng năng lượng tập trung hoặc cấu trúc phổ
+lặp lại. Nhiều lớp liên tiếp mở rộng vùng tiếp nhận, cho phép biểu diễn ở tầng sau
+kết hợp các mẫu cục bộ ở tầng trước.
+Một khối CNN thường kết hợp tích chập, hàm kích hoạt và chuẩn hóa. Batch
+normalization ổn định phân bố kích hoạt trong quá trình tối ưu. Max pooling giảm
+kích thước đặc trưng và giữ phản hồi nổi bật trong vùng nhỏ. Dropout giảm sự phụ
+thuộc vào một nhóm nút cụ thể khi huấn luyện. Những thành phần này có thể hỗ trợ
+tổng quát hóa, nhưng hiệu quả thực tế vẫn phụ thuộc dữ liệu và cấu hình tối ưu.
+Đề tài chọn CNN làm mô hình nền vì đầu vào Log-Mel có cấu trúc hai chiều và chi
+phí suy luận của mạng nhỏ thuận lợi cho ứng dụng cục bộ. Việc chọn CNN không
+có nghĩa âm thanh chỉ là một bài toán ảnh. Các phép lật trục tần số hoặc xoay ảnh
+
+PAGE 20
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 6
+có thể làm sai ý nghĩa vật lý; nhóm chỉ sử dụng các phép che đặc trưng phù hợp với
+pipeline đã triển khai.
+2.4 Kết nối phần dư và chú ý kênh
+Kết nối phần dư đưa đầu vào của một khối đi qua nhánh tắt rồi cộng với đầu ra của
+nhánh biến đổi. Ý tưởng này cho phép khối học phần hiệu chỉnh so với biểu diễn
+ban đầu, thay vì luôn phải xây dựng một ánh xạ mới hoàn toàn [2]. Khi số kênh
+hoặc kích thước không gian thay đổi, nhánh tắt cần phép chiếu để hai tensor có thể
+cộng được.
+h_out = φ(F(h_in) + P(h_in)) (2.3)
+Trong công thức (2.3), F là nhánh tích chập, P là ánh xạ đồng nhất hoặc phép chiếu
+và φ là hàm kích hoạt. Với ResCNN của đề tài, nhánh chính dùng hai tích chập 3 ×
+3. Các khối giảm kích thước bằng stride 2 và sử dụng nhánh chiếu 1 × 1 khi cần
+thay đổi số kênh.
+Cơ chế Squeeze-and-Excitation (SE) gom thông tin toàn cục của từng kênh, tạo hệ
+số qua một mạng nhỏ rồi nhân trở lại đặc trưng [3]. Nhờ đó, mô hình có thể điều
+chỉnh mức đóng góp của các kênh theo đầu vào. Trong đề tài, SE nằm trong khối
+phần dư. Đây là việc vận dụng một cơ chế đã công bố, không phải một cơ chế chú ý
+mới do nhóm đề xuất.
+Kiến trúc có thêm kết nối và chú ý không bảo đảm tốt hơn mô hình đơn giản. Với
+dữ liệu giới hạn, mạng nhiều tham số có thể khớp tốt trên train nhưng chưa cải thiện
+validation hoặc test. Vì vậy, vai trò của ResCNN là một phương án so sánh có giả
+thuyết rõ ràng, và kết luận phải dựa trên kết quả thực nghiệm.
+2.5 Audio Spectrogram Transformer và học chuyển giao
+Audio Spectrogram Transformer (AST) áp dụng kiến trúc Transformer trực tiếp lên
+biểu diễn phổ [1]. Đầu vào được chia thành các patch, mỗi patch được chuyển thành
+vector và bổ sung thông tin vị trí. Các tầng self-attention học quan hệ giữa những
+vùng khác nhau trong phổ, từ đó tạo biểu diễn dùng cho phân loại.
+
+PAGE 21
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 7
+Attention(Q,K,V) = softmax(QKᵀ / √d_k)V (2.4)
+Công thức (2.4) biểu diễn một đầu chú ý. Q, K và V là các phép chiếu học được từ
+đầu vào; d_k là chiều vector khóa. Cơ chế này cho phép đầu ra tại một vị trí phụ
+thuộc các vị trí khác trong chuỗi patch. So với bộ lọc tích chập cục bộ, self-attention
+có khả năng kết hợp quan hệ xa ngay trong từng tầng nhưng thường tốn bộ nhớ và
+tính toán hơn.
+Nhóm sử dụng checkpoint MIT/ast-finetuned-audioset-10-10-0.4593, thay tầng
+phân loại để phù hợp bảy nhãn và tinh chỉnh trọng số [4]. Nguồn pretrained giúp mô
+hình bắt đầu từ biểu diễn âm thanh đã học, thay vì khởi tạo ngẫu nhiên toàn bộ
+mạng. Tuy nhiên, so sánh AST với CNN huấn luyện từ đầu đồng thời thay đổi kiến
+trúc, quy mô và lịch sử dữ liệu. Do đó, kết quả chưa tách riêng được đóng góp của
+self-attention.
+Bộ trích xuất AST sử dụng thông số chuẩn hóa đi kèm checkpoint. Áp dụng thống
+kê Log-Mel của CNN vào nhánh này sẽ làm thay đổi phân bố đầu vào mà mô hình
+pretrained mong đợi. Đề tài giữ riêng hai quy trình để tránh sự thay thế không tương
+thích này. Việc trùng nguồn giữa dữ liệu pretraining và UrbanSound8K chưa được
+kiểm toán đầy đủ, nên đây vẫn là giới hạn của phép so sánh học chuyển giao.
+2.6 Tăng cường dữ liệu và hàm mất mát
+Tăng cường dữ liệu tạo các biến thể đầu vào trong quá trình huấn luyện để mô hình
+ít phụ thuộc vào một dạng biểu diễn cố định. Che một vùng thời gian hoặc một
+nhóm dải Mel buộc mạng tận dụng thông tin còn lại. Hướng này liên quan đến time
+masking và frequency masking trong SpecAugment [5]. Đề tài sử dụng các thành
+phần che phổ phù hợp với mã đã chạy, không hiện thực toàn bộ phép time warping
+của công trình gốc.
+Nhánh AST còn dùng dịch tín hiệu, thay đổi mức âm lượng và thêm nhiễu nhẹ
+trong train. Các biến đổi không được áp dụng khi đánh giá validation và test. Nếu
+phép tăng cường làm mất hoàn toàn một tiếng động rất ngắn, nhãn có thể không còn
+
+PAGE 22
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 8
+phản ánh nội dung đầu vào. Vì vậy, độ rộng vùng che và cường độ biến đổi cần
+được giới hạn, thay vì giả định càng mạnh càng tốt.
+Hàm mất mát là cross-entropy có trọng số lớp và label smoothing bằng 0,06 trong
+notebook thực nghiệm. Trọng số lớp được xác định từ train, giúp giảm ảnh hưởng
+của khác biệt số lượng mẫu. Label smoothing phân phối một phần xác suất mục tiêu
+sang các lớp còn lại, hạn chế mục tiêu quá cứng. Đây là thành phần tối ưu, không
+phải phép hiệu chuẩn xác suất sau huấn luyện.
+2.7 Các nghiên cứu liên quan và hướng tiếp cận của nhóm
+Salamon và Bello khảo sát CNN cùng tăng cường dữ liệu cho phân loại âm thanh
+môi trường [7]. Công trình cho thấy việc lựa chọn biểu diễn và biến đổi dữ liệu là
+một phần quan trọng của pipeline. Nhóm kế thừa hướng dùng phổ thời gian–tần số
+làm đầu vào, đồng thời tổ chức phân tích lỗi theo lớp để tránh chỉ nhìn vào một chỉ
+số chung.
+Walden và cộng sự nghiên cứu phân loại âm thanh phục vụ nhận thức môi trường
+cho phương tiện tự hành [9]. Bài báo chọn bảy lớp liên quan đến bối cảnh này và
+công bố accuracy 97,82%. Tập nhãn của bài có air_conditioner, còn đề tài dùng
+drilling; cách chia dữ liệu và tiền xử lý cũng khác. Con số của bài vì vậy chỉ được
+nêu để mô tả công trình, không dùng làm mốc kết luận mô hình của nhóm tốt hơn
+hay kém hơn.
+Gong, Chung và Glass đề xuất AST cho phân loại âm thanh dựa trên chú ý [1]. So
+với việc chỉ học đặc trưng cục bộ bằng tích chập, AST cung cấp một hướng biểu
+diễn khác và có thể khai thác trọng số pretrained. Nhóm chọn công trình này làm
+nền tảng cho nhánh học chuyển giao vì đã có mô hình công khai và bộ trích xuất
+đầu vào đi kèm.
+
+PAGE 23
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 9
+CHƯƠNG 3
+DỮ LIỆU VÀ THIẾT KẾ THỰC NGHIỆM
+3.1 Nguồn gốc và cấu trúc dữ liệu
+UrbanSound8K cung cấp các đoạn âm thanh ngắn tối đa khoảng 4 giây, được lấy từ
+bản ghi trên Freesound và gắn nhãn theo các nhóm âm thanh đô thị [6], [8].
+Metadata chứa tên tệp, fsID, mốc thời gian, mức nổi bật của nguồn âm, fold và nhãn
+lớp. fsID có ý nghĩa quan trọng vì nhiều đoạn cắt khác nhau có thể xuất phát từ
+cùng một bản ghi dài.
+Khi sử dụng dữ liệu, nhóm giữ liên hệ giữa tệp và metadata thay vì chỉ lưu một ma
+trận đặc trưng không kèm tên. Điều này cho phép truy ngược một dự đoán sai về tệp
+cụ thể. Những trường như tên tệp và fsID dùng cho kiểm toán và chia tập, không
+được đưa vào mạng như đặc trưng phân loại.
+Trang dữ liệu chính thức khuyến nghị giữ mười fold định sẵn và đánh giá chéo đủ
+mười lượt [8]. Thí nghiệm của khóa luận hiện dùng một lượt test fold 10 để phù hợp
+phạm vi triển khai đã có. Vì vậy, các bảng trong chương kết quả luôn được diễn giải
+trong điều kiện của lượt này, không ghi là độ chính xác chung trên bộ
+UrbanSound8K nguyên bản.
+3.2 Lựa chọn bảy lớp và khảo sát ban đầu
+Sau khi lọc nhãn, dữ liệu có 5.732 đoạn hợp lệ. Số lượng các lớp không đồng đều:
+car_horn và gun_shot ít mẫu hơn những lớp có khoảng một nghìn đoạn. Sự khác
+nhau này khiến accuracy có thể che khuất chất lượng ở nhóm ít mẫu. Nhóm sử dụng
+macro-F1 làm tiêu chí chính khi chọn checkpoint để mỗi lớp có mức đóng góp
+ngang nhau trong phép trung bình.
+
+PAGE 24
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 10
+Bảng 3.1 Tập nhãn được sử dụng trong đề tài
+Mã Nhãn gốc Tên tiếng Việt
+0 car_horn Còi xe
+1 children_playing Trẻ em vui chơi
+2 dog_bark Chó sủa
+3 engine_idling Động cơ chạy không tải
+4 gun_shot Tiếng súng
+5 siren Còi báo động
+6 drilling Tiếng khoan
+Hình 3.1 Phân bố dữ liệu của bảy lớp trước khi chia tập
+Nguồn: kết quả thực nghiệm của nhóm.
+Hình 3.1 được tạo từ dữ liệu của dự án. Phân bố số mẫu chỉ phản ánh lượng đoạn
+cắt, không phản ánh đầy đủ số bối cảnh độc lập. Một lớp có nhiều đoạn từ một vài
+nguồn ghi âm vẫn có thể kém đa dạng hơn lớp có ít đoạn nhưng nhiều nguồn. Đây
+là lý do nhóm kiểm tra cả số lượng mẫu lẫn quan hệ nguồn ghi âm.
+
+PAGE 25
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 11
+Hình 3.2 Dạng sóng và phổ Log-Mel của các mẫu âm thanh
+Nguồn: kết quả thực nghiệm của nhóm.
+Hình 3.2 minh họa sự khác nhau giữa quan sát ở miền thời gian và miền thời gian–
+tần số. Những âm có xung ngắn thường tạo các vùng năng lượng tập trung theo thời
+
+PAGE 26
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 12
+gian; tiếng động cơ có thể kéo dài với cấu trúc lặp. Đây là quan sát định tính trên
+các mẫu minh họa, chưa phải bằng chứng rằng mọi tệp trong cùng lớp đều có cùng
+hình dạng phổ.
+3.3 Kiểm tra chất lượng và kiểm soát rò rỉ
+Nhóm kiểm tra khả năng đọc tệp, dữ liệu tín hiệu hữu hạn và mã băm SHA-256.
+Báo cáo audit hiện ghi nhận không có tệp lỗi bị loại và không có bản sao trùng hoàn
+toàn theo SHA-256. Kết quả này chỉ xác nhận hai dạng kiểm tra đã thực hiện; nó
+không loại trừ trường hợp hai tệp gần giống nhau sau khi thay đổi codec, mức âm
+lượng hoặc đoạn cắt.
+Kiểm tra nguồn cho thấy hai fsID xuất hiện ở nhiều fold trong phần dữ liệu đang sử
+dụng. Nhóm áp dụng quy tắc ưu tiên test, sau đó validation, cuối cùng train. Nếu
+nguồn đã nằm trong tập ưu tiên cao hơn, các đoạn cùng nguồn trong tập còn lại bị
+loại. Lần chia hiện tại loại sáu mẫu khỏi train và không loại mẫu khỏi validation.
+Việc loại nguồn giao nhau làm giảm một dạng rò rỉ trực tiếp giữa các tập. Tuy vậy,
+bản ghi có thể cùng bối cảnh nhưng khác fsID, và pretraining của AST sử dụng một
+kho dữ liệu khác chưa được kiểm toán giao nhau. Báo cáo vì thế dùng cách diễn đạt
+“kiểm soát giao nhau theo fsID và trùng tệp”, thay vì khẳng định đã loại bỏ mọi
+dạng rò rỉ dữ liệu.
+3.4 Chia tập huấn luyện và đánh giá
+Train gồm các fold 2 đến 9 sau khi áp dụng quy tắc loại nguồn trùng. Validation là
+fold 1, dùng để chọn checkpoint và tìm trọng số ensemble. Test là fold 10, dùng để
+báo cáo kết quả cuối của cấu hình đang xét. Cả ba mô hình sử dụng cùng danh sách
+mẫu của mỗi tập để hạn chế sai lệch do dữ liệu đánh giá khác nhau.
+
+PAGE 27
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 13
+Bảng 3.2 Phân bố số mẫu theo lớp sau khi chia tập và loại nguồn trùng
+Lớp Train Validation Test
+Còi xe 360 36 33
+Trẻ em vui chơi 800 100 100
+Chó sủa 800 100 100
+Động cơ chạy không tải 805 96 93
+Tiếng súng 307 35 32
+Còi báo động 760 86 83
+Tiếng khoan 800 100 100
+Tổng 4.632 553 541
+Tổng cộng có 4.632 mẫu train, 553 mẫu validation và 541 mẫu test. Tổng sau lọc là
+5.726, thấp hơn số mẫu hợp lệ ban đầu sáu đoạn. Mọi thống kê dùng cho chuẩn hóa
+CNN và trọng số lớp đều được tính trên train. Validation và test chỉ được biến đổi
+bằng các tham số đã xác định, không được dùng để ước lượng lại thống kê.
+Hình 3.3 Phân bố lớp trên train validation và test
+Nguồn: kết quả thực nghiệm của nhóm.
+Tập test có 33 mẫu còi xe và 32 mẫu tiếng súng. Khi số mẫu nhỏ, chỉ một vài dự
+đoán thay đổi cũng làm precision hoặc recall dịch chuyển đáng kể. Vì vậy, một lớp
+
+PAGE 28
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 14
+đạt 100% trên tập này chưa đủ để kết luận mô hình giải quyết tốt mọi tình huống
+thực tế của lớp đó. Chương 5 phân tích chỉ số theo lớp cùng số mẫu để tránh diễn
+giải quá mức.
+3.5 Tiền xử lý cho CNN
+Tín hiệu được chuyển về mono, resample về 16 kHz, sau đó cắt giữa nếu dài hơn 4
+giây hoặc đệm thêm giá trị không nếu ngắn hơn. Chuỗi này tạo đầu vào có số mẫu
+cố định và giảm sự khác nhau về định dạng tệp. Đệm không chỉ bổ sung phần thiếu,
+không tạo thêm nội dung âm thanh mới.
+Log-Mel được trích xuất từ phổ công suất với 64 dải, miền tần số từ 20 Hz đến 8
+kHz. Trong notebook đã chạy, chuẩn hóa được thực hiện riêng cho từng dải Mel.
+Trung bình và độ lệch chuẩn được tính trên tập train theo các chiều mẫu và thời
+gian. Giá trị độ lệch chuẩn được chặn dưới để tránh phép chia không ổn định ở
+những dải ít biến thiên.
+Z(b,t) = [L(b,t) − μ_train(b)] / max(σ_train(b), ε) (3.1)
+Hình 3.4 Phân bố đặc trưng trước và sau chuẩn hóa theo dải Mel
+Nguồn: kết quả thực nghiệm của nhóm.
+Chuẩn hóa theo dải giúp giảm chênh lệch thang đo giữa các vùng tần số. Các tham
+số này được lưu trong cnn_norm_fold10.npz để ứng dụng suy luận có thể sử dụng
+lại. Tệp stats_fold10.json của phiên bản mã khác chứa thống kê toàn cục; hai cách
+chuẩn hóa không được hoán đổi tùy ý khi nạp checkpoint. Việc khớp phiên bản tiền
+xử lý với phiên bản huấn luyện là một điều kiện của tái lập.
+
+PAGE 29
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 15
+3.6 Tiền xử lý và tăng cường dữ liệu cho AST
+Nhánh AST sử dụng ASTFeatureExtractor của checkpoint pretrained. Tín hiệu vẫn
+ở 16 kHz và được đưa qua bộ trích xuất có 128 dải Mel, chiều thời gian tối đa 1.024.
+Giá trị trung bình −4,2677393 và độ lệch chuẩn 4,5689974 là thông số của bộ xử lý
+đã lưu. Quy ước chuẩn hóa phải được thực hiện bởi bộ trích xuất tương ứng, không
+tự thay bằng công thức z-score của CNN.
+Trong train, tín hiệu AST được dịch tối đa 1.200 mẫu theo hai hướng, tương đương
+khoảng 75 ms ở 16 kHz. Mức biên độ thay đổi trong khoảng ±3 dB; nhiễu Gaussian
+có độ lệch chuẩn 0,002 được thêm với xác suất 0,3. Sau đó, đầu vào được giới hạn
+về miền biên độ hợp lệ và che một số khung thời gian, dải tần trên đặc trưng.
+Validation và test không dùng những biến đổi ngẫu nhiên này.
+Các phép biến đổi của CNN và AST không hoàn toàn giống nhau. Đây là thiết kế
+gắn với từng pipeline, nhưng cũng làm phép so sánh thay đổi nhiều yếu tố cùng lúc.
+Để đo riêng tác dụng của kiến trúc, cần thí nghiệm đối chứng với các tổ hợp tăng
+cường và ngân sách huấn luyện được kiểm soát chặt hơn. Thí nghiệm đó chưa nằm
+trong kết quả được báo cáo ở đây.
+3.7 Chỉ số và nguyên tắc đánh giá
+Accuracy là tỉ lệ dự đoán đúng trong toàn bộ tập kiểm tra. Precision của một lớp
+cho biết trong các mẫu được dự đoán là lớp đó, bao nhiêu mẫu đúng; recall cho biết
+trong các mẫu thực sự thuộc lớp đó, bao nhiêu mẫu được nhận ra. F1 là trung bình
+điều hòa của precision và recall. Macro-F1 lấy trung bình F1 của từng lớp mà không
+tăng trọng số cho lớp đông mẫu.
+Accuracy = N_đúng/N; P_c = TP_c/(TP_c+FP_c); R_c = TP_c/(TP_c+FN_c)
+(3.2)
+F1_c = 2P_cR_c/(P_c+R_c); Macro-F1 = (1/C)Σ_c F1_c (3.3)
+Weighted-F1 là trung bình F1 có trọng số theo số mẫu từng lớp. Báo cáo giữ cả
+macro-F1 và weighted-F1 để thấy ảnh hưởng của phân bố nhãn. Khi mẫu của một
+
+PAGE 30
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 16
+lớp ít, macro-F1 vẫn cho lớp đó trọng số bằng lớp đông. Cách tính này phù hợp mục
+tiêu so sánh chất lượng cân bằng, nhưng không thay thế việc xem ma trận nhầm lẫn.
+ROC được xây dựng theo one-vs-rest với xác suất của từng lớp. Chỉ số này mô tả
+khả năng xếp hạng điểm khi thay đổi ngưỡng, trong khi nhãn cuối cùng của hệ
+thống vẫn lấy argmax. PCA được dùng để xem biểu diễn hai chiều ở mức minh họa.
+Khoảng cách trên hình PCA không phải một chỉ số kiểm định chất lượng phân loại
+và không được dùng để chứng minh quan hệ nhân quả.
+
+PAGE 31
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 17
+CHƯƠNG 4
+PHƯƠNG PHÁP VÀ HIỆN THỰC HỆ THỐNG
+4.1 Kiến trúc tổng thể
+Hệ thống được tổ chức thành hai luồng. Luồng thực nghiệm nhận metadata và âm
+thanh, kiểm tra dữ liệu, chia tập, tạo đặc trưng, huấn luyện và lưu kết quả. Luồng
+ứng dụng nhận tệp từ người dùng, thực hiện tiền xử lý tương ứng, nạp checkpoint
+và trả dự đoán. Hai luồng cùng sử dụng thứ tự nhãn đã cố định để tránh sai lệch khi
+giải mã vector đầu ra.
+Hình 4.1 Luồng xử lý dữ liệu huấn luyện và suy luận
+Nguồn: nhóm xây dựng theo notebook thực nghiệm.
+Các tệp cấu hình, thống kê và checkpoint là một bộ thành phần đi cùng nhau. Chỉ
+thay checkpoint mà giữ bộ xử lý đặc trưng của một lần chạy khác có thể vẫn tạo
+được đầu ra nhưng sai ý nghĩa. Vì vậy, mô tả triển khai cần nêu rõ đường dẫn và
+phiên bản của từng thành phần, không chỉ tên mô hình.
+4.2 Mô hình CNN4
+CNN4 trong notebook thực nghiệm gồm bốn khối với số kênh lần lượt 32, 64, 128
+và 256. Mỗi khối có hai tích chập 3 × 3, batch normalization và ReLU, sau đó là
+max pooling 2 × 2 và dropout hai chiều. Xác suất dropout ở bốn khối lần lượt là
+
+PAGE 32
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 18
+0,10; 0,15; 0,20 và 0,25. Mạng giảm dần kích thước theo thời gian và tần số trước
+khi gom đặc trưng toàn cục.
+Sau bốn khối, adaptive average pooling đưa mỗi kênh về một giá trị. Tầng phân loại
+lần lượt có 256 đầu vào, 128 nút ẩn, ReLU, dropout 0,35 và bảy đầu ra. Cách dùng
+pooling toàn cục làm giảm số tham số so với trải phẳng toàn bộ bản đồ đặc trưng.
+Tổng số tham số của mô hình trong bảng benchmark là khoảng 1,206 triệu.
+Hình 4.2 Kiến trúc CNN4 dùng trong notebook thực nghiệm
+Nguồn: nhóm xây dựng theo notebook thực nghiệm.
+Mô hình này được xây dựng như một phương án nền theo hướng CNN trên phổ, có
+tham khảo bối cảnh phân loại âm thanh của Walden và cộng sự [9]. Tuy nhiên, số
+lớp tích chập trong khối, đầu vào và tập nhãn không phải một bản tái lập chính xác
+bài báo. Báo cáo gọi mô hình là CNN4 của dự án, không gắn kết quả của mô hình
+này với accuracy đã công bố trong công trình gốc.
+4.3 Mô hình ResCNN có chú ý kênh
+ResCNN bắt đầu bằng tích chập 3 × 3 từ một kênh vào 32 kênh, batch
+normalization và GELU. Tiếp theo là bốn khối phần dư với các cặp số kênh 32→64,
+64→128, 128→256 và 256→256. Mỗi khối dùng stride 2 ở tích chập đầu để giảm
+kích thước. Nhánh tắt thực hiện phép chiếu khi số kênh hoặc độ phân giải thay đổi.
+
+PAGE 33
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 19
+Trong nhánh chính, đặc trưng sau hai tích chập được nhân với hệ số chú ý kênh SE
+rồi đi qua dropout trước khi cộng nhánh tắt. Hệ số được tạo bằng pooling trung bình
+toàn cục và hai tích chập 1 × 1 có tầng giữa thu hẹp số kênh. Sigmoid đưa hệ số về
+khoảng từ 0 đến 1. Cấu trúc này cho phép phản hồi của mỗi kênh được điều chỉnh
+theo nội dung mẫu.
+Hình 4.3 Khối phần dư với chú ý kênh và tầng phân loại ResCNN
+Nguồn: nhóm xây dựng theo notebook thực nghiệm.
+Đầu ra của khối cuối được tổng hợp bằng cả trung bình và cực đại theo hai chiều
+không gian. Hai vector 256 chiều được ghép thành vector 512 chiều, sau đó đi qua
+LayerNorm, dropout, tầng 128 nút và tầng phân loại bảy lớp. Tổng số tham số
+khoảng 2,560 triệu, lớn hơn CNN4 nhưng nhỏ hơn nhiều so với AST. Kết quả ở
+chương sau cho phép kiểm tra liệu độ phức tạp bổ sung này có hữu ích trong lần
+chia hiện tại hay không.
+4.4 Tinh chỉnh AST
+AST được khởi tạo từ checkpoint công khai của MIT [4]. Tầng đầu ra pretrained
+được thay cho bảy lớp theo thứ tự nhãn của dự án. Việc thay tầng này tạo ra tham số
+mới ở đầu phân loại, trong khi phần biểu diễn còn lại bắt đầu từ trọng số đã học
+trước. Mô hình được tinh chỉnh có giám sát trên tập train của đề tài.
+
+PAGE 34
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 20
+Hình 4.4 Quy trình đưa phổ vào AST và tinh chỉnh cho bảy lớp
+Nguồn: nhóm xây dựng theo notebook thực nghiệm.
+Batch vật lý của AST bằng 2 và tích lũy gradient qua 8 bước, tạo batch hiệu dụng
+danh nghĩa bằng 16. Với bộ nhớ GPU giới hạn, cách này giảm lượng kích hoạt cần
+giữ ở mỗi lượt so với batch vật lý 16. Gradient checkpointing được bật để đổi thêm
+tính toán lấy bộ nhớ. AMP dùng độ chính xác hỗn hợp trong các phép tính phù hợp
+khi chạy trên CUDA.
+Tốc độ học cơ sở của AST là 10⁻⁵. Notebook dùng warm-up trong khoảng 10% tổng
+bước tối ưu rồi giảm theo cosine. Cấu hình này khác với một số tệp mã rời trong thư
+mục, nên thông số báo cáo được lấy từ cell đã chạy. Mô hình có khoảng 86,194
+triệu tham số và checkpoint khoảng 328,887 MB theo phép đo đã lưu.
+4.5 Huấn luyện và lựa chọn checkpoint
+Cả CNN4 và ResCNN dùng AdamW, tốc độ học ban đầu 8×10⁻⁴ và weight decay
+5×10⁻⁴. Số epoch tối đa là 45 đối với CNN và 12 đối với AST, patience bằng 10.
+Notebook đặt seed 42 cho các nguồn ngẫu nhiên liên quan. Seed hỗ trợ tái lập
+nhưng không bảo đảm kết quả bitwise giống nhau giữa mọi phiên bản thư viện hoặc
+loại GPU.
+
+PAGE 35
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 21
+Bảng 4.1 Cấu hình huấn luyện trong notebook đã chạy
+Thông số CNN4 và ResCNN AST
+Đầu vào Log-Mel 64 dải ASTFeatureExtractor 128 dải
+Tần số và cửa sổ 16 kHz; 4 giây 16 kHz; 4 giây
+Batch vật lý 16 2
+Tích lũy gradient 1 bước 8 bước
+Epoch tối đa 45 12
+Optimizer AdamW AdamW
+Tốc độ học ban đầu 0,0008 0,00001
+Weight decay 0,0005 0,0005
+Lịch tốc độ học Warm-up 10% + cosine Warm-up 10% + cosine
+Label smoothing 0,06 0,06
+Patience 10 10
+Seed 42 42
+Chọn checkpoint Validation macro-F1 Validation macro-F1
+Sau mỗi epoch, mô hình được đánh giá trên validation. Checkpoint tốt nhất được
+chọn theo validation macro-F1. Train loss và các chỉ số validation được ghi vào
+CSV để xem quá trình hội tụ. Không chọn checkpoint bằng test loss hoặc test
+accuracy. Sau khi chọn mô hình, tập test được dùng để tạo bảng so sánh và các phân
+tích lỗi.
+Trọng số lớp trong cross-entropy được tính từ số lượng nhãn train. Label smoothing
+bằng 0,06 được dùng đồng nhất trong hàm huấn luyện của notebook. Nhóm lưu
+riêng đường cong loss, accuracy và macro-F1 vì chúng phản ánh các khía cạnh khác
+nhau: loss nhạy với phân bố xác suất, accuracy phản ánh số nhãn đúng và macro-F1
+nhấn mạnh sự cân bằng theo lớp.
+
+PAGE 36
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 22
+4.6 Ensemble xác suất
+Ensemble kết hợp vector xác suất của ba mô hình bằng tổng có trọng số không âm,
+với tổng trọng số bằng 1. Tên lớp và thứ tự các mẫu phải khớp giữa ba nguồn xác
+suất trước khi cộng. Nếu chỉ lấy trung bình các cột không cùng thứ tự nhãn, phép
+kết hợp không còn ý nghĩa dù chương trình vẫn chạy.
+p_ens(c|x) = Σ_m w_m p_m(c|x), w_m ≥ 0, Σ_m w_m = 1 (4.1)
+Notebook duyệt các tổ hợp trọng số trên lưới validation rồi chọn macro-F1 cao nhất.
+Bước của trọng số thứ hai phụ thuộc phần còn lại sau trọng số thứ nhất, nên không
+phải mọi trọng số đều có khoảng cách cố định 0,1. Khi lưu phương án kết hợp, cần
+xuất đồng thời bộ trọng số tối ưu và thứ tự mô hình. Hai thông tin này xác định
+chính xác phép cộng xác suất và cần đi cùng checkpoint khi chuyển sang ứng dụng.
+Trung bình đều trong ứng dụng khi thiếu tệp ensemble.json là một phương án demo
+riêng. Nó không bảo đảm tái tạo ensemble được tối ưu trong notebook. Do vậy,
+bảng kết quả ensemble của chương 5 chỉ gắn với xác suất đã tổng hợp của lần chạy
+thực nghiệm. Khi đóng gói một bản phát hành tái lập, cần xuất thêm trọng số và thứ
+tự model_keys của lần chạy đó.
+4.7 Hiện thực ứng dụng minh họa
+Ứng dụng dùng Gradio để cung cấp giao diện tải tệp hoặc ghi âm, chọn mô hình và
+chọn thiết bị CPU/GPU. Kết quả gồm nhãn dự đoán, xác suất của bảy lớp và thông
+tin xử lý. Waveform cùng Log-Mel giúp người dùng quan sát tín hiệu thay vì chỉ
+nhìn một nhãn. Lịch sử dự đoán được trình bày trong giao diện để thuận tiện thử
+nhiều tệp liên tiếp.
+Các thành phần chính được tách thành mã suy luận, giao diện và cấu hình. app.py là
+điểm vào; src/app_ui.py xây dựng tương tác; src/engine.py chứa phần xử lý và nạp
+mô hình. Checkpoint được tìm trong outputs/checkpoints, cấu hình AST và nhãn
+nằm trong configs. Ứng dụng giữ mô hình trong bộ nhớ để giảm thời gian nạp lại
+giữa các lần dự đoán.
+
+PAGE 37
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 23
+Tệp rỗng, tín hiệu không hữu hạn, im lặng hoặc dài quá giới hạn được xử lý bằng
+thông báo lỗi. Ngưỡng demo 0,60 dùng để hiển thị trạng thái chưa chắc chắn khi
+xác suất cực đại thấp. Ngưỡng này chưa được đánh giá trên một tập ngoài lớp; một
+giá trị softmax lớn vẫn có thể xuất hiện ở âm thanh không thuộc bảy nhãn. Vì vậy,
+trạng thái này không được coi là một bộ phát hiện unknown đã kiểm chứng.
+4.8 Khả năng tái lập và quản lý kết quả
+Nhóm tổ chức đầu ra theo dữ liệu, nhật ký huấn luyện, checkpoint, chỉ số và hình vẽ.
+CSV cho phép dựng lại bảng và biểu đồ mà không cần huấn luyện lại. Notebook có
+đầu ra giúp kiểm tra môi trường và diễn biến epoch. Khi chuyển sang máy
+Windows, cần giữ cùng thứ tự nhãn và bộ tiền xử lý phù hợp checkpoint.
+Một điểm còn hạn chế là cấu hình trong notebook đã chạy và một số cấu hình rời
+chưa đồng nhất. Ví dụ, notebook dùng 45 epoch CNN, batch AST 2 và chuẩn hóa
+theo dải Mel; một cấu hình rời vẫn ghi 60 epoch, batch AST 1 và thống kê toàn cục.
+Phần thực nghiệm của khóa luận lấy notebook cùng CSV làm căn cứ. Những giá trị
+ở phiên bản rời không được trộn vào bảng thông số huấn luyện.
+Để tái lập chính xác hơn, gói bàn giao cần được khóa theo một manifest gồm mã
+nguồn, phiên bản thư viện, checksum checkpoint, danh sách mẫu và trọng số
+ensemble. Đây là yêu cầu kỹ thuật rút ra từ quá trình đối chiếu, đồng thời là một
+phần công việc hoàn thiện hệ thống. Chưa có cơ sở để khẳng định mọi phép chạy từ
+các script rời sẽ tái tạo toàn bộ số liệu đã lưu.
+
+PAGE 38
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 24
+CHƯƠNG 5
+THỰC NGHIỆM VÀ ĐÁNH GIÁ
+5.1 Môi trường và căn cứ số liệu
+Đầu ra notebook ghi nhận GPU Tesla T4, PyTorch 2.11.0+cu128 và thiết bị cuda:0.
+Thông tin này được lấy từ nhật ký chạy, không suy ra từ nhãn cấu hình notebook.
+Các bảng chính của chương được tổng hợp từ test_summary_metrics.csv,
+per_class_detailed_metrics.csv và benchmark_fps_stability_accuracy.csv. Các
+đường cong lấy từ ba tệp history trong outputs/logs.
+Các kết quả trong chương được lấy từ lần chạy notebook đã lưu. Dữ liệu test gồm
+541 đoạn sau quá trình chia tập đã mô tả ở chương 3. Thực nghiệm sử dụng một
+seed và một test fold, vì vậy chưa có độ lệch chuẩn qua nhiều lần huấn luyện độc
+lập. Các mức chênh lệch được phân tích theo số liệu quan sát, chưa phải kết luận từ
+kiểm định ý nghĩa thống kê.
+
+PAGE 39
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 25
+5.2 Quá trình học của các mô hình
+Hình 5.1 So sánh diễn biến huấn luyện của CNN4 ResCNN và AST
+Nguồn: kết quả thực nghiệm của nhóm.
+Hình 5.1 cho phép quan sát đồng thời tốc độ giảm loss và thay đổi chỉ số validation.
+CNN học từ đầu cần nhiều epoch để hình thành biểu diễn thích hợp. AST bắt đầu từ
+trọng số pretrained nên có thể đạt mức validation cao sớm hơn. Tuy vậy, số epoch
+giữa các mô hình không tương đương về chi phí: một epoch AST mất nhiều thời
+gian hơn do mô hình lớn và tiền xử lý đầu vào khác.
+Hình 5.2 Đường cong học của CNN4
+Nguồn: kết quả thực nghiệm của nhóm.
+
+PAGE 40
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 26
+CNN4 đạt validation macro-F1 tốt nhất 87,43% trong bảng tổng hợp. Khoảng cách
+train–validation trung bình về accuracy trong tệp stability_metrics.csv là khoảng
+11,94 điểm phần trăm. Chênh lệch cho thấy việc khớp train tốt hơn chưa chuyển
+hoàn toàn sang validation. Nhận xét này cần được đọc cùng quá trình tăng cường dữ
+liệu vì phép đo train trong lúc huấn luyện chịu các biến đổi ngẫu nhiên mà
+validation không có.
+Hình 5.3 Đường cong học của ResCNN
+Nguồn: kết quả thực nghiệm của nhóm.
+ResCNN có validation macro-F1 86,65%, thấp hơn CNN4 dù nhiều tham số hơn.
+Khoảng cách train–validation trung bình của mô hình khoảng 15,88 điểm phần trăm.
+Trong thiết lập này, cấu trúc phần dư và chú ý kênh chưa đem lại lợi ích vượt mô
+hình nền. Chưa thể từ kết quả đó kết luận riêng SE là nguyên nhân làm giảm chất
+lượng vì chưa có thí nghiệm bỏ SE trong cùng kiến trúc.
+Hình 5.4 Đường cong học của AST pretrained
+Nguồn: kết quả thực nghiệm của nhóm.
+AST đạt validation macro-F1 98,86% sau khi làm tròn hai chữ số. Nhật ký ghi
+best_epoch bằng 7. Tuy nhiên, macro-F1 test chỉ đạt 91,88%, thấp hơn validation
+gần 6,98 điểm phần trăm. Sự chênh lệch này cho thấy cần đánh giá trên dữ liệu giữ
+
+PAGE 41
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 27
+lại, ngay cả khi đường cong validation đã cao. Một fold validation thuận lợi không
+đủ thay thế nhiều fold kiểm tra độc lập.
+5.3 Kết quả tổng thể trên tập kiểm tra
+Bảng 5.1 So sánh các mô hình trên test fold 10 với 541 mẫu
+Mô hình Val F1 Test Acc Macro P Macro R Macro F1 W. F1
+AST 98,86 92,05 92,61 92,51 91,88 91,97
+ENSEMBLE 98,86 92,05 92,56 92,51 91,86 91,96
+CNN4 87,43 85,58 87,47 87,40 87,23 85,53
+RESCNN 86,65 83,73 86,49 86,14 86,11 83,85
+Các chỉ số trong bảng tính theo %. P: precision; R: recall; W. F1: weighted-F1.
+AST đạt accuracy 92,05%, cao hơn CNN4 khoảng 6,47 điểm phần trăm và
+ResCNN khoảng 8,32 điểm phần trăm. Macro-F1 của AST là 91,88%, cao hơn
+CNN4 khoảng 4,65 điểm và ResCNN khoảng 5,77 điểm. Hai chỉ số cùng cải thiện,
+cho thấy ưu thế không chỉ nằm ở việc tăng số mẫu đúng ở lớp đông.
+Hình 5.5 Accuracy và macro-F1 trên tập kiểm tra
+Nguồn: kết quả thực nghiệm của nhóm.
+Accuracy của AST tương ứng 498 dự đoán đúng trên 541 mẫu. CNN4 đúng 463
+mẫu và ResCNN đúng 453 mẫu. Chuyển tỉ lệ thành số lượng giúp thấy rõ quy mô
+của khác biệt. Tuy nhiên, các dự đoán trên những đoạn cùng nguồn có thể tương
+
+PAGE 42
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 28
+quan; không nên xem 541 đoạn là 541 phép thử độc lập hoàn toàn để suy ra một
+khoảng tin cậy quá lạc quan.
+Ensemble đạt accuracy bằng AST nhưng macro-F1 91,86%, thấp hơn AST khoảng
+0,019 điểm phần trăm. Validation macro-F1 của ensemble cao hơn AST khoảng
+0,0028 điểm phần trăm, một khoảng rất nhỏ. Lợi ích trên validation chưa chuyển
+thành lợi ích trên test. Vì chưa có lặp nhiều seed và fold, báo cáo không diễn giải
+mức chênh nhỏ này như một khác biệt có ý nghĩa thống kê.
+Trong phạm vi số liệu hiện có, AST là mô hình đơn có chất lượng tốt nhất trên test.
+Kết luận này là kết quả mô tả sau đánh giá. Nếu triển khai một quy trình lựa chọn
+hoàn toàn theo validation, ensemble vẫn là ứng viên có điểm validation cao nhất,
+nhưng phải cân nhắc chi phí và độ tin cậy của mức cải thiện quá nhỏ. Không nên
+thay đổi nguyên tắc lựa chọn sau khi đã nhìn test rồi gọi đó là đánh giá độc lập.
+5.4 Phân tích theo từng lớp
+Bảng 5.2 Precision recall và F1 của AST theo lớp trên test fold 10
+Lớp Số mẫu Precision (%) Recall (%) F1 (%)
+Còi xe 33 77,50 93,94 84,93
+Trẻ em vui chơi 100 97,09 100,00 98,52
+Chó sủa 100 77,60 97,00 86,22
+Động cơ chạy không tải 93 98,92 98,92 98,92
+Tiếng súng 32 100,00 100,00 100,00
+Còi báo động 83 98,28 68,67 80,85
+Tiếng khoan 100 98,89 89,00 93,68
+AST nhận diện tốt trẻ em vui chơi, động cơ chạy không tải và tiếng khoan trong lần
+chia này. Tiếng súng có precision, recall và F1 đều 100% trên 32 mẫu. Đây là kết
+quả trên tập test giới hạn, chưa chứng minh khả năng nhận diện các tiếng nổ khác
+bối cảnh hoặc phân biệt tiếng súng với mọi loại xung âm ngoài đời.
+
+PAGE 43
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 29
+Hình 5.6 So sánh F1 của bốn phương án theo lớp
+Nguồn: kết quả thực nghiệm của nhóm.
+Lớp còi báo động có precision 98,28% nhưng recall chỉ 68,67%. Hai giá trị cho thấy
+khi AST đã dự đoán còi báo động thì thường đúng, song nhiều mẫu thực sự thuộc
+lớp này bị bỏ sót. Ngược lại, chó sủa có recall 97,00% nhưng precision 77,60%, phù
+hợp với tình trạng một số âm khác bị nhận nhầm thành chó sủa. Hai loại sai số này
+sẽ dẫn đến yêu cầu cải thiện khác nhau.
+Còi xe có recall 93,94% nhưng precision 77,50%. Một phần sai số đến từ các mẫu
+tiếng khoan bị gán thành còi xe. Điều đó giải thích vì sao một lớp có recall cao chưa
+chắc đạt F1 cao. Báo cáo dùng cả ba chỉ số theo lớp để phân biệt khả năng tìm đúng
+và mức độ dự đoán nhầm.
+
+PAGE 44
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 30
+5.5 Ma trận nhầm lẫn và các lỗi nổi bật
+Hình 5.7 Ma trận nhầm lẫn của AST
+Nguồn: kết quả thực nghiệm của nhóm.
+Theo top_confusion_errors.csv, cặp nhầm lẫn lớn nhất của mô hình đơn đang phân
+tích là còi báo động thành chó sủa, với 26 mẫu. Nhóm thứ hai là tiếng khoan thành
+còi xe, với 8 mẫu. Tổng hai nhóm là 34 trong 43 dự đoán sai của AST, tương đương
+khoảng 79,07%. Vì vậy, tập trung xem lại hai cặp này có giá trị hơn việc chỉ tăng độ
+sâu mạng mà chưa phân tích dữ liệu lỗi.
+Hình 5.8 Các cặp nhãn nhầm lẫn xuất hiện nhiều nhất
+Nguồn: kết quả thực nghiệm của nhóm.
+Cấu trúc phổ có thể là một yếu tố liên quan đến nhầm lẫn, nhưng chưa đủ để xác
+định nguyên nhân của từng mẫu. Cần nghe lại tệp, kiểm tra mức nổi bật của nguồn
+âm, độ dài sự kiện và môi trường thu. Khi chưa có bảng chú giải thủ công cho từng
+
+PAGE 45
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 31
+lỗi, báo cáo chỉ nêu giả thuyết về sự giống nhau của tín hiệu, không khẳng định mô
+hình đã “nghe” một đặc trưng cụ thể.
+Hình 5.9 Ma trận nhầm lẫn của CNN4
+Nguồn: kết quả thực nghiệm của nhóm.
+Hình 5.10 Ma trận nhầm lẫn của ResCNN
+Nguồn: kết quả thực nghiệm của nhóm.
+Các ma trận riêng giúp xem liệu cùng một cặp lớp có khó với nhiều kiến trúc hay
+không. Nếu nhiều mô hình cùng sai trên một nguồn, cần ưu tiên kiểm tra dữ liệu và
+bối cảnh nguồn đó. Nếu chỉ một mạng sai, có thể xem tiếp đặc trưng, tăng cường
+hoặc độ tin cậy đầu ra. Ensemble chỉ hữu ích khi những lỗi của các mạng đủ bổ
+sung cho nhau; cùng chia sẻ một lỗi lớn sẽ hạn chế hiệu quả kết hợp.
+
+PAGE 46
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 32
+5.6 ROC và biểu diễn đặc trưng
+Hình 5.11 Đường ROC theo cách one-vs-rest của các mô hình
+Nguồn: kết quả thực nghiệm của nhóm.
+Đường ROC cho biết sự thay đổi giữa tỉ lệ dương tính thật và dương tính giả khi
+thay ngưỡng điểm một lớp. Đây là phân tích bổ sung cho bài toán nhiều lớp. Trong
+ứng dụng, quyết định dựa trên argmax cùng ngưỡng tham khảo cho xác suất cực đại,
+nên AUC cao không bảo đảm mọi nhãn argmax đều đúng. Các đường cần được đọc
+cùng confusion matrix và F1 tại quy tắc quyết định thực tế.
+
+PAGE 47
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 33
+Hình 5.12 Chiếu PCA hai chiều của đặc trưng các mô hình
+Nguồn: kết quả thực nghiệm của nhóm.
+PCA giữ những hướng có phương sai lớn nhưng không được tối ưu để bảo toàn
+ranh giới nhãn trong hai chiều. Những cụm nhìn tách biệt có thể bị ảnh hưởng bởi
+cách lấy mẫu, chuẩn hóa hoặc nguồn ghi âm. Hình 5.12 giúp khảo sát biểu diễn,
+không thay thế số liệu kiểm tra và không chứng minh AST hiểu được bản chất vật
+lý của từng âm thanh.
+5.7 Chi phí tính toán và lựa chọn triển khai
+Bảng 5.3 Quy mô mô hình và thời gian huấn luyện đã ghi nhận
+Mô hình Tham số
+(triệu)
+Checkpoint
+(MiB) Train (s) Clip/giây
+CNN 4 khối 1,206 4,627 250,75 3266,05
+ResCNN tự xây dựng 2,560 9,815 160,90 3573,88
+AST Pretrained 86,194 328,887 5414,73 51,76
+CNN4 có checkpoint khoảng 4,627 MB và ResCNN khoảng 9,815 MB; AST
+khoảng 328,887 MB. Thời gian huấn luyện ghi nhận lần lượt khoảng 250,75 giây,
+160,90 giây và 5.414,73 giây. Các tổng thời gian này chịu ảnh hưởng của số epoch
+thực chạy, dừng sớm, đọc dữ liệu và quá trình tiền xử lý. Không nên chỉ từ tổng thời
+gian kết luận một kiến trúc luôn nhanh hơn trong mọi cấu hình.
+Tệp benchmark ghi tốc độ khoảng 3.266 clip/giây cho CNN4, 3.574 clip/giây cho
+ResCNN và 51,76 clip/giây cho AST. Đây là tốc độ theo thủ tục benchmark của
+notebook, không phải số khung hình video. Các phép đo sử dụng đầu vào đã chuẩn
+
+PAGE 48
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 34
+bị và đồng bộ thiết bị quanh vùng đo; không bao gồm đầy đủ đọc tệp, giải mã,
+resample, hiển thị giao diện và xử lý tệp dài. Vì vậy, không dùng nghịch đảo tốc độ
+này làm cam kết độ trễ đầu cuối.
+Hình 5.13 Tổng hợp quy mô tốc độ và chất lượng của các mô hình
+Nguồn: kết quả thực nghiệm của nhóm.
+Chỉ số “ổn định” trong hình là thước đo tổng hợp do notebook xây dựng từ dao
+động validation và khoảng cách train–validation, không phải một chỉ số chuẩn của
+UrbanSound8K. Báo cáo chỉ xem đây là mô tả phụ của lần chạy. Nó không đo độ
+ổn định giữa nhiều seed, nhiều địa điểm thu hoặc nhiều thiết bị. Các quyết định
+triển khai nên ưu tiên chỉ số phân loại, giới hạn bộ nhớ và phép đo ứng dụng thực tế.
+Nếu mục tiêu là bản demo có chất lượng cao trên tập nhãn hiện tại, AST là lựa chọn
+phù hợp theo số liệu test đã có. Nếu cần dung lượng nhỏ và tốc độ cao trên phần
+cứng hạn chế, CNN4 đáng xem xét với mức giảm chất lượng đã định lượng. Chưa
+đủ dữ liệu để kết luận phương án nào tốt nhất trên điện thoại hoặc thiết bị nhúng vì
+đề tài chưa benchmark các nền tảng đó.
+
+PAGE 49
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 35
+5.8 Minh họa suy luận và kiểm tra ứng dụng
+Hình 5.14 So sánh dự đoán trên mẫu âm thanh minh họa của notebook
+Nguồn: kết quả thực nghiệm của nhóm.
+Mẫu minh họa trong notebook được lấy từ đường dẫn tiếng khoan trên Kaggle. Kết
+quả giúp kiểm tra luồng xử lý từ tệp đến xác suất của các mô hình. Một mẫu này
+không đại diện cho khả năng tổng quát ngoài dữ liệu huấn luyện, cũng không thay
+thế tập test. Tệp âm thanh gốc của ví dụ không có trong gói đầu ra cục bộ nên cần
+giữ lại khi chuẩn bị trình diễn có thể tái lập.
+Ứng dụng có các kiểm tra cho tệp âm thanh hợp lệ, im lặng, tệp rỗng và xác suất
+đầu ra. Đối với thử nghiệm demo, cần xác nhận bộ kiểm thử của đúng phiên bản
+đóng gói và đo lại thời gian xử lý trên máy trình bày. Báo cáo không gán trạng thái
+kiểm thử đạt cho những lần chạy không có nhật ký xác nhận đi kèm.
+Khi thử tệp ngoài tập dữ liệu, cần nghe lại nội dung và xem phân bố xác suất của cả
+bảy lớp. Một nhãn có điểm cao không đủ chứng minh dự đoán đúng, nhất là khi tệp
+có nhiều nguồn âm hoặc nằm ngoài tập nhãn. Với tệp dài, kết quả tổng hợp còn phụ
+thuộc cách chia cửa sổ. Do đó, demo phù hợp để quan sát hành vi của mô hình và
+phát hiện tình huống cần kiểm tra thêm, chưa phải công cụ đánh giá thay cho một
+tập dữ liệu có nhãn.
+5.9 Giới hạn và nguy cơ sai lệch
+Giới hạn lớn nhất là đánh giá trên một fold và một seed. Mức chênh lệch giữa
+validation và test cho thấy các fold không có độ khó đồng nhất. Cần chạy đủ mười
+fold với cùng quy tắc kiểm soát nguồn, sau đó báo cáo trung bình và độ phân tán.
+Nếu tiếp tục tinh chỉnh dựa trên lỗi test hiện tại, tập này sẽ trở thành một phần của
+quá trình phát triển và cần một tập kiểm tra độc lập mới.
+
+PAGE 50
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 36
+Giới hạn thứ hai là phạm vi bảy lớp và nhãn đơn. Âm thanh thực tế có thể chứa
+nhiều sự kiện, ngoài lớp hoặc chất lượng thu khác dữ liệu công khai. Softmax luôn
+phân phối điểm trên các nhãn đã biết; ngưỡng 0,60 chưa làm hệ thống thành bộ
+nhận diện ngoài lớp. Cần dữ liệu unknown, hiệu chuẩn và cách đánh giá mở nếu
+muốn đưa ra kết luận rộng hơn.
+Giới hạn thứ ba là sự khác nhau giữa mô hình pretrained và mạng huấn luyện từ đầu.
+AST đã hưởng lợi từ dữ liệu pretraining lớn, trong khi CNN chỉ học trên train của
+đề tài. Kết quả phản ánh hiệu quả của toàn bộ phương án, không chứng minh riêng
+Transformer vượt CNN khi được cung cấp cùng dữ liệu và ngân sách tính toán.
+Cuối cùng, các tệp cấu hình chưa thống nhất hoàn toàn làm giảm mức độ tái lập khi
+chuyển môi trường. Thông số trong chương 4 và phụ lục được gắn với notebook đã
+chạy; phiên bản triển khai cần được khóa lại trước khi bàn giao. Đây là giới hạn kỹ
+thuật có thể khắc phục bằng quản lý phiên bản và manifest, không nên che đi bằng
+cách gộp thông số từ nhiều lần chạy.
+
+PAGE 51
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 37
+CHƯƠNG 6
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+6.1 Những nội dung đã thực hiện
+Khóa luận đã xây dựng và phân tích một quy trình phân loại bảy nhóm âm thanh đô
+thị từ UrbanSound8K. Quy trình bao gồm kiểm tra tệp, kiểm soát giao nhau theo
+nguồn, trích xuất đặc trưng, chuẩn hóa trên train, huấn luyện ba mô hình và đánh
+giá ensemble. Kết quả được lưu thành CSV, checkpoint và hình vẽ để có thể truy
+ngược từ nhận xét về dữ liệu.
+Trong lần đánh giá test fold 10, AST đạt accuracy 92,05% và macro-F1 91,88%, tốt
+hơn hai CNN huấn luyện từ đầu. CNN4 cho kết quả cao hơn ResCNN dù có ít tham
+số hơn. Ensemble chưa cải thiện test macro-F1 so với AST. Những kết quả này trả
+lời các câu hỏi của đề tài trong phạm vi phép chia đã dùng, chưa phải kết luận
+chung cho mọi tập âm thanh đô thị.
+Phân tích lỗi chỉ ra còi báo động thành chó sủa và tiếng khoan thành còi xe là hai
+nhóm cần ưu tiên xem lại. Kết quả theo lớp giúp nhận ra khác biệt giữa bỏ sót và dự
+đoán nhầm mà accuracy tổng không thể hiện rõ. Việc đối chiếu notebook với các
+tệp mã rời cũng làm rõ yêu cầu giữ nhất quán kiến trúc và tiền xử lý khi triển khai.
+Ứng dụng cục bộ đã có các thành phần phục vụ tải tệp, ghi âm, lựa chọn mô hình và
+xem xác suất. Tuy nhiên, chức năng ngưỡng từ chối chỉ có ý nghĩa tham khảo; phép
+đo tốc độ trong notebook chưa đại diện độ trễ của toàn bộ ứng dụng. Đây là hai
+điểm cần phân biệt khi trình bày kết quả nghiên cứu và khả năng sử dụng thực tế.
+6.2 Hướng phát triển
+Hướng ưu tiên là hoàn thiện giao thức đánh giá. Nhóm cần chạy đủ mười fold, lặp
+nhiều seed và lưu dự đoán từng mẫu để so sánh cặp mô hình trên cùng dữ liệu.
+Đồng thời, kiểm tra nguồn giao nhau cần được mở rộng sang các bản ghi gần trùng
+và nguồn pretraining nếu có thông tin phù hợp. Kết quả khi đó sẽ có cơ sở hơn để so
+sánh với nghiên cứu khác.
+
+PAGE 52
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa 38
+Hướng tiếp theo là phân tích dữ liệu lỗi có chú giải. Với hai cặp nhãn khó, cần nghe
+lại mẫu, ghi nhận nguồn âm nền, độ nổi bật và thời lượng sự kiện. Sau đó mới thiết
+kế tăng cường hoặc cân bằng mẫu có mục tiêu. Cách làm này giúp tránh thử nhiều
+kiến trúc nhưng không giải quyết đúng nguyên nhân của sai số.
+Đối với mô hình, có thể thực hiện ablation cho SE, pooling kép, label smoothing và
+tăng cường dữ liệu. Mỗi thí nghiệm chỉ thay đổi một nhóm yếu tố và giữ nguyên
+danh sách mẫu. Học chuyển giao từ AST cũng có thể được so sánh với backbone
+pretrained khác hoặc một CNN pretrained trên âm thanh để giảm sự chênh lệch về
+lịch sử dữ liệu giữa hai hướng.
+Về triển khai, cần khóa bộ cấu hình đi cùng checkpoint, xuất chính xác trọng số
+ensemble và đo thời gian đầu cuối trên máy đích. Những phương án giảm kích
+thước như lượng tử hóa hoặc chưng cất chỉ nên được lựa chọn sau khi có số liệu về
+độ giảm chất lượng và mức tiết kiệm tài nguyên. Nếu mở rộng ra môi trường thực,
+cần dữ liệu nhiều nguồn âm, ngoài lớp và thiết bị thu khác nhau trước khi đưa ra
+nhận định về độ tin cậy.
+
+PAGE 53
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa
+a
+TÀI LIỆU THAM KHẢO
+Tiếng Anh
+[1] Gong, Y., Chung, Y.-A., Glass, J. (2021), “AST: Audio Spectrogram
+Transformer”, Proceedings of Interspeech 2021, tr. 571–575. DOI:
+10.21437/Interspeech.2021-698. https://arxiv.org/abs/2104.01778
+[2] He, K., Zhang, X., Ren, S., Sun, J. (2015), “Deep Residual Learning for Image
+Recognition”, arXiv:1512.03385. https://arxiv.org/abs/1512.03385
+[3] Hu, J., Shen, L., Albanie, S., Sun, G., Wu, E. (2019), “Squeeze-and-Excitation
+Networks”, arXiv:1709.01507v4, bản mở rộng của công trình CVPR 2018.
+https://arxiv.org/abs/1709.01507
+[4] MIT (không ghi năm), “ast-finetuned-audioset-10-10-0.4593”, thẻ mô hình và
+checkpoint trên Hugging Face. https://huggingface.co/MIT/ast-finetuned-
+audioset-10-10-0.4593 (truy cập 19/10/2026).
+[5] Park, D. S., Chan, W., Zhang, Y., Chiu, C.-C., Zoph, B., Cubuk, E. D., Le, Q. V.
+(2019), “SpecAugment: A Simple Data Augmentation Method for Automatic
+Speech Recognition”, Proceedings of Interspeech 2019, tr. 2613–2617. DOI:
+10.21437/Interspeech.2019-2680. https://arxiv.org/abs/1904.08779
+[6] Salamon, J., Jacoby, C., Bello, J. P. (2014), “A Dataset and Taxonomy for
+Urban Sound Research”, Proceedings of the 22nd ACM International
+Conference on Multimedia, tr. 1041–1044. DOI: 10.1145/2647868.2655045.
+https://www.justinsalamon.com/uploads/4/3/9/4/4394963/salamon_urbansoun
+d_acmmm14.pdf
+[7] Salamon, J., Bello, J. P. (2016), “Deep Convolutional Neural Networks and
+Data Augmentation for Environmental Sound Classification”,
+arXiv:1608.04363. https://arxiv.org/abs/1608.04363
+
+PAGE 54
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lương Công Phú Boy - Trần Anh Khoa
+b
+[8] Urban Sound Datasets (không ghi năm), “UrbanSound8K”, mô tả dữ liệu,
+metadata và khuyến nghị đánh giá.
+https://urbansounddataset.weebly.com/urbansound8k.html (truy cập
+19/10/2026).
+[9] Walden, F., Dasgupta, S., Rahman, M., Islam, M. (2022), “Improving the
+Environmental Perception of Autonomous Vehicles using Deep Learning-
+based Audio Classification”, arXiv:2209.04075.
+https://arxiv.org/abs/2209.04075
+
+PAGE 55
+Phân loại âm thanh đô thị sử dụng Deep Learning
+PHỤ LỤC
+A DỮ LIỆU VÀ KHẢ NĂNG TÁI LẬP
+Các đường dẫn dưới đây tương đối với thư mục dự án urban_sound. Bảng tập hợp
+tệp cần thiết để kiểm tra thông số và kết quả. Giá trị trong báo cáo được làm tròn
+khi trình bày; tệp CSV giữ giá trị số gốc.
+Bảng A.1 Các tệp dùng để kiểm tra số liệu
+Tệp hoặc thư mục Nội dung đối chiếu
+urbansoundclassification.ipynb Mã đã chạy; môi trường; cấu hình; đầu ra từng
+cell
+outputs/data/audit.json Số mẫu hợp lệ, tệp lỗi, nguồn giao fold và
+trùng băm
+outputs/data/split_fold10.json Fold và số mẫu sau loại nguồn trùng
+outputs/data/split_class_distribution.csv Số mẫu từng lớp trên ba tập
+outputs/data/cnn_norm_fold10.npz Thống kê chuẩn hóa theo dải Mel
+outputs/logs/*_history.csv Loss, accuracy, F1 và thời gian qua epoch
+outputs/metrics/test_summary_metrics.csv Chỉ số tổng thể của bốn phương án
+outputs/metrics/per_class_detailed_metrics.csv Precision, recall và F1 từng lớp
+outputs/metrics/benchmark_fps_stability_accuracy.csv Tham số, dung lượng, thời gian và throughput
+outputs/checkpoints/*_best.pt Trọng số đã lưu của từng mô hình
+configs/ast_processor/; configs/labels.json Bộ xử lý AST và thứ tự bảy nhãn
+A.1 Quy trình kiểm tra lại kết quả
+Đầu tiên, đối chiếu ba tổng số mẫu với split_fold10.json và bảng phân bố lớp. Tiếp
+theo, kiểm tra thứ tự nhãn trong configs/labels.json trước khi đọc các ma trận. Sau
+đó, dùng test_summary_metrics.csv để dựng bảng tổng thể và
+per_class_detailed_metrics.csv để dựng bảng theo lớp. Khi vẽ lại learning curves,
+lấy trực tiếp history của mô hình tương ứng, không suy ra từ hình PNG đã nén.
+
+PAGE 56
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Lệnh chạy ứng dụng tại thư mục dự án: .\run_windows.bat. Điểm vào Python là
+app.py. Các lệnh dự đoán và vẽ biểu đồ được lưu tại scripts/predict.py và
+scripts/plot_results.py. Cần đối chiếu đường dẫn đầu ra mà script hỗ trợ với cấu trúc
+checkpoint thực tế trước khi chạy lại. Không dùng việc chương trình mở được giao
+diện làm bằng chứng rằng số liệu thực nghiệm đã được tái lập.
+A.2 Thông số cần giữ nhất quán
+Bản notebook được phân tích dùng CustomCNN4 hai tích chập 3 × 3 mỗi khối và
+CustomResCNN có SE. Các tệp cnn4_architecture.txt và rescnn_architecture.txt
+trong configs mô tả một biến thể cũ hơn. Tương tự, thống kê toàn cục trong
+stats_fold10.json không thay thế thống kê theo dải ở cnn_norm_fold10.npz. Khi bàn
+giao cần đóng gói cấu hình khớp tên và kích thước tensor của checkpoint, kèm
+checksum để phân biệt phiên bản.
+Bộ trọng số ensemble tối ưu và xác suất validation từng mẫu cần được xuất cùng
+bản notebook để tái lập phép kết hợp. Nếu ứng dụng không tìm thấy ensemble.json
+và dùng trung bình đều, kết quả được hiểu là ensemble demo. Bảng 5.1 không được
+gán cho cấu hình trung bình đều nếu chưa kiểm tra chúng trùng nhau.
+A.3 Kịch bản kiểm tra trước buổi trình bày
+Chuẩn bị ít nhất một tệp WAV rõ nguồn, một tệp im lặng và một tệp không hợp lệ.
+Với tệp hợp lệ, kiểm tra tổng bảy xác suất gần bằng 1, thứ tự tên lớp, thời lượng
+hiển thị và mô hình đã chọn. Với tệp im lặng hoặc lỗi, kiểm tra thông báo phù hợp
+và giao diện còn sử dụng được. Với tệp dài, đo riêng thời gian tiền xử lý, thời gian
+mô hình và tổng thời gian phía ứng dụng.
+Phần trình bày slide nên đi theo mạch: bài toán, phạm vi bảy lớp, dữ liệu và kiểm
+soát nguồn, ba kiến trúc, cấu hình huấn luyện, kết quả tổng thể, lỗi theo lớp, demo
+và hạn chế. Các biểu đồ dùng trên slide cần giữ nhãn test fold 10. Không đổi nhãn
+thành kết quả mười fold khi chưa thực hiện đủ các lượt đánh giá.
+
+PAGE 57
+Phân loại âm thanh đô thị sử dụng Deep Learning
+NHẬT KÝ LÀM VIỆC
+Đề tài: Phân loại âm thanh đô thị sử dụng Deep Learning
+Sinh viên: Lương Công Phú Boy - 22002515; Trần Anh Khoa - 22000915.
+Giảng viên hướng dẫn: TS. Huỳnh Công Bằng; TS. Nguyễn Minh Hạnh.
+Thời gian tổng hợp: 16/6/2026 đến 19/10/2026.
+Bảng tiến độ dự thảo để hai sinh viên đối chiếu và xác nhận theo lịch thực hiện.
+Ngày báo cáo và nhận xét của giảng viên được để trống.
+Bảng B.1 Nhật ký công việc theo tuần
+Tuần Từ
+ngày
+Đến
+ngày
+Ngày báo
+cáo GVHD Nội dung công việc Nhận xét
+GVHD
+1 16/06 22/06 Khảo sát bài toán phân loại âm thanh đô thị.
+Lập đề cương và phạm vi đề tài.
+2 23/06 29/06 Tìm hiểu UrbanSound8K và nguồn dữ liệu.
+Đọc tài liệu CNN cho âm thanh môi trường.
+3 30/06 06/07 Khảo sát metadata, nhãn và cấu trúc fold.
+Tổng hợp tài liệu tham khảo ban đầu.
+4 07/07 13/07 Xây dựng mã đọc và kiểm tra tệp âm thanh.
+Viết phần giới thiệu bài toán.
+5 14/07 20/07
+Thực hiện chuyển mono, resample và cửa sổ 4
+giây.
+Khảo sát waveform và Log-Mel.
+6 21/07 27/07 Thiết kế chia train, validation, test theo fold.
+Kiểm tra fsID và mã băm tệp.
+7 28/07 03/08 Xây dựng CNN4 và pipeline đặc trưng.
+Soạn phần cơ sở lý thuyết CNN.
+8 04/08 10/08 Xây dựng ResCNN với kết nối phần dư và SE.
+Bổ sung sơ đồ kiến trúc vào báo cáo.
+9 11/08 17/08 Tích hợp bộ xử lý và checkpoint AST.
+Tìm hiểu cơ chế fine-tuning và AMP.
+10 18/08 24/08
+Hoàn thiện tăng cường dữ liệu và hàm mất
+mát.
+Kiểm tra quy trình chọn checkpoint theo
+validation.
+
+PAGE 58
+Phân loại âm thanh đô thị sử dụng Deep Learning
+Tuần Từ
+ngày
+Đến
+ngày
+Ngày báo
+cáo GVHD Nội dung công việc Nhận xét
+GVHD
+11 25/08 31/08 Tổ chức nhật ký loss, accuracy và macro-F1.
+Hoàn thiện mã lưu kết quả thực nghiệm.
+12 01/09 07/09 Xây dựng ensemble xác suất trên validation.
+Chuẩn bị mã tính chỉ số theo lớp.
+13 08/09 14/09 Tạo confusion matrix, ROC và biểu diễn PCA.
+Viết phần phương pháp đánh giá.
+14 15/09 21/09 Hoàn thiện luồng suy luận từ checkpoint.
+Xây dựng giao diện Gradio cho tệp và ghi âm.
+15 22/09 28/09
+Kiểm tra trường hợp tệp lỗi, im lặng và âm
+thanh dài.
+Chỉnh cách hiển thị xác suất trong demo.
+16 29/09 05/10 Rà soát số liệu và các cặp nhãn nhầm lẫn.
+Biên soạn chương thực nghiệm và thảo luận.
+17 06/10 12/10 Soạn nội dung slide và kịch bản demo.
+Rà soát trích dẫn, bảng và hình trong báo cáo.
+18 13/10 19/10
+Tổng hợp lần chạy notebook và đối chiếu cấu
+hình.
+Hoàn thiện báo cáo, nội dung slide và nhật ký
+đến 19/10/2026.
+Xác nhận của sinh viên
+Lương Công Phú Boy Trần Anh Khoa

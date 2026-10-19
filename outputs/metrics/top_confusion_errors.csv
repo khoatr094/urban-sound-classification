@@ -1,0 +1,9 @@
+Cặp nhầm lẫn,Nhãn thực tế,Nhãn dự đoán nhầm,Số mẫu nhầm
+Còi báo động → Chó sủa,Còi báo động,Chó sủa,26
+Tiếng khoan → Còi xe,Tiếng khoan,Còi xe,8
+Còi xe → Chó sủa,Còi xe,Chó sủa,1
+Chó sủa → Còi xe,Chó sủa,Còi xe,1
+Còi xe → Động cơ chạy không tải,Còi xe,Động cơ chạy không tải,1
+Chó sủa → Tiếng khoan,Chó sủa,Tiếng khoan,1
+Chó sủa → Trẻ em vui chơi,Chó sủa,Trẻ em vui chơi,1
+Động cơ chạy không tải → Trẻ em vui chơi,Động cơ chạy không tải,Trẻ em vui chơi,1
